@@ -1,0 +1,31 @@
+.site-header img {
+	max-width: 350px;
+	width: 100%;
+}
+
+.header-title {
+	text-align: center;
+	font-size: $small-header-font-size;
+	padding-top: 10px;
+	margin-bottom: 1.5em;
+}
+
+.page .header-title {
+	font-size: $large-header-font-size;
+}
+
+@media only screen and (min-width: 550px) {
+	.header-title {
+		padding-top: 25px;
+	}
+}
+
+@media only screen and (min-width: 783px) {
+	#masthead {
+		padding: 10px 10vw;
+	}
+	
+	.header-title {
+		padding-top: 30px;
+	}
+}

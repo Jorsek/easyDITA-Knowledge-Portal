@@ -1,0 +1,180 @@
+/**
+ * Home Search Bar
+ */
+.home-search {
+	background-color: $main-color;
+    color: white;
+    padding: 5px 5vw 13px 5vw;
+    
+    .header {
+    	font-size: 1.5em;
+    }
+    
+    .text {
+    	display: none;
+    }
+}
+
+#searchform {
+	width: 75vw;
+	margin: auto;
+	padding-top: 5px;
+	
+	.submit {
+		border: none;
+	    background: none;
+	    box-shadow: none;
+	    position: absolute;
+	    font-size: 17px;
+	    padding: 0;
+	    margin-left: -21px;
+	    margin-top: 6px;
+	    text-shadow: none;
+	    line-height: 1;
+	}
+	
+	.field {
+		padding-right: 24px;
+  		width: calc(100% - 5px);
+	}
+}
+
+/**
+ * Small Search Bar
+ */
+.small-search {
+	background-color: $main-color;
+	padding: 5px 5px;
+	
+	#searchform {
+		padding-top: 0;
+		width: 100%;
+		
+		.field {
+			background-color: transparent;
+			border: none;
+			outline: none;
+			padding-left: 0;
+			color: white;
+		}
+		
+		.submit {
+			opacity: $translucent;
+		}
+	}
+}
+
+.small-search #searchform input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: black;
+    opacity: $translucent;
+}
+.small-search #searchform input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: black;
+    opacity: $translucent;
+}
+.small-search #searchform input::-moz-placeholder { /* Mozilla Firefox 19+ */
+   	color: black;
+    opacity: $translucent;
+}
+.small-search #searchform input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   	color: black;
+    opacity: $translucent;
+}
+
+/**
+ * Search Results
+ */
+.search-result {
+	margin: 0 5px 20px 5px;
+	max-width: 780px;
+	
+	.entry-header {
+		padding-bottom: 3px;
+		font-size: 1.2em;
+		
+		a {
+			color: $main-color !important;
+			text-decoration: none !important;
+		}
+		
+		.category {
+		    font-size: 12px;
+		    background-color: grey;
+		    width: 140px;
+		    text-align: center;
+		    color: white;
+		    display: inline-block;
+		    float: right;
+		    margin-top: 6px;
+		    
+		    &.content {
+		    	background-color: #BA4319;
+		    }
+		    &.faq {
+		    	background-color: #B8AA12;
+		    }
+		    &.tutorial {
+		    	background-color: #1FA232;
+		    }
+		}
+	}
+	
+	.entry-summary {
+		margin: 0;
+		font-size: $small-font-size;
+		
+		p {
+			margin: 0;
+		}
+	}
+	
+	.entry-url {
+		font-size: $small-font-size;
+		
+		a {
+			color: $main-color !important;
+			text-decoration: none !important;
+		}
+	}
+}
+
+@media only screen and (min-width: 550px) {
+	.small-search {
+		padding: 5px 5vw;
+	}
+	
+	.search-result {
+		margin-left: 5vw;
+		margin-right: 5vw;
+	}
+}
+
+@media only screen and (min-width: 783px) {
+	.home-search {
+		padding: 20px 10vw 35px 10vw;
+	}
+	
+	.home-search .header {
+		padding-bottom: 4px;
+	}
+	
+	.home-search .text {
+		display: block;
+		font-size: $small-font-size;
+	}
+	
+	#searchform {
+		width: 100%;
+		padding-top: 22px;
+	}
+	
+	.small-search {
+		padding: 5px 10vw;
+	}
+	
+	.search-result {
+		margin-left: 10vw;
+		margin-right: 10vw;
+/*		width: 60%;*/
+	}
+}

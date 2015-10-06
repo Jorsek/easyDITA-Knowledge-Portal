@@ -1,0 +1,54 @@
+.root-title {
+	font-size: $small-header-font-size;
+	margin-bottom: 25px;
+}
+
+.content-title {
+	color: $main-color;
+	margin-bottom: 10px;
+}
+
+.topic-topic {
+	max-width: 760px;
+	font-size: $small-font-size;
+}
+
+.entry-content p {
+	margin: 0;
+	padding: 0;
+}
+
+/** Sections **/
+.topic-section {
+	margin-top: 20px;
+}
+
+.topic-section > .topic-title {
+/*	border-top: 1px solid grey;*/
+	font-size: 16px;
+	font-weight: normal;
+	color: $main-color;
+	margin: 0 0 10px 0;
+}
+
+/** Tables **/
+.topic-topic table {
+	width: auto;
+}
+.topic-topic table, .topic-topic td, .topic-topic th {
+	border: 1px solid grey;
+}
+.topic-topic td, .topic-topic th {
+	padding: 1px 5px;
+}
+
+/** Images **/
+.topic-image {
+	padding: 10px 1px;
+}
+
+/** Lists **/
+.topic-ul, .topic-ol {
+	margin: 0;
+	padding: 3px 25px 0;
+}

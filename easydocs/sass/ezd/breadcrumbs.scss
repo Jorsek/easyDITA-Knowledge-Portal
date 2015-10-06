@@ -1,0 +1,22 @@
+.breadcrumbs {
+	opacity: 0.4;
+	font-size: 0.7em;
+	padding: 5px 5px;
+	
+	a {
+		color: black !important;
+		text-decoration: none !important;
+	}
+}
+
+@media only screen and (min-width: 550px) {
+	.breadcrumbs {
+		padding: 5px 5vw;
+	}
+}
+
+@media only screen and (min-width: 783px) {
+	.breadcrumbs {
+		padding: 8px 10vw;
+	}
+}

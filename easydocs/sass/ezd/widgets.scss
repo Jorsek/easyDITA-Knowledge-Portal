@@ -1,0 +1,67 @@
+.widget-area {
+	background-color: #f5f5f5;
+	overflow: auto;
+}
+
+.widget {
+	margin: 0;
+}
+
+.widget-container {
+    float: left;
+    left: 50%;
+    position: relative;
+    clear: both;
+    margin: 13px 0;
+    vertical-align: top;
+}
+
+.widget_popular_pages_widget {
+	position: relative;
+	left: -50%;
+	float: left;
+	line-height: 18px;
+}
+
+.widget_popular_pages_widget .widget-title {
+	font-weight: normal;
+	margin: 0 0 12px 0;
+	font-size: $small-header-font-size;
+	color: black;
+}
+
+.widget_popular_pages_widget .popular-link {
+	display: block;
+    text-decoration: none;
+    color: $main-color !important;
+    font-size: $small-font-size;
+}
+
+@media only screen and (min-width: 550px) {
+	.widget-area {
+		padding: 20px 5vw;
+	}
+	
+	.widget-container {
+		float: none;
+		left: 0;
+	    width: 45vw;
+	    display: inline-block;
+	    margin: 0;
+	}
+	
+	.widget_popular_pages_widget {
+	    float: none;
+	    left: 0;
+	}
+}
+
+@media only screen and (min-width: 783px) {
+	.widget-area {
+		padding: 30px 10vw;
+	}
+	
+	.widget-container {
+		width: 40vw;
+	}
+}

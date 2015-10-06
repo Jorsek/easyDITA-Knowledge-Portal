@@ -1,0 +1,15 @@
+$main-color: #20a332;
+$large-header-font-size: 1.6em;
+$small-header-font-size: 1.3em;
+$small-font-size: 0.7em;
+$translucent: 0.3;
+
+@import "header";
+@import "search";
+@import "breadcrumbs";
+@import "thumbnail-links";
+@import "user-guide";
+@import "widgets";
+@import "footer";
+@import "dita-content";
+@import "faq";
