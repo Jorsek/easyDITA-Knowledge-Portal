@@ -21,10 +21,16 @@
 	padding-bottom: 4px;
 }
 
+.toc .plusminus-icon {
+	font-size: 8px;
+	vertical-align: middle;
+}
+
 .toc a {
 	color: black !important;
 	text-decoration: none;
 	cursor: pointer;
+	vertical-align: middle;
 }
 
 .toc-list > .parent-item > a {
@@ -51,24 +57,41 @@
 }
 
 /** Child Pages **/
-.child-pages-title {
-	color: $main-color;
-	padding-bottom: 7px;
-}
-.child-pages {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+.content-child-pages {
+	border: 4px solid grey;
+	border-radius: 3px;
+	position: relative;
+	padding: 10px;
+	
+	.child-pages-title {
+		position: absolute;
+		right: 10px;
+		top: -21px;
+	}
 }
 
-.child-page {
-    display: inline-block;
-    padding: 0 20px;
-    
-    a {
-    	text-decoration: none;
-    	color: grey !important;
-    }
+.child-page-entry {
+	margin: 0 5px 20px 5px;
+	max-width: 780px;
+	
+	.entry-header {
+		padding-bottom: 0;
+		font-size: 1em;
+		
+		a {
+			color: $main-color !important;
+			text-decoration: none !important;
+		}
+	}
+	
+	.entry-summary {
+		margin: 0 0 0 10px;
+		font-size: $small-font-size;
+		
+		p {
+			margin: 0;
+		}
+	}
 }
 
 /** Content **/

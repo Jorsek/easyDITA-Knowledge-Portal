@@ -19,10 +19,9 @@
 		<?php get_template_part('template-parts/toc'); ?>
 		<div class="entry-content">
 			<div class="root-title"><?php echo get_the_title(get_hierarchy()[1]) ?></div>
-			<?php if (get_the_content() != '') : ?>
+			<?php if (get_the_title(get_hierarchy()[1]) != get_the_title()) : ?>
 			<div class="content-title"><?php echo get_the_title(); ?></div>
 			<?php endif ?>
-			<?php the_content(); ?>
 			<?php
 				$current_ID = $wp_query->post->ID;
 				$args = array(
@@ -34,17 +33,33 @@
 				// The Query
 				$the_query = new WP_Query( $args );
 				if ($the_query->have_posts()) {
+					echo '<div class="content-child-pages">';
 					echo '<div class="child-pages-title">' . get_theme_mod( 'child_pages_title', 'Child Pages' ) . '</div>';
-					echo '<ul class="child-pages">';
 					while($the_query->have_posts()) {
 						$the_query->the_post();
-						echo '<li class="child-page">';
-						echo '<a href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
-						echo '</li>';
+						?>
+						<div class="child-page-entry">
+							<header class="entry-header">
+								<a class="title" href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
+								<!--<div class="category <?php echo get_post_meta(get_root_map_id(),'page_type',true) ?>"><?php echo get_the_title(get_root_map_id()) ?></div>-->
+							</header><!-- .entry-header -->
+						
+							<div class="entry-summary">
+								<?php echo get_the_shortdesc(); ?>
+							</div><!-- .entry-summary -->
+							
+							<!--<div class="entry-url">
+								<a href="<?php echo the_permalink(); ?>"><?php echo the_permalink(); ?></a>
+							</div>--><!-- .entry-url -->
+						</div><!-- #post-## -->
+						<?php
 					}
 					echo '</ul>';
 				}
+				wp_reset_query();
+				wp_reset_postdata();
 			?>
+			<?php the_content(); ?>
 		</div><!-- .entry-content -->
 	</div> <!-- .main-entry-wrapper -->
 </article><!-- #post-## -->

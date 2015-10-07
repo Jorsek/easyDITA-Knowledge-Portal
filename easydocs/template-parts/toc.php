@@ -36,8 +36,13 @@ function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
 		  	<?php
 			$children = get_pages('child_of='.get_the_ID());
 			if (count($children) != 0) {
+				if ($is_parent) {
+					echo '<i class="plusminus-icon fa fa-minus" onclick="openCloseSubtoc(this)"> </i>';
+				} else {
+					echo '<i class="plusminus-icon fa fa-plus" onclick="openCloseSubtoc(this)"> </i>';
+				}
 				?>
-				<a onclick="openCloseSubtoc(this)"><?php echo get_the_title(); ?></a>
+				<a href="<?php echo the_permalink(); ?>"><?php echo get_the_title(); ?></a>
 				<?php
 				if ($is_parent) {
 					echo get_toc(get_the_ID(),$hierarchy,true);
@@ -80,17 +85,22 @@ function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
 			});
 		});
 		
-		function openCloseSubtoc(target) {
+		function openCloseSubtoc(icon) {
+			if (icon == null || icon.nextElementSibling == null) return;
+			var target = icon.nextElementSibling;
 			if (target == null || target.nextElementSibling == null || target.nextElementSibling.firstElementChild == null) return;
 			var theDiv = target.nextElementSibling;
 			var theList = theDiv.firstElementChild;
 			theDiv.classList.toggle('open');
 			theDiv.classList.toggle('closed');
+			icon.classList.toggle("fa-plus");
+			icon.classList.toggle("fa-minus");
 			
 			if (theDiv.classList.contains('open')) {
-				jQuery(theList).animate({marginTop:"0px"})
+				theList.style.display = "block";
+				jQuery(theList).animate({marginTop:"0px"});
 			} else if (theDiv.classList.contains('closed')) {
-				jQuery(theList).animate({marginTop:"-"+theList.clientHeight+"px"})
+				jQuery(theList).animate({marginTop:"-"+theList.clientHeight+"px"},{"complete":function(){this.style.display = "none";}})
 			}
 			
 		}

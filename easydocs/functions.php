@@ -154,6 +154,17 @@ function get_root_map_id() {
 }
 
 /**
+ * get the short description
+ **/
+function get_the_shortdesc() {
+	global $post;
+	/** Currently just gets the first paragraph because there are no short descs for the content I'm using. **/
+	preg_match('#<div[^>]*class="[^"]*topic-p [^"]*"[^>]*>((<div.*?>.*?</div>)|(.))*?</div>#', $post->post_content, $matches);
+	$output = preg_replace('#<[^>]*>#','',$matches[0]);
+	return $output;
+}
+
+/**
  * Add JQuery
  **/
 wp_enqueue_script("jquery");

@@ -13,6 +13,11 @@
     .text {
     	display: none;
     }
+    
+    * {
+    	margin: auto;
+    	max-width: 760px;
+    }
 }
 
 #searchform {

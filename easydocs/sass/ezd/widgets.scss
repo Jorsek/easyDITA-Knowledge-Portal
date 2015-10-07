@@ -14,6 +14,7 @@
     clear: both;
     margin: 13px 0;
     vertical-align: top;
+    max-width: 300px;
 }
 
 .widget_popular_pages_widget {
@@ -44,7 +45,7 @@
 	
 	.widget-container {
 		float: none;
-		left: 0;
+		left: calc((90vw - 600px) / 2);
 	    width: 45vw;
 	    display: inline-block;
 	    margin: 0;
