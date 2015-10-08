@@ -31,7 +31,14 @@
 				$the_query->the_post();
 				?>
 				
-				<div class="faq closed">
+				<div class="faq closed" id="faq_<?php echo get_the_ID(); ?>">
+					<!--<span class="faq-icon-closed fa-stack" onclick="showHideContent(this.nextElementSibling)">
+						<i class="fa fa-circle-o fa-stack-2x"></i>
+  						<i class="fa fa-minus fa-stack-1x"></i>
+  					</span>
+					<span class="faq-icon-open" onclick="showHideContent(this.nextElementSibling)">
+						<i class="fa fa-plus-circle fa-stack-1x"></i>
+					</span>-->
 					<span class="faq-icon" onclick="showHideContent(this.nextElementSibling)"> </span>
 					<div class="faq-title" onclick="showHideContent(this)">
 						<?php echo get_the_title(); ?>
@@ -56,6 +63,23 @@
 				target.nextElementSibling.style.display = "block";
 				target.parentElement.classList.remove("closed");
 				target.parentElement.classList.add("open");
+				
+				var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+				var elID = target.parentElement.getAttribute('id');
+				var pageID = elID.substring("faq_".length);
+				
+				// Increment views using custom-popular-pages-widget action
+				jQuery.post(
+					ajaxurl,
+					{
+						'action': 'increment_views',
+						'id': pageID
+					},
+					function(response) {
+						console.log("View count incremented for page: " + pageID);
+					}
+				);
+				
 			} else {
 				target.nextElementSibling.style.display = "none";
 				target.parentElement.classList.remove("open");

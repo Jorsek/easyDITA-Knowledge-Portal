@@ -46,7 +46,7 @@ function check_parents_for_metadata($key,$value) {
 		if (test_for_metadata($page->ID,$key,$value)) return true;
 		
 		$parent_id = $post->post_parent;
-
+		
 		while ($parent_id) {
 			if (test_for_metadata($parent_id,$key,$value)) return true;
 			$page = get_page($parent_id);
@@ -70,6 +70,14 @@ function check_parents_for_metadata($key,$value) {
 }
 add_action( 'wp_head', 'track_post_views');**/
 
+function set_post_views_ajax() {
+	$theID = $_POST['id'];
+	set_post_views($theID);
+	wp_die();
+}
+
+// Add AJAX hook for set_post_views so that post count can be incremented via JS
+add_action( 'wp_ajax_increment_views', 'set_post_views_ajax' );
 
 /**
  * Widget for sidebar
@@ -106,15 +114,16 @@ class popular_pages_widget extends WP_Widget {
 	  );
 	$custom_query = array();
 	// Below is for checking if each individual page has the metadata values.
-	// Currently using L132 to check all parents for metadata values instead.
+	// Currently using L139 to check all parents for metadata values instead.
 	/*
 	if ( !empty($instance['meta_key'])) $custom_query['key'] = $instance['meta_key'];
 	if ( !empty($instance['meta_value'])) $custom_query['value'] = $instance['meta_value'];
 	if ( !empty($custom_query)) $meta_args[] = $custom_query;
 	*/
+	$link_count = 0;
 	$query_args = array(
       'post_type' => 'page',
-	  'posts_per_page' => $instance['number_to_show'],
+      'nopaging' => 'true',
 	  'meta_query' => $meta_args,
       'orderby' => array(
 	    array(
@@ -132,6 +141,10 @@ class popular_pages_widget extends WP_Widget {
 		  ?>
 		  <a class="popular-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 		  <?php
+		  $link_count += 1;
+		  if ($link_count >= $instance['number_to_show']) {
+		  	break;
+		  }
 	  }
 	}
 	echo $args['after_widget'];

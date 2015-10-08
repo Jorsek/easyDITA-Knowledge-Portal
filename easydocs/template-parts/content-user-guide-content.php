@@ -34,7 +34,7 @@
 				$the_query = new WP_Query( $args );
 				if ($the_query->have_posts()) {
 					echo '<div class="content-child-pages">';
-					echo '<div class="child-pages-title">' . get_theme_mod( 'child_pages_title', 'Child Pages' ) . '</div>';
+					/* echo '<div class="child-pages-title">' . get_theme_mod( 'child_pages_title', 'Child Pages' ) . '</div>'; */
 					while($the_query->have_posts()) {
 						$the_query->the_post();
 						?>
