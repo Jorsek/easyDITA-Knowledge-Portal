@@ -7,6 +7,31 @@
 	padding-right: 5px;
 }
 
+.faq {
+	margin: auto;
+	max-width: 760px;
+}
+
+.faq.closed .faq-icon-closed, .faq.open .faq-icon-open {
+	diplay: block;
+}
+
+.faq.closed .faq-icon-open, .faq.open .faq-icon-closed {
+	diplay: none;
+}
+
+.faq .faq-icon-open {
+	color: $main-color;
+	font-size: 11px;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+.faq .faq-icon-closed {
+	color: #ddd;
+	font-size: 6px;
+}
+
 .faq.closed .faq-icon:before {
 	content: "\2296";
 	color: #ddd;
