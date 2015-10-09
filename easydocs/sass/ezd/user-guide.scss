@@ -20,10 +20,18 @@
 	padding-bottom: 4px;
 }
 
+.toc .title + div {
+	padding-left: 9px;
+    position: relative;
+    left: -9px;
+}
+
 .toc .plusminus-icon {
 	font-size: 8px;
 	vertical-align: middle;
 	cursor: pointer;
+	position: relative;
+    margin-left: -9px;
 }
 
 .toc a {

@@ -932,10 +932,17 @@ object {
   font-size: initial;
   padding-bottom: 4px; }
 
+.toc .title + div {
+  padding-left: 9px;
+  position: relative;
+  left: -9px; }
+
 .toc .plusminus-icon {
   font-size: 8px;
   vertical-align: middle;
-  cursor: pointer; }
+  cursor: pointer;
+  position: relative;
+  margin-left: -9px; }
 
 .toc a {
   color: black !important;
@@ -1182,7 +1189,7 @@ object {
 
 .faq .faq-icon-closed {
   color: #ddd;
-  font-size: 7px; }
+  font-size: 6px; }
 
 .faq.closed .faq-icon:before {
   content: "\2296";
