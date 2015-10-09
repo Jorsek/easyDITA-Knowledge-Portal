@@ -79,6 +79,39 @@ function set_post_views_ajax() {
 // Add AJAX hook for set_post_views so that post count can be incremented via JS
 add_action( 'wp_ajax_increment_views', 'set_post_views_ajax' );
 
+// Custom get the link function to support IDs for FAQ pages
+function custom_get_the_link() {
+	global $post;
+	$the_root_id = 0;
+	$key = "page_type";
+	$value = "faq";
+	if($post->ID) {
+		if (test_for_metadata($post->ID,$key,$value)) {
+			$the_root_id = $page->ID;
+		}
+		
+		$parent_id = $post->post_parent;
+		
+		while ($parent_id) {
+			if (test_for_metadata($parent_id,$key,$value)) {
+				$the_root_id = $parent_id;
+				break;
+			}
+			$page = get_page($parent_id);
+			$parent_id = $page->post_parent;
+		}
+	}
+	
+	if ($the_root_id == 0) {
+		return the_permalink();
+	} else {
+		// It's a FAQ
+		// Return the link to the base FAQ page, with the hash appended
+		return get_permalink($the_root_id) . "#faq_" . $post->ID;
+	}
+}
+
+
 /**
  * Widget for sidebar
  **/
@@ -120,6 +153,7 @@ class popular_pages_widget extends WP_Widget {
 	if ( !empty($instance['meta_value'])) $custom_query['value'] = $instance['meta_value'];
 	if ( !empty($custom_query)) $meta_args[] = $custom_query;
 	*/
+	
 	$link_count = 0;
 	$query_args = array(
       'post_type' => 'page',
@@ -139,7 +173,7 @@ class popular_pages_widget extends WP_Widget {
 	  
 	  if (check_parents_for_metadata($instance['meta_key'],$instance['meta_value'])) {
 		  ?>
-		  <a class="popular-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+		  <a class="popular-link" href="<?php echo custom_get_the_link(); ?>"><?php the_title(); ?></a>
 		  <?php
 		  $link_count += 1;
 		  if ($link_count >= $instance['number_to_show']) {

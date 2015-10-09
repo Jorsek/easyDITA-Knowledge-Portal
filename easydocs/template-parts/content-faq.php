@@ -32,22 +32,15 @@
 				?>
 				
 				<div class="faq closed" id="faq_<?php echo get_the_ID(); ?>">
-					<!--<span class="faq-icon-closed fa-stack" onclick="showHideContent(this.nextElementSibling)">
-						<i class="fa fa-circle-o fa-stack-2x"></i>
-  						<i class="fa fa-minus fa-stack-1x"></i>
-  					</span>
-					<span class="faq-icon-open" onclick="showHideContent(this.nextElementSibling)">
-						<i class="fa fa-plus-circle fa-stack-1x"></i>
-					</span>-->
 					<span class="faq-icon" onclick="showHideContent(this.nextElementSibling)"> </span>
 					<div class="faq-title" onclick="showHideContent(this)">
 						<?php echo get_the_title(); ?>
 					</div>
 					
 					<div class="faq-content" style="display:none;">
-						<?php echo get_the_content() ?>
-					</div> <!-- .child-pages -->
-				</div> <!-- .subpage -->
+						<?php echo get_the_content(); ?>
+					</div> <!-- .faq-content -->
+				</div> <!-- .faq -->
 			<?php
 			}
 			/* Restore original Post Data */
@@ -57,18 +50,38 @@
 	</div><!-- .faq-entries -->
 	<script type="text/javascript">
 		
+		jQuery(document).ready(function() {
+			var theHash = location.hash;
+			if (theHash == null) return;
+			
+			var theIDs = theHash.substring(1).split(",");
+			
+			for (var i=0; i < theIDs.length; i++) {
+				if (theIDs[i] == "") continue;
+				showHideContent(jQuery("#"+theIDs[i]+" > .faq-title")[0]);
+			}
+		});
+		
 		function showHideContent(target) {
 			if (target == null || target.nextElementSibling == null || target.parentElement == null) return;
 			if (target.parentElement.classList.contains("closed")) {
+				// Open the FAQ
 				target.nextElementSibling.style.display = "block";
 				target.parentElement.classList.remove("closed");
 				target.parentElement.classList.add("open");
 				
+				// Add the id to the location hash
+				var theID = target.parentElement.getAttribute("id");
+				var oldHash = location.hash;
+				if (oldHash.indexOf(theID) == -1) {
+					location.hash = (oldHash == "") ? theID : location.hash+","+theID;
+				}
+				
+				// Increment views using custom-popular-pages-widget action
 				var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
 				var elID = target.parentElement.getAttribute('id');
 				var pageID = elID.substring("faq_".length);
 				
-				// Increment views using custom-popular-pages-widget action
 				jQuery.post(
 					ajaxurl,
 					{
@@ -81,9 +94,16 @@
 				);
 				
 			} else {
+				// Close the FAQ
 				target.nextElementSibling.style.display = "none";
 				target.parentElement.classList.remove("open");
 				target.parentElement.classList.add("closed");
+				
+				// Remove the id from the location hash
+				var theID = target.parentElement.getAttribute("id");
+				var oldHash = location.hash;
+				var newHash = oldHash.replace(theID,"").replace(",+",",");
+				location.hash = newHash;
 			}
 		}
 		
