@@ -717,12 +717,21 @@ object {
   color: white;
   padding: 5px 5vw 13px 5vw; }
   .home-search .header {
-    font-size: 1.5em; }
+    font-size: 1.5em;
+    text-align: center; }
   .home-search .text {
-    display: none; }
+    display: none;
+    font-size: 0.7em; }
   .home-search * {
     margin: auto;
     max-width: 760px; }
+
+/* Display text on 404 page */
+.error-404 .home-search .text {
+  display: block;
+  line-height: 15px;
+  font-size: 12px;
+  padding: 12px; }
 
 #searchform {
   width: 75vw;
@@ -831,11 +840,14 @@ object {
     padding: 20px 10vw 35px 10vw; }
 
   .home-search .header {
-    padding-bottom: 4px; }
+    padding-bottom: 4px;
+    text-align: left; }
 
   .home-search .text {
     display: block;
-    font-size: 0.7em; }
+    line-height: 15px;
+    font-size: 12px;
+    padding: 12px; }
 
   #searchform {
     width: 100%;

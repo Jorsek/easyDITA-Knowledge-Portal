@@ -41,6 +41,30 @@ function _s_customize_register( $wp_customize ) {
 	//not working:
 	$wp_customize->remove_section('nav');
 	
+	/** Home Page Section **/
+	$wp_customize->add_section(
+		'home_page',
+		array(
+		  'title' => 'Home Page',
+		  'description' => 'Customize the home page.',
+		  'priority' => 30,
+		)
+	);
+	$wp_customize->add_setting(
+		'browse_title',
+		array(
+			'default' => "Browse Help Content"
+		)
+	);
+	$wp_customize->add_control(
+		'browse_title',
+		array(
+			'label'=>__( 'Browse Content Title' ),
+			'description'=>__( 'Set the title for your content.' ),
+			'section'=>'home_page',
+			'type'=>'text'
+		)
+	);
 	
 	/** Main Color Section **/
 	$wp_customize->add_section(

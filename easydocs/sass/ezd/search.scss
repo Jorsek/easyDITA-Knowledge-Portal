@@ -8,16 +8,25 @@
     
     .header {
     	font-size: 1.5em;
+    	text-align: center;
     }
     
     .text {
     	display: none;
+    	font-size: $small-font-size;
     }
     
     * {
     	margin: auto;
     	max-width: 760px;
     }
+}
+/* Display text on 404 page */
+.error-404 .home-search .text {
+	display: block;
+    line-height: 15px;
+    font-size: 12px;
+    padding: 12px;
 }
 
 #searchform {
@@ -161,11 +170,14 @@
 	
 	.home-search .header {
 		padding-bottom: 4px;
+		text-align: left;
 	}
 	
 	.home-search .text {
 		display: block;
-		font-size: $small-font-size;
+		line-height: 15px;
+	    font-size: 12px;
+	    padding: 12px;
 	}
 	
 	#searchform {
