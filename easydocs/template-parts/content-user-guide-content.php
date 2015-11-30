@@ -54,12 +54,38 @@
 						</div><!-- #post-## -->
 						<?php
 					}
-					echo '</ul>';
+					echo '</div>';
 				}
 				wp_reset_query();
 				wp_reset_postdata();
 			?>
 			<?php the_content(); ?>
+			<?php
+				$current_ID = $wp_query->post->ID;
+				$args = array(
+					"post_type" => "page",
+					"post_parent" => $current_ID,
+					"orderby" => "menu_order",
+					"order" => "ASC"
+				);
+				// The Query
+				$the_query = new WP_Query( $args );
+				if ($the_query->have_posts()) {
+					echo '<div class="concatenated-content">';
+					while($the_query->have_posts()) {
+						$the_query->the_post();
+						?>
+						<div class="child-page-content">
+							<div class="content-title"><?php echo get_the_title(); ?></div>
+							<?php the_content(); ?>
+						</div><!-- #post-## -->
+						<?php
+					}
+					echo '</div>';
+				}
+				wp_reset_query();
+				wp_reset_postdata();
+			?>
 		</div><!-- .entry-content -->
 	</div> <!-- .main-entry-wrapper -->
 </article><!-- #post-## -->
