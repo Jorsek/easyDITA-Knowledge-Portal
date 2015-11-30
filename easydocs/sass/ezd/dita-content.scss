@@ -6,11 +6,12 @@
 .content-title {
 	color: $main-color;
 	margin-bottom: 10px;
+	font-size: 2.5em;
 }
 
 .topic-topic {
 	max-width: 650px;
-	font-size: $small-font-size;
+/*	font-size: 1.5em;*/
 }
 
 .entry-content p {
@@ -18,9 +19,18 @@
 	padding: 0;
 }
 
+.topic-p {
+	margin-bottom: 1em;
+}
+
 /** Sections **/
 .topic-section {
 	margin-top: 20px;
+	margin-bottom: 1em;
+}
+.topic-section > .topic-title {
+	margin-top: 2em;
+	font-size: 2.5em;
 }
 
 .topic-section > .topic-title {
@@ -51,4 +61,23 @@
 .topic-ul, .topic-ol {
 	margin: 0;
 	padding: 3px 25px 0;
+}
+.list-item-content>.topic-p {
+	margin-bottom: .3em;
+}
+
+/** Tasks **/
+.task-step {
+	margin-bottom: .6em;
+}
+.task-stepresult .legend {
+	font-size: .6em;
+	font-style: italic;
+	margin-top: 1em;
+}
+.task-info {
+	margin-top: 0;
+}
+.task-info .legend {
+	display: none;
 }

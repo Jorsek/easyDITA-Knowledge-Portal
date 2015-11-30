@@ -13,3 +13,16 @@ $translucent: 0.3;
 @import "footer";
 @import "dita-content";
 @import "faq";
+
+body {
+	height: 100%;
+}
+
+#page {
+	position: relative;
+	min-height: 100vh;
+}
+
+#content {
+	padding-bottom: 150px;
+}
