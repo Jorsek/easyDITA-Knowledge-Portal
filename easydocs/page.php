@@ -14,7 +14,7 @@
 
 // This if block is to skip over the user guide overview page.
 // It automatically redirects to the first child.
-if (get_post_meta(get_root_map_id(),'page_type',true) == 'content') {
+if (get_post_meta(get_root_map_id(),'page_type',true) == 'content' || get_post_meta(get_root_map_id(),'page_type',true) == 'tutorial') {
 	if (wp_get_post_parent_id( get_the_ID() ) == 0) {
 		$pagekids = get_pages("child_of=".$post->ID."&sort_column=menu_order");
 		if ($pagekids) {
@@ -46,7 +46,7 @@ get_template_part("template-parts/breadcrumbs");
 				} else if (get_post_meta(get_root_map_id(),'page_type',true) == 'faq') {
 					get_template_part( 'template-parts/content', 'faq');
 				} else if (get_post_meta(get_root_map_id(),'page_type',true) == 'tutorial') {
-					echo "<div>This is a Tutorial Page.</div>";
+					get_template_part( 'template-parts/content', 'tutorial' );
 				} else if (!get_post_meta(get_root_map_id(),'page_type')) {
 					echo "<div>This page doesn't have a type.</div>";
 				}

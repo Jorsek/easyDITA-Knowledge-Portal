@@ -153,6 +153,17 @@ function get_root_map_id() {
     return $hierarchy[0];
 }
 
+/***
+ * Get all subsections (for Tutorials)
+ ***/
+function get_subsections() {
+	global $post;
+	$content = $post->post_content;
+	preg_match_all('#<h1[^>]*class="[^"]*topic-title [^"]*"[^>]*>((<h1.*?>.*?</h1>)|(.))*?</h1>#', $content, $matches);
+	return $matches[0];
+}
+
+
 /**
  * get the short description
  **/

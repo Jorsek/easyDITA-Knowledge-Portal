@@ -8,6 +8,27 @@
  *
  */
 
+function show_subsections_in_toc($subsections,$ul_is_parent = true) {
+	?>
+	<div style="overflow:hidden;" class="<?php echo $ul_is_parent ? 'open' : 'closed' ?>">
+	  	<ul class="toc-list">
+	  	<?php 
+			for ($i = 0; $i < count($subsections); $i++) {
+				$text = preg_replace('#<[^>]*>#','',$subsections[$i]);
+				preg_match('#(?<= id=")[^"]*#',$subsections[$i],$id);
+				$href = $ul_is_parent ? '#'.$id[0] : get_the_permalink().'#'.$id[0];
+				?>
+				<li class="toc-item<?php echo $is_parent ? ' parent-item' : '' ?>">
+					<a href="<?php echo $href; ?>"><?php echo $text; ?></a>
+				</li>
+				<?php
+			}
+		?>
+		</ul>
+	</div>
+	<?php
+}
+
 function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
 /** 
  * This loop will show all the root maps, then when it
@@ -35,6 +56,7 @@ function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
 		  <li class="toc-item<?php echo $is_parent ? ' parent-item' : '' ?>">
 		  	<?php
 			$children = get_pages('child_of='.get_the_ID());
+			$subsections = get_subsections();
 			if (count($children) != 0) {
 				if ($is_parent) {
 					echo '<i class="plusminus-icon fa fa-minus" onclick="openCloseSubtoc(this)"> </i>';
@@ -48,6 +70,20 @@ function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
 					echo get_toc(get_the_ID(),$hierarchy,true);
 				} else {
 					echo get_toc(get_the_ID(),$hierarchy,false);
+				}
+			} else if (count($subsections) != 0) {
+				if ($is_parent) {
+					echo '<i class="plusminus-icon fa fa-minus" onclick="openCloseSubtoc(this)"> </i>';
+				} else {
+					echo '<i class="plusminus-icon fa fa-plus" onclick="openCloseSubtoc(this)"> </i>';
+				}
+				?>
+				<a href="<?php echo the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+				<?php
+				if ($is_parent) {
+					echo show_subsections_in_toc($subsections,true);
+				} else {
+					echo show_subsections_in_toc($subsections,false);
 				}
 			} else {
 				?>

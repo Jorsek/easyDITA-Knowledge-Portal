@@ -1164,12 +1164,20 @@ object {
   margin-top: 2em;
   font-size: 2.5em; }
 
+h1.topic-title {
+  font-size: 2.5em;
+  font-weight: normal;
+  color: #20a332;
+  margin: 30px 0 10px 0;
+  outline: none; }
+
 .topic-section > .topic-title {
   /*	border-top: 1px solid grey;*/
   font-size: 16px;
   font-weight: normal;
   color: #20a332;
-  margin: 0 0 10px 0; }
+  margin: 0 0 10px 0;
+  outline: none; }
 
 /** Tables **/
 .topic-topic table {
