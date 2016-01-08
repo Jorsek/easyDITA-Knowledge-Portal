@@ -2,7 +2,7 @@
 
 This documentation theme was developed by Jorsek LLC for use with WordPress sites that contain content published from [easyDITA](http://www.easydita.com). It is best used for displaying documentation that includes User Guides, Tutorials, and FAQs.
 
-Our example site is located at documentation.easydita.com.
+Our example site is located at [documentation.easydita.com](http://www.documentation.easydita.com).
 
 ### Installation
 
