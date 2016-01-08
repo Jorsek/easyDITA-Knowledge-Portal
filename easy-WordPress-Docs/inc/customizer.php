@@ -71,7 +71,7 @@ function _s_customize_register( $wp_customize ) {
 		'custom_colors',
 		array(
 		  'title' => 'Colors',
-		  'description' => 'Set the main accent colors',
+		  'description' => 'Set the colors of the theme',
 		  'priority' => 35,
 		)
 	);
@@ -91,16 +91,6 @@ function _s_customize_register( $wp_customize ) {
 			'settings'   => 'main_color',
 		) ) 
 	);
-	
-	/** Search Info Section **/
-	$wp_customize->add_section(
-		'search_info',
-		array(
-		  'title' => 'Search Info',
-		  'description' => 'Customization for the Search Header and Text',
-		  'priority' => 35,
-		)
-	);
 	$wp_customize->add_setting(
 		'search_header_text_color',
 		array(
@@ -113,9 +103,51 @@ function _s_customize_register( $wp_customize ) {
 		'search_header_text_color', 
 		array(
 			'label'      => __( 'Search Header Text Color', 'easyDocs' ),
-			'section'    => 'search_info',
+			'section'    => 'custom_colors',
 			'settings'   => 'search_header_text_color',
 		) ) 
+	);
+	$wp_customize->add_setting(
+		'footer_background_color',
+		array(
+			'default' => "#000000"
+		)
+	);
+	$wp_customize->add_control( 
+		new WP_Customize_Color_Control( 
+		$wp_customize, 
+		'footer_background_color', 
+		array(
+			'label'      => __( 'Footer Background Color', 'easyDocs' ),
+			'section'    => 'custom_colors',
+			'settings'   => 'footer_background_color',
+		) ) 
+	);
+	$wp_customize->add_setting(
+		'footer_text_color',
+		array(
+			'default' => "#808080"
+		)
+	);
+	$wp_customize->add_control( 
+		new WP_Customize_Color_Control( 
+		$wp_customize, 
+		'footer_text_color', 
+		array(
+			'label'      => __( 'Footer Text Color', 'easyDocs' ),
+			'section'    => 'custom_colors',
+			'settings'   => 'footer_text_color',
+		) ) 
+	);
+	
+	/** Search Info Section **/
+	$wp_customize->add_section(
+		'search_info',
+		array(
+		  'title' => 'Search Info',
+		  'description' => 'Customization for the Search Header and Text',
+		  'priority' => 35,
+		)
 	);
 	$wp_customize->add_setting(
 		'search_header',
@@ -245,8 +277,6 @@ function build_customize_css()
 {
     ?>
          <style type="text/css">
-             .home-search { color:<?php echo get_theme_mod('search_header_text_color', '#ffffff'); ?>; }
-             
              .content-title,
              .topic-section > .topic-title,
              .faq.open .faq-icon:before,
@@ -262,6 +292,16 @@ function build_customize_css()
              .small-search {
              	background-color:<?php echo get_theme_mod('main_color', '#20a332'); ?> !important;
              }
+             
+             .home-search {
+             	color:<?php echo get_theme_mod('search_header_text_color', '#ffffff'); ?>;
+             }
+             
+             .site-footer {
+             	background-color:<?php echo get_theme_mod('footer_background_color', '#000000'); ?> !important;
+             	color:<?php echo get_theme_mod('footer_text_color', '#808080'); ?> !important;
+             }
+             
          </style>
     <?php
 }
