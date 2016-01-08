@@ -14,7 +14,7 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-	  <?php echo get_theme_mod( 'footer_html', '<div class="group1">Copyright 2015</div><div class="group2"><div class="social"><div class="title">Social</div><span rel="facebook">FB</span><span rel="twitter">TW</span><span rel="google">G+</span><span rel="pinterest">PT</span></div></div>' ) ?>
+	  <?php echo get_theme_mod( 'footer_html', '<div class="group1">Copyright 2015</div><div class="group2"><div class="social"><div class="title">Social</div><a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a><a href="#" target="_blank"><i class="fa fa-twitter-square"></i></a><a href="#" target="_blank"><i class="fa fa-google-plus-square"></i></a><a href="#" target="_blank"><i class="fa fa-linkedin-square"></i></a></div></div>' ) ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
