@@ -23,13 +23,15 @@ The easy WordPress Docs theme supports several different content types and displ
 2. On the left side navigation, hover over "Pages" and click on "All Pages"
 3. Any pages listed without any "&mdash;" preceding the title are root pages that will be displayed on the home page. These are the pages that you need to specify page types for.
 4. Click on one of the root pages and scroll down to the bottom of the Edit Page
-5. You should see a section labeled "Custom Fields." Under "Add New Custom Field" if "page_type" isn't an option in the dropdown menu, click "Enter new" and set the name to "page_type"
+5. You should see a section labeled "Custom Fields." If you don't see it, click on the "Screen Options" tag at the top right of the page. Check the box next to "Custom Fields". You should now see a box appear underneath the page content box.
+6. Under "Add New Custom Field" if "page_type" isn't an option in the dropdown menu, click "Enter new" and set the name to "page_type"
 6. The allowed values are
     * "content" for a user guide or generic documentation content
     * "faq" for frequently asked questions
         * These will all render on one page and expand and collapse on click
     * "tutorial" for tutorial content
         * This content will displayed similarly to "content" except that in the TOC on the left side, it will list all the sections of a single topic instead of all the topics under a given parent page. This is designed for long pages that contain many different parts of a guide that users can follow all the way through to learn about your product.
+7. Make sure to click the "Update" button on the right side after modifying the custom fields to save them.
 
 ### Setup
 
