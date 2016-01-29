@@ -75,10 +75,12 @@
 					while($the_query->have_posts()) {
 						$the_query->the_post();
 						?>
+						<?php if (get_the_content() != "") : ?>
 						<div class="child-page-content">
 							<div class="content-title"><?php echo get_the_title(); ?></div>
 							<?php the_content(); ?>
 						</div><!-- #post-## -->
+						<?php endif ?>
 						<?php
 					}
 					echo '</div>';
