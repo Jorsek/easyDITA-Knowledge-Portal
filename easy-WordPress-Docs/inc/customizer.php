@@ -438,7 +438,7 @@ function build_customize_css()
              	color:<?php echo get_theme_mod('search_header_text_color', '#ffffff'); ?>;
              }
              
-             .site-footer {
+             .site-footer, .site-footer .user-text {
              	background-color:<?php echo get_theme_mod('footer_background_color', '#000000'); ?> !important;
              	color:<?php echo get_theme_mod('footer_text_color', '#808080'); ?> !important;
              }
