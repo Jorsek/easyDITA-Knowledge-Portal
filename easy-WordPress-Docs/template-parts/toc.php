@@ -20,7 +20,8 @@ function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
 	  "post_type" => "page",
 	  "post_parent" => $post_id,
 	  "orderby" => "menu_order",
-	  "order" => "ASC"
+	  "order" => "ASC",
+	  "posts_per_page" => -1
 	);
     $query_two = new WP_Query($args_two);
   	if ( $query_two->have_posts() ) {
