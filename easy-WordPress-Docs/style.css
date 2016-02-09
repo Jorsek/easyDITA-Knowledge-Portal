@@ -1295,6 +1295,40 @@ h1.topic-title {
 @media only screen and (min-width: 783px) {
   .faq-entries {
     padding: 5px 10vw; } }
+#masthead {
+  position: relative; }
+
+#masthead .menu-header-container {
+  text-align: right; }
+  #masthead .menu-header-container ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    #masthead .menu-header-container ul li {
+      display: inline-block;
+      padding: 0 10px; }
+      #masthead .menu-header-container ul li a {
+        color: black;
+        text-decoration: none; }
+      #masthead .menu-header-container ul li a:hover {
+        color: #20a332; }
+
+#menu-header ul.sub-menu {
+  display: none;
+  position: absolute;
+  background: white none repeat scroll 0% 0%;
+  padding: 10px 0;
+  left: 0; }
+
+#menu-header > li.menu-item-has-children:hover > ul.sub-menu {
+  display: block; }
+
+@media only screen and (min-width: 783px) {
+  #masthead .menu-header-container {
+    right: 10vw;
+    bottom: 10px;
+    position: absolute;
+    text-align: left; } }
 body {
   height: 100%; }
 

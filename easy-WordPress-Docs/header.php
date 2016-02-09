@@ -30,10 +30,13 @@
 				<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
 			</a>
 		<?php endif; // End header image check. ?>
+		
+		<!-- call navigation template -->
+		<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+		
 	</header>
-
+	
 	<!-- call search bar template -->
-
-	<!-- call navigation template -->
+	<?php get_template_part("template-parts/searchbar"); ?>
 
 	<div id="content" class="site-content">

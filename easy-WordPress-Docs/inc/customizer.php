@@ -393,8 +393,14 @@ function build_customize_css()
              .search-result .entry-url a,
              .toc .parent-item .parent-item > a,
              .widget_popular_pages_widget .popular-link,
-             .site-footer .social i {
+             .site-footer .social i,
+             #masthead .menu-header-container #menu-header li a:hover,
+             .widget-container .widget-title {
              	color:<?php echo get_theme_mod('main_color', '#20a332'); ?> !important;
+             }
+             
+             footer.site-footer .social a {
+             	border-color:<?php echo get_theme_mod('main_color','#20a332'); ?>;
              }
              
              .home-search,

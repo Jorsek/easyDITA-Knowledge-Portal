@@ -12,9 +12,11 @@
  * @package _s
  */
 
+$page_type = get_post_meta(get_root_map_id(),'page_type',true);
+
 // This if block is to skip over the user guide overview page.
 // It automatically redirects to the first child.
-if (get_post_meta(get_root_map_id(),'page_type',true) == 'content' || get_post_meta(get_root_map_id(),'page_type',true) == 'tutorial') {
+if ($page_type == 'content' || $page_type == 'tutorial') {
 	if (wp_get_post_parent_id( get_the_ID() ) == 0) {
 		$pagekids = get_pages("child_of=".$post->ID."&sort_column=menu_order");
 		if ($pagekids) {
@@ -25,11 +27,10 @@ if (get_post_meta(get_root_map_id(),'page_type',true) == 'content' || get_post_m
 }
 
 get_header();
-get_template_part("template-parts/searchbar");
 get_template_part("template-parts/breadcrumbs");
 ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area <?php echo $page_type; ?>">
 		<main id="main" class="site-main" role="main">
 
 			<?php while ( have_posts() ) {
@@ -37,15 +38,15 @@ get_template_part("template-parts/breadcrumbs");
 
 		  		if (function_exists(set_post_views)) { set_post_views(get_the_ID()); }
 				
-				if (get_post_meta(get_root_map_id(),'page_type',true) == 'content') {
+				if ($page_type == 'content') {
 					if (wp_get_post_parent_id( get_the_ID() ) == 0) {
 						get_template_part( 'template-parts/content', 'user-guide-home' );
 					} else {
 						get_template_part( 'template-parts/content', 'user-guide-content' );
 					}
-				} else if (get_post_meta(get_root_map_id(),'page_type',true) == 'faq') {
+				} else if ($page_type == 'faq') {
 					get_template_part( 'template-parts/content', 'faq');
-				} else if (get_post_meta(get_root_map_id(),'page_type',true) == 'tutorial') {
+				} else if ($page_type == 'tutorial') {
 					get_template_part( 'template-parts/content', 'tutorial' );
 				} else if (!get_post_meta(get_root_map_id(),'page_type')) {
 					echo "<div>This page doesn't have a type.</div>";

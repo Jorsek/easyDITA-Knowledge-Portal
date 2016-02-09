@@ -13,7 +13,6 @@
  */
 
 get_header();
-get_template_part("template-parts/searchbar");
 ?>
 
 	<div id="primary" class="content-area">
