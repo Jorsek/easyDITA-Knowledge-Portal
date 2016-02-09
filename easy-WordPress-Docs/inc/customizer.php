@@ -21,7 +21,7 @@ function _s_customize_register( $wp_customize ) {
 	        <label>
 	        <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 	        <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
-	        <textarea rows="15" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
+	        <textarea rows="4" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
 	        </label>
 	        <?php
 	    }
@@ -242,13 +242,13 @@ function _s_customize_register( $wp_customize ) {
 		array(
 		  'title' => 'Footer Info',
 		  'description' => 'Set the content for your footer.',
-		  'priority' => 35,
+		  'priority' => 60,
 		)
 	);
 	$wp_customize->add_setting(
 		'footer_html',
 		array(
-		  'default' => '<div class="group1">Copyright 2015</div><div class="group2"><div class="social"><div class="title">Social</div><a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a><a href="#" target="_blank"><i class="fa fa-twitter-square"></i></a><a href="#" target="_blank"><i class="fa fa-google-plus-square"></i></a><a href="#" target="_blank"><i class="fa fa-linkedin-square"></i></a></div></div>',
+		  'default' => 'Copyright 2016',
 		)
 	);
 	$wp_customize->add_control(
@@ -257,6 +257,114 @@ function _s_customize_register( $wp_customize ) {
 		    'section' => 'footer_info',
 		    'settings'   => 'footer_html',
 			)
+		)
+	);
+	// Facebook
+	$wp_customize->add_setting(
+		'facebook_link',
+		array(
+		  'default' => '#',
+		)
+	);
+	$wp_customize->add_control(
+		'facebook_link',
+		array(
+			'label'=>__( 'Facebook' ),
+			'description'=>__( 'Set the URL to navigate to when the user clicks on the Facebook icon (if shown)' ),
+			'section'=>'footer_info',
+			'type'=>'text'
+		)
+	);
+	$wp_customize->add_setting(
+		'facebook_enabled'
+	);
+	$wp_customize->add_control(
+		'facebook_enabled',
+		array(
+			'label'=>__( 'Display link to Facebook?' ),
+			'section'=>'footer_info',
+			'type'=>'checkbox',
+		)
+	);
+	// Twitter
+	$wp_customize->add_setting(
+		'twitter_link',
+		array(
+		  'default' => '#',
+		)
+	);
+	$wp_customize->add_control(
+		'twitter_link',
+		array(
+			'label'=>__( 'Twitter' ),
+			'description'=>__( 'Set the URL to navigate to when the user clicks on the Twitter icon (if shown)' ),
+			'section'=>'footer_info',
+			'type'=>'text'
+		)
+	);
+	$wp_customize->add_setting(
+		'twitter_enabled'
+	);
+	$wp_customize->add_control(
+		'twitter_enabled',
+		array(
+			'label'=>__( 'Display link to Twitter?' ),
+			'section'=>'footer_info',
+			'type'=>'checkbox',
+		)
+	);
+	// Google Plus
+	$wp_customize->add_setting(
+		'google_link',
+		array(
+		  'default' => '#',
+		)
+	);
+	$wp_customize->add_control(
+		'google_link',
+		array(
+			'label'=>__( 'Google+' ),
+			'description'=>__( 'Set the URL to navigate to when the user clicks on the Google+ icon (if shown)' ),
+			'section'=>'footer_info',
+			'type'=>'text'
+		)
+	);
+	$wp_customize->add_setting(
+		'google_enabled'
+	);
+	$wp_customize->add_control(
+		'google_enabled',
+		array(
+			'label'=>__( 'Display link to Google+?' ),
+			'section'=>'footer_info',
+			'type'=>'checkbox',
+		)
+	);
+	// LinkedIn
+	$wp_customize->add_setting(
+		'linkedin_link',
+		array(
+		  'default' => '#',
+		)
+	);
+	$wp_customize->add_control(
+		'linkedin_link',
+		array(
+			'label'=>__( 'LinkedIn' ),
+			'description'=>__( 'Set the URL to navigate to when the user clicks on the LinkedIn icon (if shown)' ),
+			'section'=>'footer_info',
+			'type'=>'text'
+		)
+	);
+	$wp_customize->add_setting(
+		'linkedin_enabled'
+	);
+	$wp_customize->add_control(
+		'linkedin_enabled',
+		array(
+			'label'=>__( 'Display link to LinkedIn?' ),
+			'section'=>'footer_info',
+			'type'=>'checkbox',
 		)
 	);
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 Theme Name: easy WordPress Docs
 Theme URI: http://www.easydita.com/
@@ -1089,17 +1090,38 @@ object {
 .site-footer ul {
   display: none; }
 
-.site-footer .group1 {
+.site-footer .user-text {
   float: left;
   padding-left: 15vw; }
 
-.site-footer .group2 {
+.site-footer .social {
   float: right;
   padding-right: 15vw; }
-
-.site-footer .social i {
-  font-size: 29px;
-  padding: 0 2px; }
+  .site-footer .social i {
+    font-size: 29px;
+    padding: 0 2px;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-feature-settings: normal;
+    font-language-override: normal;
+    font-kerning: auto;
+    font-synthesis: weight style;
+    font-variant: normal;
+    text-rendering: auto;
+    -moz-osx-font-smoothing: grayscale; }
+  .site-footer .social i.facebook-icon:after {
+    content: "\f082"; }
+  .site-footer .social i.twitter-icon:after {
+    content: ""; }
+  .site-footer .social i.google-icon:after {
+    content: ""; }
+  .site-footer .social i.linkedin-icon:after {
+    content: ""; }
 
 @media only screen and (min-width: 550px) {
   .site-footer .title {
@@ -1113,23 +1135,23 @@ object {
     font-size: 0.7em;
     line-height: 11px; }
 
-  .site-footer .group1 {
+  .site-footer .user-text {
     padding-left: 4vw;
     display: inline-block; }
 
-  .site-footer .group2 {
+  .site-footer .social {
     padding-right: 4vw;
     display: inline-block; }
 
-  .site-footer > .group1 > div {
+  .site-footer > .user-text > div {
     display: inline-block;
     vertical-align: top;
     padding: 0 1vw; } }
 @media only screen and (min-width: 783px) {
-  .site-footer .group1 {
+  .site-footer .user-text {
     padding-left: 9vw; }
 
-  .site-footer .group2 {
+  .site-footer .social {
     padding-right: 9vw; } }
 .root-title {
   font-size: 1.3em;
