@@ -194,6 +194,52 @@ function insert_ga_info() {
 add_action('wp_head','insert_ga_info');
 
 /**
+ * Get the list of available skins
+**/
+function get_all_skins() {
+	$root_url = dirname(__FILE__)."/skins/";
+	$skins = array(
+		"default" => "Default"
+	);
+	if (!file_exists($root_url)) {
+		return $skins;
+	}
+	$skin_files = scandir($root_url);
+	foreach ($skin_files as $i => $file) {
+		$contents = file_get_contents($root_url.$file);
+		$title = preg_match("/\/\*\n\s*Skin Name:\s*(.*?)(\n|Author:)/",$contents,$matches);
+		$version = preg_match("/\/\*(\n|.)*?Version:\s*(.*?)(\n)/",$contents,$version_matches);
+		if ($title != "") {
+			$skins[$file."?ver=".$version_matches[2]] = $matches[1];
+		};
+	}
+	return $skins;
+}
+
+/**
+ * Add the skin to the header if necessary
+ **/
+function add_skin_stylesheet() {
+	$skin = get_theme_mod('skin','default');
+	if ($skin != 'default') {
+		$href = get_template_directory_uri()."/skins/".$skin;
+		echo '<link rel="stylesheet" type="text/css" href="'.$href.'"/>';
+	}
+}
+add_action('wp_head','add_skin_stylesheet');
+
+/**
+ * Add custom PHP from skin
+ **/
+if (get_theme_mod('skin','default') != 'default') {
+	$skinname = explode(".css",get_theme_mod('skin','default'),2)[0];
+	$php_path = get_template_directory() . "/skins/" . $skinname . "/" . $skinname . ".php";
+	if (file_exists($php_path)) {
+		require $php_path;
+	}
+}
+
+/**
  * Add JQuery
  **/
 wp_enqueue_script("jquery");

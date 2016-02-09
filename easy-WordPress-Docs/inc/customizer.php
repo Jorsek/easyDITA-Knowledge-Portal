@@ -38,15 +38,41 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->remove_section('colors');
 	$wp_customize->remove_section('background_image');
 	$wp_customize->remove_section('static_front_page');
-	//not working:
-	$wp_customize->remove_section('nav');
+	
+	/** Skin Selection **/
+	$skins = get_all_skins();
+	$wp_customize->add_section(
+		'skin_select',
+		array(
+			'title' => 'Skin Selection',
+			'description' => 'Select a different skin to style your site',
+			'priority' => 0
+		)
+	);
+	$wp_customize->add_setting(
+		'skin',
+		array(
+			'default' => "default"
+		)
+	);
+	$wp_customize->add_control(
+		'skin',
+		array(
+			'label'=>__( 'Available Skins' ),
+			'section'=>'skin_select',
+			'type'=>'radio',
+			'choices'=>$skins
+		)
+	);
+	
+	
 	
 	/** Home Page Section **/
 	$wp_customize->add_section(
 		'home_page',
 		array(
 		  'title' => 'Home Page',
-		  'description' => 'Customize the home page.',
+		  'description' => 'Customize the home page. Note that not all settings may be available for all skins.',
 		  'priority' => 30,
 		)
 	);
@@ -71,8 +97,8 @@ function _s_customize_register( $wp_customize ) {
 		'custom_colors',
 		array(
 		  'title' => 'Colors',
-		  'description' => 'Set the colors of the theme',
-		  'priority' => 35,
+		  'description' => 'Set the colors of the theme. Note that not all settings may be available for all skins.',
+		  'priority' => 25,
 		)
 	);
 	$wp_customize->add_setting(
@@ -145,8 +171,8 @@ function _s_customize_register( $wp_customize ) {
 		'search_info',
 		array(
 		  'title' => 'Search Info',
-		  'description' => 'Customization for the Search Header and Text',
-		  'priority' => 35,
+		  'description' => 'Customization for the Search Header and Text. Note that not all settings may be available for all skins.',
+		  'priority' => 40,
 		)
 	);
 	$wp_customize->add_setting(
@@ -200,8 +226,8 @@ function _s_customize_register( $wp_customize ) {
 		'toc_info',
 		array(
 		  'title' => 'TOC Info',
-		  'description' => 'Customization for the Table of Contents',
-		  'priority' => 35,
+		  'description' => 'Customization for the Table of Contents. Note that not all settings may be available for all skins.',
+		  'priority' => 50,
 		)
 	);
 	$wp_customize->add_setting(
@@ -241,7 +267,7 @@ function _s_customize_register( $wp_customize ) {
 		'footer_info',
 		array(
 		  'title' => 'Footer Info',
-		  'description' => 'Set the content for your footer.',
+		  'description' => 'Set the content for your footer. Note that not all settings may be available for all skins.',
 		  'priority' => 60,
 		)
 	);
