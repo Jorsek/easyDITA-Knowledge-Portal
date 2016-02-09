@@ -741,6 +741,8 @@ object {
     margin-top: 6px;
     text-shadow: none;
     line-height: 1; }
+  #searchform .submit span {
+    display: none; }
   #searchform .field {
     padding-right: 24px;
     width: calc(100% - 5px); }

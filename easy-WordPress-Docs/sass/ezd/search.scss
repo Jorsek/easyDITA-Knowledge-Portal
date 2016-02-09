@@ -47,6 +47,10 @@
 	    line-height: 1;
 	}
 	
+	.submit span {
+    	display: none;
+	}
+	
 	.field {
 		padding-right: 24px;
   		width: calc(100% - 5px);
