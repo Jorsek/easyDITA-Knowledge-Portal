@@ -31,10 +31,12 @@
 				$the_query->the_post();
 				?>
 				
-				<div class="faq closed" id="faq_<?php echo get_the_ID(); ?>">
-					<span class="faq-icon" onclick="showHideContent(this.nextElementSibling)"> </span>
-					<div class="faq-title" onclick="showHideContent(this)">
-						<?php echo get_the_title(); ?>
+				<div class="faq closed" faq-id="faq_<?php echo get_the_ID(); ?>">
+					<div class="faq-head" onclick="showHideContent(this)">
+						<span class="faq-icon"> </span>
+						<div class="faq-title">
+							<?php echo get_the_title(); ?>
+						</div>
 					</div>
 					
 					<div class="faq-content" style="display:none;">
@@ -58,7 +60,7 @@
 			
 			for (var i=0; i < theIDs.length; i++) {
 				if (theIDs[i] == "") continue;
-				showHideContent(jQuery("#"+theIDs[i]+" > .faq-title")[0]);
+				showHideContent(jQuery("[faq-id='"+theIDs[i]+"'] > .faq-head")[0]);
 			}
 		});
 		
@@ -71,7 +73,7 @@
 				target.parentElement.classList.add("open");
 				
 				// Add the id to the location hash
-				var theID = target.parentElement.getAttribute("id");
+				var theID = target.parentElement.getAttribute("faq-id");
 				var oldHash = location.hash;
 				if (oldHash.indexOf(theID) == -1) {
 					location.hash = (oldHash == "") ? theID : location.hash+","+theID;
@@ -79,7 +81,7 @@
 				
 				// Increment views using custom-popular-pages-widget action
 				var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
-				var elID = target.parentElement.getAttribute('id');
+				var elID = target.parentElement.getAttribute('faq-id');
 				var pageID = elID.substring("faq_".length);
 				
 				jQuery.post(
@@ -100,10 +102,13 @@
 				target.parentElement.classList.add("closed");
 				
 				// Remove the id from the location hash
-				var theID = target.parentElement.getAttribute("id");
+				var theID = target.parentElement.getAttribute("faq-id");
 				var oldHash = location.hash;
 				var newHash = oldHash.replace(theID,"").replace(",+",",");
-				location.hash = newHash;
+				
+				// Replace hash
+	            if ((''+newHash).charAt(0) !== '#') newHash = '#' + newHash;
+	            history.replaceState('', '', newHash);
 			}
 		}
 		
