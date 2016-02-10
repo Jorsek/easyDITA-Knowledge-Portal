@@ -1316,7 +1316,9 @@ h1.topic-title {
     padding: 0; }
     #masthead .menu-header-container ul li {
       display: inline-block;
-      padding: 0 10px; }
+      padding: 0 10px;
+      position: relative;
+      z-index: 10; }
       #masthead .menu-header-container ul li a {
         color: black;
         text-decoration: none; }
@@ -1328,7 +1330,12 @@ h1.topic-title {
   position: absolute;
   background: white none repeat scroll 0% 0%;
   padding: 10px 0;
-  left: 0; }
+  left: 0;
+  text-align: left;
+  min-width: 200px; }
+  #menu-header ul.sub-menu li {
+    display: block;
+    padding: 5px 10px; }
 
 #menu-header > li.menu-item-has-children:hover > ul.sub-menu {
   display: block; }

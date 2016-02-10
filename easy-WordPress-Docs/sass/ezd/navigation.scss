@@ -13,6 +13,8 @@
 		li {
 			display: inline-block;
 			padding: 0 10px;
+			position: relative;
+			z-index: 10;
 			
 			a {
 				color: black;
@@ -32,6 +34,13 @@
 	background: white none repeat scroll 0% 0%;
 	padding: 10px 0;
 	left: 0;
+	text-align: left;
+	min-width: 200px;
+	
+	li {
+		display: block;
+		padding: 5px 10px;
+	}
 }
 
 #menu-header > li.menu-item-has-children:hover > ul.sub-menu {
