@@ -45,7 +45,7 @@ function _s_customize_register( $wp_customize ) {
 		'skin_select',
 		array(
 			'title' => 'Skin Selection',
-			'description' => 'Select a different skin to style your site',
+			'description' => 'Select a different skin to style your site. After changing the skin, please click the Save & Publish button then reload the page to make sure you get the correct options within the customizer.',
 			'priority' => 0
 		)
 	);
@@ -61,7 +61,8 @@ function _s_customize_register( $wp_customize ) {
 			'label'=>__( 'Available Skins' ),
 			'section'=>'skin_select',
 			'type'=>'radio',
-			'choices'=>$skins
+			'choices'=>$skins,
+			'priority'=>10
 		)
 	);
 	
@@ -88,7 +89,8 @@ function _s_customize_register( $wp_customize ) {
 			'label'=>__( 'Browse Content Title' ),
 			'description'=>__( 'Set the title for your content.' ),
 			'section'=>'home_page',
-			'type'=>'text'
+			'type'=>'text',
+			'priority'=>10
 		)
 	);
 	
@@ -115,6 +117,7 @@ function _s_customize_register( $wp_customize ) {
 			'label'      => __( 'Main Accent Color', 'easyDocs' ),
 			'section'    => 'custom_colors',
 			'settings'   => 'main_color',
+			'priority'=>10
 		) ) 
 	);
 	$wp_customize->add_setting(
@@ -131,6 +134,7 @@ function _s_customize_register( $wp_customize ) {
 			'label'      => __( 'Search Header Text Color', 'easyDocs' ),
 			'section'    => 'custom_colors',
 			'settings'   => 'search_header_text_color',
+			'priority'=>20
 		) ) 
 	);
 	$wp_customize->add_setting(
@@ -147,6 +151,7 @@ function _s_customize_register( $wp_customize ) {
 			'label'      => __( 'Footer Background Color', 'easyDocs' ),
 			'section'    => 'custom_colors',
 			'settings'   => 'footer_background_color',
+			'priority'=>30
 		) ) 
 	);
 	$wp_customize->add_setting(
@@ -163,6 +168,7 @@ function _s_customize_register( $wp_customize ) {
 			'label'      => __( 'Footer Text Color', 'easyDocs' ),
 			'section'    => 'custom_colors',
 			'settings'   => 'footer_text_color',
+			'priority'=>40
 		) ) 
 	);
 	
@@ -173,36 +179,6 @@ function _s_customize_register( $wp_customize ) {
 		  'title' => 'Search Info',
 		  'description' => 'Customization for the Search Header and Text. Note that not all settings may be available for all skins.',
 		  'priority' => 40,
-		)
-	);
-	$wp_customize->add_setting(
-		'search_header',
-		array(
-		  'default' => 'How can we help?',
-		)
-	);
-	$wp_customize->add_control(
-		'search_header',
-		array(
-			'label'=>__( 'Search Header' ),
-			'description'=>__( 'Set the Title for the Search Header on the main page.' ),
-			'section'=>'search_info',
-			'type'=>'text'
-		)
-	);
-	$wp_customize->add_setting(
-		'search_header_text',
-		array(
-		  'default' => '',
-		)
-	);
-	$wp_customize->add_control(
-		new Example_Customize_Textarea_Control( $wp_customize, 'search_header_text', array(
-		    'label'   => 'Search Header Text',
-		    'description' => 'Set the description text for the search header on the main page.',
-		    'section' => 'search_info',
-		    'settings'   => 'search_header_text',
-			)
 		)
 	);
 	$wp_customize->add_setting(
@@ -217,7 +193,40 @@ function _s_customize_register( $wp_customize ) {
 			'label'=>__( 'Search Placeholder' ),
 			'description'=>__( 'Set the placeholder for the search bar.' ),
 			'section'=>'search_info',
-			'type'=>'text'
+			'type'=>'text',
+			'priority'=>10
+		)
+	);
+	$wp_customize->add_setting(
+		'search_header',
+		array(
+		  'default' => 'How can we help?',
+		)
+	);
+	$wp_customize->add_control(
+		'search_header',
+		array(
+			'label'=>__( 'Search Header' ),
+			'description'=>__( 'Set the Title for the Search Header on the main page.' ),
+			'section'=>'search_info',
+			'type'=>'text',
+			'priority'=>20
+		)
+	);
+	$wp_customize->add_setting(
+		'search_header_text',
+		array(
+		  'default' => '',
+		)
+	);
+	$wp_customize->add_control(
+		new Example_Customize_Textarea_Control( $wp_customize, 'search_header_text', array(
+		    'label'   => 'Search Header Text',
+		    'description' => 'Set the description text for the search header on the main page.',
+		    'section' => 'search_info',
+		    'settings'   => 'search_header_text',
+			'priority'=>30
+			)
 		)
 	);
 	
@@ -242,10 +251,11 @@ function _s_customize_register( $wp_customize ) {
 			'label'=>__( 'Title' ),
 			'description'=>__( 'Set the Title for the TOC' ),
 			'section'=>'toc_info',
-			'type'=>'text'
+			'type'=>'text',
+			'priority'=>10
 		)
 	);
-	$wp_customize->add_setting(
+	/*$wp_customize->add_setting(
 		'child_pages_title',
 		array(
 		  'default' => 'Child Pages',
@@ -259,7 +269,7 @@ function _s_customize_register( $wp_customize ) {
 			'section'=>'toc_info',
 			'type'=>'text'
 		)
-	);
+	);*/
 	
 	
 	/** Footer Content **/
@@ -279,9 +289,10 @@ function _s_customize_register( $wp_customize ) {
 	);
 	$wp_customize->add_control(
 		new Example_Customize_Textarea_Control( $wp_customize, 'textarea_setting', array(
-		    'label'   => 'Footer HTML',
+		    'label'   => 'Contact Info',
 		    'section' => 'footer_info',
 		    'settings'   => 'footer_html',
+			'priority'=>10
 			)
 		)
 	);
@@ -298,7 +309,8 @@ function _s_customize_register( $wp_customize ) {
 			'label'=>__( 'Facebook' ),
 			'description'=>__( 'Set the URL to navigate to when the user clicks on the Facebook icon (if shown)' ),
 			'section'=>'footer_info',
-			'type'=>'text'
+			'type'=>'text',
+			'priority'=>20
 		)
 	);
 	$wp_customize->add_setting(
@@ -310,6 +322,7 @@ function _s_customize_register( $wp_customize ) {
 			'label'=>__( 'Display link to Facebook?' ),
 			'section'=>'footer_info',
 			'type'=>'checkbox',
+			'priority'=>25
 		)
 	);
 	// Twitter
@@ -325,7 +338,8 @@ function _s_customize_register( $wp_customize ) {
 			'label'=>__( 'Twitter' ),
 			'description'=>__( 'Set the URL to navigate to when the user clicks on the Twitter icon (if shown)' ),
 			'section'=>'footer_info',
-			'type'=>'text'
+			'type'=>'text',
+			'priority'=>30
 		)
 	);
 	$wp_customize->add_setting(
@@ -337,6 +351,7 @@ function _s_customize_register( $wp_customize ) {
 			'label'=>__( 'Display link to Twitter?' ),
 			'section'=>'footer_info',
 			'type'=>'checkbox',
+			'priority'=>35
 		)
 	);
 	// Google Plus
@@ -352,7 +367,8 @@ function _s_customize_register( $wp_customize ) {
 			'label'=>__( 'Google+' ),
 			'description'=>__( 'Set the URL to navigate to when the user clicks on the Google+ icon (if shown)' ),
 			'section'=>'footer_info',
-			'type'=>'text'
+			'type'=>'text',
+			'priority'=>40
 		)
 	);
 	$wp_customize->add_setting(
@@ -364,6 +380,7 @@ function _s_customize_register( $wp_customize ) {
 			'label'=>__( 'Display link to Google+?' ),
 			'section'=>'footer_info',
 			'type'=>'checkbox',
+			'priority'=>45
 		)
 	);
 	// LinkedIn
@@ -379,7 +396,8 @@ function _s_customize_register( $wp_customize ) {
 			'label'=>__( 'LinkedIn' ),
 			'description'=>__( 'Set the URL to navigate to when the user clicks on the LinkedIn icon (if shown)' ),
 			'section'=>'footer_info',
-			'type'=>'text'
+			'type'=>'text',
+			'priority'=>50
 		)
 	);
 	$wp_customize->add_setting(
@@ -391,6 +409,7 @@ function _s_customize_register( $wp_customize ) {
 			'label'=>__( 'Display link to LinkedIn?' ),
 			'section'=>'footer_info',
 			'type'=>'checkbox',
+			'priority'=>55
 		)
 	);
 }

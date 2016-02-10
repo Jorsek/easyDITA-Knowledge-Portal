@@ -229,17 +229,6 @@ function add_skin_stylesheet() {
 add_action('wp_head','add_skin_stylesheet');
 
 /**
- * Add custom PHP from skin
- **/
-if (get_theme_mod('skin','default') != 'default') {
-	$skinname = explode(".css",get_theme_mod('skin','default'),2)[0];
-	$php_path = get_template_directory() . "/skins/" . $skinname . "/" . $skinname . ".php";
-	if (file_exists($php_path)) {
-		require $php_path;
-	}
-}
-
-/**
  * Add JQuery
  **/
 wp_enqueue_script("jquery");
@@ -268,3 +257,14 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Add custom PHP from skin
+ **/
+if (get_theme_mod('skin','default') != 'default') {
+	$skinname = explode(".css",get_theme_mod('skin','default'),2)[0];
+	$php_path = get_template_directory() . "/skins/" . $skinname . "/" . $skinname . ".php";
+	if (file_exists($php_path)) {
+		require $php_path;
+	}
+}
