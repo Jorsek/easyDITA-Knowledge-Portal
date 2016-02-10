@@ -36,14 +36,16 @@ function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
 		  <li class="toc-item<?php echo $is_parent ? ' parent-item' : '' ?>">
 		  	<?php
 			$children = get_pages('child_of='.get_the_ID());
+			echo "<div class='toc-head' onclick='openCloseSubtoc(this)'>";
 			if (count($children) != 0) {
 				if ($is_parent) {
-					echo '<i class="plusminus-icon fa fa-minus" onclick="openCloseSubtoc(this)"> </i>';
+					echo '<i class="plusminus-icon minus"> </i>';
 				} else {
-					echo '<i class="plusminus-icon fa fa-plus" onclick="openCloseSubtoc(this)"> </i>';
+					echo '<i class="plusminus-icon plus"> </i>';
 				}
 				?>
-				<a href="<?php echo the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+				<a href="<?php echo the_permalink(); ?>" onclick="event.stopPropagation();"><?php echo get_the_title(); ?></a>
+				</div>
 				<?php
 				if ($is_parent) {
 					echo get_toc(get_the_ID(),$hierarchy,true);
@@ -53,6 +55,7 @@ function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
 			} else {
 				?>
 				<a href="<?php echo the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+				</div>
 				<?php
 			}
 			?>
@@ -83,19 +86,19 @@ function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
 		jQuery(document).ready(function() {
 			jQuery(".closed ul").each(function(index) {
 				this.style.marginTop = "-"+this.clientHeight+"px";
+				this.style.display = "none";
 			});
 		});
 		
-		function openCloseSubtoc(icon) {
-			if (icon == null || icon.nextElementSibling == null) return;
-			var target = icon.nextElementSibling;
-			if (target == null || target.nextElementSibling == null || target.nextElementSibling.firstElementChild == null) return;
-			var theDiv = target.nextElementSibling;
+		function openCloseSubtoc(tocHead) {
+			if (tocHead == null || tocHead.firstElementChild == null || tocHead.nextElementSibling == null) return;
+			var theIcon = tocHead.firstElementChild;
+			var theDiv = tocHead.nextElementSibling;
 			var theList = theDiv.firstElementChild;
 			theDiv.classList.toggle('open');
 			theDiv.classList.toggle('closed');
-			icon.classList.toggle("fa-plus");
-			icon.classList.toggle("fa-minus");
+			theIcon.classList.toggle("plus");
+			theIcon.classList.toggle("minus");
 			
 			if (theDiv.classList.contains('open')) {
 				theList.style.display = "block";

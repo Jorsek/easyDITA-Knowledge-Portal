@@ -32,6 +32,16 @@
 	cursor: pointer;
 	position: relative;
     margin-left: -9px;
+    font-family: FontAwesome;
+    font-style: normal;
+}
+
+.toc .plusminus-icon.plus:before {
+	content: "\f067";
+}
+
+.toc .plusminus-icon.minus:before {
+	content: "\f068";
 }
 
 .toc a {
@@ -41,11 +51,11 @@
 	vertical-align: middle;
 }
 
-.toc-list > .parent-item > a {
+.toc-list > .parent-item > .toc-head > a {
 	font-weight: bold;
 }
 
-.toc .parent-item .parent-item > a {
+.toc .parent-item .parent-item > .toc-head > a {
 	font-weight: normal;
 	color: $main-color !important;
 }
