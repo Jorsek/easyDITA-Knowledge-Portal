@@ -730,7 +730,7 @@ object {
   width: 75vw;
   margin: auto;
   padding-top: 5px; }
-  #searchform .submit {
+  #searchform .submit, #searchform .clear-icon {
     border: none;
     background: none;
     box-shadow: none;
@@ -762,8 +762,11 @@ object {
       outline: none;
       padding-left: 7px;
       color: white; }
-    .small-search #searchform .submit {
-      opacity: 0.3; }
+    .small-search #searchform .submit, .small-search #searchform .clear-icon {
+      opacity: 0.3;
+      color: black; }
+    .small-search #searchform .clear-icon:hover {
+      opacity: 1; }
 
 .small-search #searchform input::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
@@ -784,6 +787,9 @@ object {
   /* Internet Explorer 10-11 */
   color: black;
   opacity: 0.3; }
+
+.small-search.is-search .submit {
+  display: none; }
 
 /**
  * Search Results

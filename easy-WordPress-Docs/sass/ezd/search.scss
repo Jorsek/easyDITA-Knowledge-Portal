@@ -34,7 +34,7 @@
 	margin: auto;
 	padding-top: 5px;
 	
-	.submit {
+	.submit, .clear-icon {
 		border: none;
 	    background: none;
 	    box-shadow: none;
@@ -76,8 +76,13 @@
 			color: white;
 		}
 		
-		.submit {
+		.submit, .clear-icon {
 			opacity: $translucent;
+			color: black;
+		}
+		
+		.clear-icon:hover {
+			opacity: 1;
 		}
 	}
 }
@@ -97,6 +102,10 @@
 .small-search #searchform input:-ms-input-placeholder { /* Internet Explorer 10-11 */
    	color: black;
     opacity: $translucent;
+}
+
+.small-search.is-search .submit {
+	display: none;
 }
 
 /**
