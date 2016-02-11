@@ -440,7 +440,8 @@ function build_customize_css()
              .widget_popular_pages_widget .popular-link,
              .site-footer .social i,
              #masthead .menu-header-container #menu-header li a:hover,
-             .widget-container .widget-title {
+             .widget-container .widget-title,
+             .posts-navigation a:hover {
              	color:<?php echo get_theme_mod('main_color', '#20a332'); ?> !important;
              }
              

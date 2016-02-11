@@ -829,11 +829,24 @@ object {
       color: #20a332 !important;
       text-decoration: none !important; }
 
+/***
+ * Navigation
+ */
+.posts-navigation {
+  margin: 0 5px 20px 5px;
+  max-width: 780px; }
+
+.posts-navigation a {
+  color: black;
+  text-decoration: none; }
+  .posts-navigation a:hover {
+    text-decoration: none; }
+
 @media only screen and (min-width: 550px) {
   .small-search {
     padding: 5px 5vw; }
 
-  .search-result {
+  .search-result, .posts-navigation {
     margin-left: 5vw;
     margin-right: 5vw; } }
 @media only screen and (min-width: 783px) {
@@ -857,7 +870,7 @@ object {
   .small-search {
     padding: 5px 10vw; }
 
-  .search-result {
+  .search-result, .posts-navigation {
     margin-left: 10vw;
     margin-right: 10vw;
     /*		width: 60%;*/ } }
