@@ -441,7 +441,8 @@ function build_customize_css()
              .site-footer .social i,
              #masthead .menu-header-container #menu-header li a:hover,
              .widget-container .widget-title,
-             .posts-navigation a:hover {
+             .posts-navigation a:hover,
+             .child-page-entry .entry-header a {
              	color:<?php echo get_theme_mod('main_color', '#20a332'); ?> !important;
              }
              
