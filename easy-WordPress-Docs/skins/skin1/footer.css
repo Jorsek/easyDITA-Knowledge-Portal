@@ -1,0 +1,109 @@
+/***
+ * Footer
+ */
+
+footer.site-footer .social .title {
+	display: none;
+}
+
+footer.site-footer .social a {
+	border-radius: 100px;
+	display: inline-block;
+	border: 2px solid #fee000;
+	width: 80px;
+	height: 80px;
+	-moz-transform: scale(0.65);
+	-webkit-transform: scale(0.65);
+	font-size: 0;
+	margin-left: -5px;
+	vertical-align: middle;
+}
+
+footer.site-footer .social i.facebook-icon:after {
+	content: "\f09a";
+}
+footer.site-footer .social i.facebook-icon {
+	font-size: 44px;
+	padding: 16px 0px 0px;
+	margin: 0px 0px 0px -3px;
+}
+footer.site-footer .social i.twitter-icon:after {
+	content: "\f099";
+}
+footer.site-footer .social i.twitter-icon {
+	font-size: 44px;
+	padding: 16px 0px 0px 4px;
+}
+footer.site-footer .social i.google-icon:after {
+	content: "\f0d5";
+}
+footer.site-footer .social i.google-icon {
+	font-size: 44px;
+	padding: 17px 0px 0px 7px;
+}
+footer.site-footer .social i.linkedin-icon:after {
+	content: "\f0e1";
+}
+footer.site-footer .social i.linkedin-icon {
+	font-size: 44px;
+	padding: 14px 0 0 4px;
+}
+
+footer.site-footer .user-text .title {
+	font-weight: 700;
+	font-size: 1.2em;
+}
+
+footer.site-footer .user-text {
+	font-size: 0.8em;
+	line-height: 1.2em;
+}
+
+/***
+ * Home Page
+ */
+
+footer.site-footer.home {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: column;
+	-webkit-flex-flow: column;
+	text-align: center;
+	background: transparent;
+	padding: 0;
+	margin-top: 100px;
+}
+
+footer.site-footer.home .social {
+	order: 1;
+	width: 100%;
+	padding: 30px 0;
+	background: url("BGPattern2.png");
+	font-size: 0;
+}
+
+footer.site-footer.home .user-text {
+	order: 2;
+	width: 100%;
+	padding: 25px 0;
+}
+
+/***
+ * Content Pages
+ */
+
+footer.site-footer.small .social {
+	text-align: center;
+}
+
+footer.site-footer.small .social a {
+	-moz-transform: scale(0.5);
+	-webkit-transform: scale(0.5);
+	margin-left: -25px;
+}
+
+

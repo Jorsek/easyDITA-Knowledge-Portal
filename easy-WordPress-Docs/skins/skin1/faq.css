@@ -1,0 +1,72 @@
+
+#primary.faq .site-main .header-title {
+	display: block;
+}
+
+#primary.faq {
+	margin-top: 225px;
+}
+
+.faq-entries {
+    padding: 0;
+    text-align: center;
+}
+
+.faq {
+	font-size: 0.95em;
+}
+
+.faq .faq-head {
+	padding: 13px 0;
+	cursor: pointer;
+}
+
+.faq.open .faq-head {
+	font-weight: 600;
+}
+
+.faq.closed .faq-head:hover {
+	background-color: rgb(242,242,242);
+}
+
+.faq .faq-icon {
+    display: inline-block;
+    height: 15px;
+    padding-right: 25px;
+    vertical-align: middle;
+    width: 15px;
+}
+
+.faq.open .faq-icon {
+	background: url("faq_minus.png");
+	background-size: 15px 15px;
+	background-repeat: no-repeat;
+}
+
+.faq.closed .faq-icon {
+	background: url("faq_plus.png");
+	background-size: 15px 15px;
+	background-repeat: no-repeat;
+}
+
+.faq .faq-icon::before {
+	content: " " !important;
+}
+
+.faq .faq-title {
+	padding-bottom: 0;
+	color: black !important;
+	font-size: 1em;
+}
+
+.faq.closed {
+	border-top: 1px solid rgb(199,199,194);
+	border-bottom: 1px solid rgb(199,199,194);
+	margin-top: -1px;
+}
+
+.faq .faq-content {
+	text-align: left;
+	padding: 35px 65px;
+	background-color: rgb(242,242,242);
+}

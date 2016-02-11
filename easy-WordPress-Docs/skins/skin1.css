@@ -1,0 +1,32 @@
+/*
+Skin Name: Geometric
+Author: Scott Lucchini
+Description: Updated styling
+Version: 0.9
+Tags:
+*/
+
+/* Header and Search */
+@import url("skin1/header.css");
+
+/* Home page content buttons */
+@import url("skin1/home-page.css");
+
+/* Footer */
+@import url("skin1/footer.css");
+
+/* FAQs */
+@import url("skin1/faq.css");
+
+/* Content */
+@import url("skin1/content.css");
+
+/* TOC */
+@import url("skin1/toc.css");
+
+/* Responsive */
+@import url("skin1/responsive.css");
+
+body {
+	font-family: "Source Sans Pro", sans-serif;
+}

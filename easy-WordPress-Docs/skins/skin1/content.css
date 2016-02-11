@@ -1,0 +1,150 @@
+
+.breadcrumbs {
+	display: none;
+}
+
+#primary.content .site-main .header-title {
+	display: block;
+}
+
+.entry-content .root-title {
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 1.1em;
+	margin-bottom: 10px;
+	margin-top: -35px;
+}
+
+.entry-content .content-title {
+	color: black !important;
+	font-family: "Roboto Slab", serif;
+	font-weight: 300;
+	border-bottom: 1px solid rgb(199,199,194);
+	max-width: 800px;
+}
+
+.child-page-entry .entry-summary a {
+	color: black;
+	text-decoration: none;
+}
+	
+.child-page-entry .entry-summary a:hover {
+	text-decoration: none;
+}
+
+.entry-content .content-child-pages {
+	border: none;
+	padding: 0px;
+	max-width: 800px;
+	border-bottom: 1px solid rgb(199,199,194);
+	margin-bottom: 40px;
+}
+
+.entry-content .content-child-pages .child-page-entry {
+	margin-left: 0;
+}
+
+.entry-content .content-child-pages .child-page-entry .entry-header a {
+	font-weight: 600;
+}
+
+.entry-content .content-child-pages .child-page-entry .entry-summary {
+	margin: 0;
+}
+
+.entry-content .concatenated-content .content-title {
+	font-weight: 700;
+	font-size: 1.6em;
+	border-bottom: none;
+	margin-bottom: 20px;
+}
+
+/* Lists */
+
+.topic-topic li {
+	list-style-type:none;
+}
+
+.topic-topic li .list-item-content:before {
+	content: '\00b7';
+	font-size: 30px;
+	padding-bottom: 4px;
+	vertical-align: middle;
+	padding-right: 10px;
+}
+
+.topic-topic li .list-item-content *:first-child {
+	display: inline;
+}
+
+/* Tables */
+
+.topic-topic table {
+	width: 100%;
+	vertical-align: middle;
+	border: none;
+}
+
+.topic-topic td, .topic-topic th {
+	padding: 9px 5px;
+	position: relative;
+}
+
+.topic-topic th {
+	text-align: left;
+	text-transform: uppercase;
+	font-weight: 300;
+	border: none;
+}
+
+.topic-topic td:before {
+	width: 100%;
+	height: 100%;
+	opacity: 0.3;
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: " ";
+}
+
+/* Internal Borders */
+.topic-topic table td {
+    border: 1px solid rgb(199,199,194);
+}
+.topic-topic table tr:last-child td {
+    border-bottom: 0;
+}
+.topic-topic table tr td:first-child {
+    border-left: 0;
+}
+.topic-topic table tr td:last-child {
+    border-right: 0;
+}
+
+.topic-topic table .topic-p:last-child {
+	padding: 0;
+}
+
+/* Task Steps */
+
+.task-steps.topic-ol {
+	padding-left: 15px;
+}
+
+.task-step .task-cmd.cmd {
+	font-weight: bold;
+}
+
+.task-step .topic-itemgroup {
+	margin-left: -15px;
+	margin-top: 15px;
+}
+
+.task-step .topic-itemgroup .legend {
+	font-size: 1em;
+	display: inline;
+}
+
+
+
