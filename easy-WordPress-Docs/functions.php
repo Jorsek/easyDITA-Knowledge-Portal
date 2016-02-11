@@ -169,8 +169,7 @@ function get_subsections() {
  **/
 function get_the_shortdesc() {
 	global $post;
-	/** Currently just gets the first paragraph because there are no short descs for the content I'm using. **/
-	preg_match('#<div[^>]*class="[^"]*topic-p [^"]*"[^>]*>((<div.*?>.*?</div>)|(.))*?</div>#', $post->post_content, $matches);
+	preg_match('#<div[^>]*class="[^"]*topic-shortdesc [^"]*"[^>]*>((<div.*?>.*?</div>)|(.))*?</div>#', $post->post_content, $matches);
 	$output = preg_replace('#<[^>]*>#','',$matches[0]);
 	return $output;
 }
