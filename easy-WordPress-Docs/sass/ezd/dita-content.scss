@@ -23,6 +23,15 @@
 	margin-bottom: 1em;
 }
 
+.topic-topic a {
+	color: black;
+	text-decoration: none;
+}
+
+.topic-topic a:hover {
+	text-decoration: underline;
+}
+
 /** Sections **/
 .topic-section {
 	margin-top: 20px;

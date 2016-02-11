@@ -45,7 +45,7 @@
 							</header><!-- .entry-header -->
 						
 							<div class="entry-summary">
-								<?php echo get_the_shortdesc(); ?>
+								<?php get_the_shortdesc(); ?>
 							</div><!-- .entry-summary -->
 							
 							<!--<div class="entry-url">

@@ -1006,6 +1006,12 @@ object {
   .child-page-entry .entry-summary {
     margin: 0 0 0 10px;
     font-size: 0.7em; }
+    .child-page-entry .entry-summary a {
+      color: black;
+      text-decoration: none; }
+    .child-page-entry .entry-summary a:hover {
+      color: black;
+      text-decoration: underline; }
     .child-page-entry .entry-summary p {
       margin: 0; }
 
@@ -1182,6 +1188,13 @@ object {
 
 .topic-p {
   margin-bottom: 1em; }
+
+.topic-topic a {
+  color: black;
+  text-decoration: none; }
+
+.topic-topic a:hover {
+  text-decoration: underline; }
 
 /** Sections **/
 .topic-section {

@@ -169,9 +169,34 @@ function get_subsections() {
  **/
 function get_the_shortdesc() {
 	global $post;
-	preg_match('#<div[^>]*class="[^"]*topic-shortdesc [^"]*"[^>]*>((<div.*?>.*?</div>)|(.))*?</div>#', $post->post_content, $matches);
-	$output = preg_replace('#<[^>]*>#','',$matches[0]);
-	return $output;
+	if ($post->post_content != '') {
+		preg_match('#<div[^>]*class="[^"]*topic-shortdesc [^"]*"[^>]*>((<div.*?>.*?</div>)|(.))*?</div>#', $post->post_content, $matches);
+		$output = preg_replace('#<[^>]*>#','',$matches[0]);
+		echo $output;
+	} else {
+		$out_string = "";
+		$args = array(
+			"post_type" => "page",
+			"post_parent" => $post->ID,
+			"orderby" => "menu_order",
+			"order" => "ASC"
+		);
+		$the_query = new WP_Query( $args );
+		$count = $the_query->post_count;
+		$i = 1;
+		while($the_query->have_posts()) {
+			$the_query->the_post();
+			?>
+			<a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
+			<?php
+			if ($i != $count) {
+				echo ", ";
+			}
+			$i++;
+		}
+		wp_reset_query();
+		wp_reset_postdata();
+	}
 }
 
 /**
