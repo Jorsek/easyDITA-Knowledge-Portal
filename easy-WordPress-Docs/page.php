@@ -49,7 +49,11 @@ get_template_part("template-parts/breadcrumbs");
 				} else if ($page_type == 'tutorial') {
 					get_template_part( 'template-parts/content', 'tutorial' );
 				} else if (!get_post_meta(get_root_map_id(),'page_type')) {
-					echo "<div>This page doesn't have a type.</div>";
+					if (wp_get_post_parent_id( get_the_ID() ) == 0) {
+						get_template_part( 'template-parts/content', 'user-guide-home' );
+					} else {
+						get_template_part( 'template-parts/content', 'user-guide-content' );
+					}
 				}
 
 				
