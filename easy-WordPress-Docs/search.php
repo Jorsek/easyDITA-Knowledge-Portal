@@ -8,7 +8,6 @@
  */
 
 get_header();
-get_template_part("template-parts/searchbar");
 get_template_part("template-parts/breadcrumbs");
 ?>
 
