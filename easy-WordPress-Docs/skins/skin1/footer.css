@@ -2,6 +2,10 @@
  * Footer
  */
 
+footer.site-footer > div {
+	display: table;
+}
+
 footer.site-footer .social .title {
 	display: none;
 }
