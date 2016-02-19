@@ -952,7 +952,8 @@ object {
 /** TOC **/
 .toc {
   font-size: 0.8em;
-  display: none; }
+  display: none;
+  width: 200px; }
 
 .toc .title {
   font-size: initial;
@@ -1043,8 +1044,7 @@ object {
     padding: 0 5vw; }
 
   .toc {
-    display: table-cell;
-    width: 300px; }
+    display: table-cell; }
 
   .main-entry-wrapper .entry-content {
     display: table-cell;
@@ -1052,6 +1052,9 @@ object {
 @media only screen and (min-width: 783px) {
   .main-entry-wrapper {
     padding: 0 10vw; }
+
+  .toc {
+    width: 300px; }
 
   .toc ul ul {
     padding-left: 15px; }

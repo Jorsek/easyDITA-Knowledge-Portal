@@ -61,10 +61,12 @@
 			
 				// Make sure the TOC stays on screen
 				var theSideToc = jQuery('#side-toc');
+				var theWidth = jQuery(window).width();
 				if (jQuery("#side-toc")[0].clientWidth > 0) {
 					if (tocOrigTop < cScrollTop+45) {
 						theSideToc.css({ position: 'fixed', top: '45px' });
-						jQuery('.main-entry-wrapper .entry-content').css({width: 'calc(100% - 300px)',display: 'block',left: '300px',position: 'relative'});
+						var tocWidth = (theWidth < 783) ? '200px' : '300px';
+						jQuery('.main-entry-wrapper .entry-content').css({width: 'calc(100% - '+tocWidth+')',display: 'block',left: tocWidth,position: 'relative'});
 					} else {
 						theSideToc.css('position','static');
 						jQuery('.main-entry-wrapper .entry-content').css({width: 'initial',display: 'table-cell',left: '0'});

@@ -13,6 +13,7 @@
 .toc {
 	font-size: 0.8em;
 	display: none;
+	width: 200px;
 }
 
 .toc .title {
@@ -133,7 +134,6 @@
 	}
 	.toc {
 		display: table-cell;
-		width: 300px;
 	}
 	.main-entry-wrapper .entry-content {
 		display: table-cell;
@@ -144,6 +144,10 @@
 @media only screen and (min-width: 783px) {
 	.main-entry-wrapper {
 		padding: 0 10vw;
+	}
+	
+	.toc {
+		width: 300px;
 	}
 	
 	.toc ul ul {
