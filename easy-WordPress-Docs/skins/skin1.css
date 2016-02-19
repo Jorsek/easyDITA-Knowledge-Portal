@@ -24,6 +24,9 @@ Tags:
 /* TOC */
 @import url("skin1/toc.css");
 
+/* 404 Page */
+@import url("skin1/404.css");
+
 /* Responsive */
 @import url("skin1/responsive.css");
 

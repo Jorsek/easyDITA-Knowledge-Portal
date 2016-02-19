@@ -199,6 +199,19 @@ function get_the_shortdesc() {
 	}
 }
 
+function get_404_content() {
+	?>
+	<div class="home-search">
+		<div class="header"><?php echo get_theme_mod( '404_header', 'Oops! That page can&rsquo;t be found.' ); ?></div>
+	    <div class="text"><?php echo get_theme_mod( '404_text', 'It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.'); ?></div>
+	    <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+          <input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo get_theme_mod( 'search_placeholder', 'Have a question? Ask or enter a search term.' ); ?>" />
+  		  <button type="submit" class="submit" name="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
+          </form>
+	</div>
+	<?php
+}
+
 /**
  * Add Google Analytics stuff to wp_head
 **/

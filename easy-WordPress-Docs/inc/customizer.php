@@ -412,6 +412,48 @@ function _s_customize_register( $wp_customize ) {
 			'priority'=>55
 		)
 	);
+	
+	/** 404 Page Info **/
+	$wp_customize->add_section(
+		'404_page',
+		array(
+		  'title' => '404 Page Text',
+		  'description' => 'Customization for the text shown on the 404 error page not found page.',
+		  'priority' => 70,
+		)
+	);
+	$wp_customize->add_setting(
+		'404_header',
+		array(
+		  'default' => "Oops! That page can't be found.",
+		)
+	);
+	$wp_customize->add_control(
+		'404_header',
+		array(
+			'label'=>__( 'Header Text' ),
+			'description'=>__( 'Set the text for the header of the 404 page.' ),
+			'section'=>'404_page',
+			'type'=>'text',
+			'priority'=>10
+		)
+	);
+	$wp_customize->add_setting(
+		'404_text',
+		array(
+		  'default' => "It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.",
+		)
+	);
+	$wp_customize->add_control(
+		new Example_Customize_Textarea_Control( $wp_customize, '404_text', array(
+		    'label'   => __( 'Body Text' ),
+		    'description' => __( 'Set the text for the body of the 404 page.' ),
+		    'section' => '404_page',
+		    'settings'   => '404_text',
+			'priority'=>20
+			)
+		)
+	);
 }
 add_action( 'customize_register', '_s_customize_register' );
 

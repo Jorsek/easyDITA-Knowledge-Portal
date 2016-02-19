@@ -1,9 +1,6 @@
 @media only screen and (min-width: 550px) {
 	
-	/***
-	 * Header
-	 */
-	
+	/* Header */
 	#masthead {
 		padding-left: 10px;
 		text-align: left;
@@ -19,24 +16,22 @@
 		margin-top: 225px;
 	}
 	
+	/* 404 */
+	.error-404 {
+		padding: 0 5vw;
+	}
 }
 
 @media only screen and (min-width: 783px) {
 	
-	/***
-	 * Header
-	 */
-	
+	/* Header */
 	#masthead {
 		padding-top: 50px;
 		padding-left: 10vw;
 		text-align: left;
 	}
 	
-	/***
-	 * Search
-	 */
-	
+	/* Search */
 	#searchform {
 		padding: 130px 0px 220px;
 	}
@@ -53,10 +48,7 @@
 		width: 125px;
 	}
 	
-	/***
-	 * Content Buttons
-	 */
-	
+	/* Content Buttons */
 	#primary {
 		margin-top: 250px;
 	}
@@ -66,12 +58,14 @@
 		display: table-cell;
 	}
 	
-	/***
-	 * Footer
-	 */
-	
+	/* Footer */
 	footer.site-footer.home .social {
 		padding: 70px 0;
+	}
+	
+	/* 404 */
+	.error-404 {
+		padding: 0 10vw;
 	}
 	
 }

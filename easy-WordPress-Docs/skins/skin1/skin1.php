@@ -114,4 +114,11 @@ function add_custom_css()
 }
 add_action( 'wp_head', 'add_custom_css');
 
+function get_404_content_override() {
+	?>
+	<h2 class="header"><?php echo get_theme_mod( '404_header', 'Oops! That page can&rsquo;t be found.' ); ?></h2>
+    <div class="text"><?php echo get_theme_mod( '404_text', 'It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.'); ?></div>
+	<?php
+}
+
 ?>
