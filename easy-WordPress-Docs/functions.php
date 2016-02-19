@@ -126,6 +126,15 @@ function _s_scripts() {
 }
 add_action( 'wp_enqueue_scripts', '_s_scripts' );
 
+/**
+ * Allow changing of default version number on style.css to circumvent caching
+ * This should always be commented out in production
+ */
+function change_style_version_num($styles) {
+	$styles -> default_version = "123";
+}
+//add_action("wp_default_styles", "change_style_version_num");
+
 /***
  * Hierarchy Functions
  ***/
