@@ -446,6 +446,10 @@ function build_customize_css()
              	color:<?php echo get_theme_mod('main_color', '#20a332'); ?> !important;
              }
              
+             h1.topic-title {
+             	color:<?php echo get_theme_mod('main_color', '#20a332'); ?>;
+             }
+             
              footer.site-footer .social a {
              	border-color:<?php echo get_theme_mod('main_color','#20a332'); ?>;
              }

@@ -1043,7 +1043,8 @@ object {
     padding: 0 5vw; }
 
   .toc {
-    display: table-cell; }
+    display: table-cell;
+    width: 300px; }
 
   .main-entry-wrapper .entry-content {
     display: table-cell;

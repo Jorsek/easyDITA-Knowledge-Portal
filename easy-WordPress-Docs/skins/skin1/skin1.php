@@ -92,6 +92,10 @@ function add_custom_css()
              	color:<?php echo get_theme_mod('secondary_color', '#1A578E'); ?> !important;
              }
              
+             .topic-topic h1.topic-title {
+             	color:<?php echo get_theme_mod('secondary_color', '#1A578E'); ?>;
+             }
+             
              #page .home-search,
              #page .small-search,
              footer.site-footer.home .social {

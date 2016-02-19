@@ -77,7 +77,7 @@
 	padding-right: 10px;
 }
 
-.topic-topic li .list-item-content *:first-child {
+.topic-topic li .list-item-content > *:first-child {
 	display: inline;
 }
 
