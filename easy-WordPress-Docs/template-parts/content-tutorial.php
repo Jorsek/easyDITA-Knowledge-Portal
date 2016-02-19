@@ -43,13 +43,13 @@
 			jQuery(window).scroll(function(){ // scroll event  
 			
 				// Set the hash appropriately when scrolling
-				var cScrollTop = jQuery('body')[0].scrollTop;
+				var cScrollTop = jQuery(window).scrollTop();
 				for (var i=0; i < locations.length; i++) {
 					if (i == 0 && cScrollTop < locations[i]) {
 						history.replaceState({},'',location.pathname);
 						break;
 					} else if (cScrollTop < locations[i] && cScrollTop > locations[i-1]) {
-						history.replaceState({},'',location.pathname+"#"+ids[i-1])
+						history.replaceState({},'',location.pathname+"#"+ids[i-1]);
 						// highlight the current step in the TOC
 						jQuery('#side-toc li.parent-item:has(a[href ^= "#"])').each(function(index) {
 							jQuery(this).removeClass('parent-item');
@@ -60,11 +60,17 @@
 				}
 			
 				// Make sure the TOC stays on screen
-				var cScrollTop = jQuery(window).scrollTop(); // returns number
-				if (tocOrigTop < cScrollTop+45) {
-					jQuery('#side-toc').css({ position: 'fixed', top: '45px' });
+				var theSideToc = jQuery('#side-toc');
+				if (jQuery("#side-toc")[0].clientWidth > 0) {
+					if (tocOrigTop < cScrollTop+45) {
+						theSideToc.css({ position: 'fixed', top: '45px' });
+						jQuery('.main-entry-wrapper .entry-content').css({width: 'calc(100% - 300px)',display: 'block',left: '300px',position: 'relative'});
+					} else {
+						theSideToc.css('position','static');
+						jQuery('.main-entry-wrapper .entry-content').css({width: 'initial',display: 'table-cell',left: '0'});
+					}
 				} else {
-					jQuery('#side-toc').css('position','static');
+					jQuery('.main-entry-wrapper .entry-content').css({width: 'initial',display: 'table-cell',left: '0'});
 				}
 			
 			});
