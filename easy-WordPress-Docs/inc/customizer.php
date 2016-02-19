@@ -472,7 +472,6 @@ function build_customize_css()
 {
     ?>
          <style type="text/css">
-             
              .widget-container .widget-title,
              .child-page-entry .entry-header a,
              #masthead .menu-header-container #menu-header li a:hover,
@@ -486,7 +485,7 @@ function build_customize_css()
              .content-title,
              .toc .parent-item .parent-item > a,
              h1.topic-title,
-             .posts-navigation a:hover, {
+             .posts-navigation a:hover {
              	color:<?php echo get_theme_mod('main_color', '#20a332'); ?>;
              }
              
