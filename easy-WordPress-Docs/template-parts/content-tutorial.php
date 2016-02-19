@@ -16,7 +16,7 @@
 	<div class="header-title"><?php echo get_the_title($root_map_id); ?></div>
 	
 	<div class="main-entry-wrapper">
-		<?php get_template_part('template-parts/toc-tutorial'); ?>
+		<?php get_template_part('template-parts/toc'); ?>
 		<div class="entry-content">
 			<div class="root-title"><?php echo get_the_title(get_hierarchy()[1]) ?></div>
 			<?php if (get_the_title(get_hierarchy()[1]) != get_the_title()) : ?>

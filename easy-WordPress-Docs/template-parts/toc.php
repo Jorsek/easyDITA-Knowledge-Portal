@@ -8,7 +8,28 @@
  *
  */
 
-function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
+function show_subsections_in_toc($subsections,$ul_is_parent = true) {
+	?>
+	<div style="overflow:hidden;" class="<?php echo $ul_is_parent ? 'open' : 'closed' ?>">
+	  	<ul class="toc-list">
+	  	<?php 
+			for ($i = 0; $i < count($subsections); $i++) {
+				$text = preg_replace('#<[^>]*>#','',$subsections[$i]);
+				preg_match('#(?<= id=")[^"]*#',$subsections[$i],$id);
+				$href = $ul_is_parent ? '#'.$id[0] : get_the_permalink().'#'.$id[0];
+				?>
+				<li class="toc-item<?php echo $is_parent ? ' parent-item' : '' ?>">
+					<a href="<?php echo $href; ?>"><?php echo $text; ?></a>
+				</li>
+				<?php
+			}
+		?>
+		</ul>
+	</div>
+	<?php
+}
+
+function get_toc($post_id,$hierarchy,$is_tutorial,$ul_is_parent = true) {
 /** 
  * This loop will show all the root maps, then when it
  * detects the root map that we're currently in (via the 
@@ -36,6 +57,7 @@ function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
 		  <li class="toc-item<?php echo $is_parent ? ' parent-item' : '' ?>">
 		  	<?php
 			$children = get_pages('child_of='.get_the_ID());
+			$subsections = get_subsections();
 			echo "<div class='toc-head' onclick='openCloseSubtoc(this)'>";
 			if (count($children) != 0) {
 				if ($is_parent) {
@@ -48,9 +70,24 @@ function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
 				</div>
 				<?php
 				if ($is_parent) {
-					echo get_toc(get_the_ID(),$hierarchy,true);
+					echo get_toc(get_the_ID(),$hierarchy,$is_tutorial,true);
 				} else {
-					echo get_toc(get_the_ID(),$hierarchy,false);
+					echo get_toc(get_the_ID(),$hierarchy,$is_tutorial,false);
+				}
+			} else if ($is_tutorial && count($subsections) != 0) {
+				if ($is_parent) {
+					echo '<i class="plusminus-icon minus"> </i>';
+				} else {
+					echo '<i class="plusminus-icon plus"> </i>';
+				}
+				?>
+				<a href="<?php echo the_permalink(); ?>" onclick="event.stopPropagation();"><?php echo get_the_title(); ?></a>
+				</div>
+				<?php
+				if ($is_parent) {
+					echo show_subsections_in_toc($subsections,true);
+				} else {
+					echo show_subsections_in_toc($subsections,false);
 				}
 			} else {
 				?>
@@ -75,8 +112,9 @@ function get_toc($post_id,$hierarchy,$ul_is_parent = true) {
 	<div class="title"><?php echo get_theme_mod( 'toc_title', 'TOC' ); ?></div>
 	
 	<?php
+	$page_type = get_post_meta(get_root_map_id(),'page_type',true);
 	$hierarchy = get_hierarchy();
-	get_toc($hierarchy[0],$hierarchy);
+	get_toc($hierarchy[0],$hierarchy,$page_type == 'tutorial');
 	/* Restore original Post Data */
 	wp_reset_postdata();
 	?>
