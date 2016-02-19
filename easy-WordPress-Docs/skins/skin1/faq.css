@@ -3,10 +3,6 @@
 	display: block;
 }
 
-#primary.faq {
-	margin-top: 225px;
-}
-
 .faq-entries {
     padding: 0;
     text-align: center;
@@ -14,6 +10,11 @@
 
 .faq {
 	font-size: 0.95em;
+	max-width: 90vw;
+}
+
+#primary.faq {
+	max-width: 760px;
 }
 
 .faq .faq-head {

@@ -1252,6 +1252,9 @@ h1.topic-title {
 .topic-image {
   padding: 10px 1px; }
 
+.topic-image img {
+  width: 600px; }
+
 /** Lists **/
 .topic-ul, .topic-ol {
   margin: 0;

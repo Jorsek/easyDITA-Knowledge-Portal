@@ -3,6 +3,10 @@
 	display: none;
 }
 
+#primary article.page {
+	padding-top: 70px;
+}
+
 #primary.content .site-main .header-title {
 	display: block;
 }
