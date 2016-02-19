@@ -430,23 +430,21 @@ function build_customize_css()
 {
     ?>
          <style type="text/css">
-             .content-title,
-             .topic-section > .topic-title,
-             .faq.open .faq-icon:before,
-             .faq-title,
+             
+             .widget-container .widget-title,
+             .child-page-entry .entry-header a,
+             #masthead .menu-header-container #menu-header li a:hover,
+             .site-footer .social i,
+             .widget_popular_pages_widget .popular-link,
              .search-result .entry-header a,
              .search-result .entry-url a,
+             .faq-title,
+             .faq.open .faq-icon:before,
+             .topic-section > .topic-title,
+             .content-title,
              .toc .parent-item .parent-item > a,
-             .widget_popular_pages_widget .popular-link,
-             .site-footer .social i,
-             #masthead .menu-header-container #menu-header li a:hover,
-             .widget-container .widget-title,
-             .posts-navigation a:hover,
-             .child-page-entry .entry-header a {
-             	color:<?php echo get_theme_mod('main_color', '#20a332'); ?> !important;
-             }
-             
-             h1.topic-title {
+             h1.topic-title,
+             .posts-navigation a:hover, {
              	color:<?php echo get_theme_mod('main_color', '#20a332'); ?>;
              }
              
@@ -456,7 +454,7 @@ function build_customize_css()
              
              .home-search,
              .small-search {
-             	background-color:<?php echo get_theme_mod('main_color', '#20a332'); ?> !important;
+             	background-color:<?php echo get_theme_mod('main_color', '#20a332'); ?>;
              }
              
              .home-search {
@@ -464,8 +462,8 @@ function build_customize_css()
              }
              
              .site-footer, .site-footer .user-text {
-             	background-color:<?php echo get_theme_mod('footer_background_color', '#000000'); ?> !important;
-             	color:<?php echo get_theme_mod('footer_text_color', '#808080'); ?> !important;
+             	background-color:<?php echo get_theme_mod('footer_background_color', '#000000'); ?>;
+             	color:<?php echo get_theme_mod('footer_text_color', '#808080'); ?>;
              }
              
          </style>

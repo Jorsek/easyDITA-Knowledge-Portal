@@ -77,7 +77,7 @@
 }
 
 #secondary div.widget-container .widget a {
-	color: black !important;
+	color: black;
 	border-top: 1px solid rgb(199,199,194);
 	border-bottom: 1px solid rgb(199,199,194);
 	margin-top: -1px;

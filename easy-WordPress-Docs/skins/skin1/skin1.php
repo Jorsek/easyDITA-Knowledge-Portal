@@ -76,22 +76,23 @@ function add_custom_css()
              	color:<?php echo get_theme_mod('main_color', '#20a332'); ?> !important;
              }
              
-             .entry-content .content-child-pages .child-page-entry .entry-header a,
-             .entry-content .concatenated-content .content-title,
+             
              .topic-topic th,
-             .faq.closed .faq-head:hover,
              footer.site-footer .user-text .title,
-             #secondary div.widget-container .widget a:hover,
              .toc > .open > .toc-list > .toc-item > .toc-head:hover,
              .toc .toc-list .toc-list .toc-item > .toc-head > a:hover,
              .toc .toc-list .toc-list .toc-item.parent-item > .toc-head > a,
-             #main .search-result .entry-header a,
-             #main .search-result .entry-url a,
              .child-page-entry .entry-summary a:hover,
              .topic-topic a {
              	color:<?php echo get_theme_mod('secondary_color', '#1A578E'); ?> !important;
              }
              
+             .entry-content .content-child-pages .child-page-entry .entry-header a,
+             .entry-content .concatenated-content .content-title,
+             .faq.closed .faq-head:hover,
+             #secondary div.widget-container .widget a:hover,
+             #main .search-result .entry-header a,
+             #main .search-result .entry-url a,
              .topic-topic h1.topic-title {
              	color:<?php echo get_theme_mod('secondary_color', '#1A578E'); ?>;
              }
@@ -105,7 +106,7 @@ function add_custom_css()
              			$url = get_template_directory_uri() . "/skins/skin1/BGPattern2.png";
              		}
              	?>
-             	background: url('<?php echo $url; ?>') !important;
+             	background: url('<?php echo $url; ?>');
              }
              
          </style>

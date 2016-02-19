@@ -20,7 +20,7 @@
 }
 
 .entry-content .content-title {
-	color: black !important;
+	color: black;
 	font-family: "Roboto Slab", serif;
 	font-weight: 300;
 	border-bottom: 1px solid rgb(199,199,194);

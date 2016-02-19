@@ -801,7 +801,7 @@ object {
     padding-bottom: 3px;
     font-size: 1.2em; }
     .search-result .entry-header a {
-      color: #20a332 !important;
+      color: #20a332;
       text-decoration: none !important; }
     .search-result .entry-header .category {
       font-size: 12px;
@@ -826,27 +826,27 @@ object {
   .search-result .entry-url {
     font-size: 0.7em; }
     .search-result .entry-url a {
-      color: #20a332 !important;
+      color: #20a332;
       text-decoration: none !important; }
 
 /***
  * Navigation
  */
-.posts-navigation {
+.site-main .posts-navigation {
   margin: 0 5px 20px 5px;
   max-width: 780px; }
 
-.posts-navigation a {
+.site-main .posts-navigation a {
   color: black;
   text-decoration: none; }
-  .posts-navigation a:hover {
+  .site-main .posts-navigation a:hover {
     text-decoration: none; }
 
 @media only screen and (min-width: 550px) {
   .small-search {
     padding: 5px 5vw; }
 
-  .search-result, .posts-navigation {
+  .search-result, .site-main .posts-navigation {
     margin-left: 5vw;
     margin-right: 5vw; } }
 @media only screen and (min-width: 783px) {
@@ -870,7 +870,7 @@ object {
   .small-search {
     padding: 5px 10vw; }
 
-  .search-result, .posts-navigation {
+  .search-result, .site-main .posts-navigation {
     margin-left: 10vw;
     margin-right: 10vw;
     /*		width: 60%;*/ } }
@@ -980,7 +980,7 @@ object {
   content: "\f068"; }
 
 .toc a {
-  color: black !important;
+  color: black;
   text-decoration: none;
   cursor: pointer;
   vertical-align: middle; }
@@ -1092,7 +1092,7 @@ object {
 .widget_popular_pages_widget .popular-link {
   display: block;
   text-decoration: none;
-  color: #20a332 !important;
+  color: #20a332;
   font-size: 0.7em; }
 
 @media only screen and (min-width: 550px) {
