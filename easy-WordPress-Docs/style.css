@@ -1354,21 +1354,21 @@ h1.topic-title {
 #masthead {
   position: relative; }
 
-#masthead .partial-refreshable-nav-menu {
+#masthead > div[class*="menu-"] {
   text-align: right; }
-  #masthead .partial-refreshable-nav-menu ul {
+  #masthead > div[class*="menu-"] ul {
     list-style-type: none;
     margin: 0;
     padding: 0; }
-    #masthead .partial-refreshable-nav-menu ul li {
+    #masthead > div[class*="menu-"] ul li {
       display: inline-block;
       padding: 0 10px;
       position: relative;
       z-index: 10; }
-      #masthead .partial-refreshable-nav-menu ul li a {
+      #masthead > div[class*="menu-"] ul li a {
         color: black;
         text-decoration: none; }
-      #masthead .partial-refreshable-nav-menu ul li a:hover {
+      #masthead > div[class*="menu-"] ul li a:hover {
         color: #20a332; }
 
 .menu ul.sub-menu {
@@ -1387,7 +1387,7 @@ h1.topic-title {
   display: block; }
 
 @media only screen and (min-width: 783px) {
-  #masthead .partial-refreshable-nav-menu {
+  #masthead > div[class*="menu-"] {
     right: 10vw;
     bottom: 10px;
     position: absolute;

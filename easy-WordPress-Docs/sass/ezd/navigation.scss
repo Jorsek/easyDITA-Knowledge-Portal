@@ -2,7 +2,7 @@
 	position: relative;
 }
 
-#masthead .partial-refreshable-nav-menu {
+#masthead > div[class*="menu-"] {
 	text-align: right;
 	
 	ul {
@@ -48,7 +48,7 @@
 }
 
 @media only screen and (min-width: 783px) {
-	#masthead .partial-refreshable-nav-menu {
+	#masthead > div[class*="menu-"] {
 		right: 10vw;
 		bottom: 10px;
 		position: absolute;
