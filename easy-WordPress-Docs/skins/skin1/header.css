@@ -29,18 +29,18 @@
  * Navigation
  */
 
-#masthead .menu-header-container {
+#masthead .partial-refreshable-nav-menu {
 	font-family: "Roboto Slab";
 	font-weight: 700;
 	font-size: 0.8em;
 	bottom: 20px;
 }
 
-#masthead .menu-header-container #menu-header li a {
+#masthead .partial-refreshable-nav-menu .menu li a {
 	color: white;
 }
 
-#menu-header ul.sub-menu {
+.menu ul.sub-menu {
 	background: transparent;
 }
 

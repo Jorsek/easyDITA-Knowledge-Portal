@@ -5,13 +5,20 @@
 
 .content-title {
 	color: $main-color;
-	margin-bottom: 10px;
 	font-size: 2.5em;
 }
 
 .topic-topic {
 	max-width: 650px;
 /*	font-size: 1.5em;*/
+}
+
+.topic-shortdesc {
+	font-style: italic;
+}
+
+.topic-body {
+	margin-top: 10px;
 }
 
 .entry-content p {
@@ -76,7 +83,7 @@ h1.topic-title {
 }
 
 .topic-image img {
-	width: 600px;
+	max-width: 600px;
 }
 
 /** Lists **/
@@ -102,4 +109,10 @@ h1.topic-title {
 }
 .task-info .legend {
 	display: none;
+}
+
+@media only screen and (min-width: 600px) {
+	.topic-image img {
+		max-width: 100%;
+	}
 }

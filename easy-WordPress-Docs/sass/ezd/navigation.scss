@@ -2,7 +2,7 @@
 	position: relative;
 }
 
-#masthead .menu-header-container {
+#masthead .partial-refreshable-nav-menu {
 	text-align: right;
 	
 	ul {
@@ -28,7 +28,7 @@
 	}
 }
 
-#menu-header ul.sub-menu {
+.menu ul.sub-menu {
 	display:none;
 	position: absolute;
 	background: white none repeat scroll 0% 0%;
@@ -43,12 +43,12 @@
 	}
 }
 
-#menu-header > li.menu-item-has-children:hover > ul.sub-menu {
+.menu > li.menu-item-has-children:hover > ul.sub-menu {
 	display: block;
 }
 
 @media only screen and (min-width: 783px) {
-	#masthead .menu-header-container {
+	#masthead .partial-refreshable-nav-menu {
 		right: 10vw;
 		bottom: 10px;
 		position: absolute;

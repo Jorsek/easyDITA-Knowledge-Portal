@@ -1197,12 +1197,17 @@ object {
 
 .content-title {
   color: #20a332;
-  margin-bottom: 10px;
   font-size: 2.5em; }
 
 .topic-topic {
   max-width: 650px;
   /*	font-size: 1.5em;*/ }
+
+.topic-shortdesc {
+  font-style: italic; }
+
+.topic-body {
+  margin-top: 10px; }
 
 .entry-content p {
   margin: 0;
@@ -1257,7 +1262,7 @@ h1.topic-title {
   padding: 10px 1px; }
 
 .topic-image img {
-  width: 600px; }
+  max-width: 600px; }
 
 /** Lists **/
 .topic-ul, .topic-ol {
@@ -1282,6 +1287,9 @@ h1.topic-title {
 .task-info .legend {
   display: none; }
 
+@media only screen and (min-width: 600px) {
+  .topic-image img {
+    max-width: 100%; } }
 .faq-entries {
   padding: 5px 5px; }
 
@@ -1346,24 +1354,24 @@ h1.topic-title {
 #masthead {
   position: relative; }
 
-#masthead .menu-header-container {
+#masthead .partial-refreshable-nav-menu {
   text-align: right; }
-  #masthead .menu-header-container ul {
+  #masthead .partial-refreshable-nav-menu ul {
     list-style-type: none;
     margin: 0;
     padding: 0; }
-    #masthead .menu-header-container ul li {
+    #masthead .partial-refreshable-nav-menu ul li {
       display: inline-block;
       padding: 0 10px;
       position: relative;
       z-index: 10; }
-      #masthead .menu-header-container ul li a {
+      #masthead .partial-refreshable-nav-menu ul li a {
         color: black;
         text-decoration: none; }
-      #masthead .menu-header-container ul li a:hover {
+      #masthead .partial-refreshable-nav-menu ul li a:hover {
         color: #20a332; }
 
-#menu-header ul.sub-menu {
+.menu ul.sub-menu {
   display: none;
   position: absolute;
   background: white none repeat scroll 0% 0%;
@@ -1371,15 +1379,15 @@ h1.topic-title {
   left: 0;
   text-align: left;
   min-width: 200px; }
-  #menu-header ul.sub-menu li {
+  .menu ul.sub-menu li {
     display: block;
     padding: 5px 10px; }
 
-#menu-header > li.menu-item-has-children:hover > ul.sub-menu {
+.menu > li.menu-item-has-children:hover > ul.sub-menu {
   display: block; }
 
 @media only screen and (min-width: 783px) {
-  #masthead .menu-header-container {
+  #masthead .partial-refreshable-nav-menu {
     right: 10vw;
     bottom: 10px;
     position: absolute;

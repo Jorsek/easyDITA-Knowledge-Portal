@@ -60,16 +60,19 @@
 	font-weight: 700;
 	font-size: 1.6em;
 	border-bottom: none;
-	margin-bottom: 20px;
+}
+
+.topic-body {
+	margin-top: 20px;
 }
 
 /* Lists */
 
-.topic-topic li {
+.topic-topic ul li {
 	list-style-type:none;
 }
 
-.topic-topic li .list-item-content:before {
+.topic-topic ul li .list-item-content:before {
 	content: '\00b7';
 	font-size: 30px;
 	padding-bottom: 4px;
