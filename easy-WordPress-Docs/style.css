@@ -1272,6 +1272,32 @@ h1.topic-title {
 .list-item-content > .topic-p {
   margin-bottom: .3em; }
 
+/** Definition Lists **/
+.topic-dl {
+  border-top: 1px solid #AAA;
+  border-bottom: 1px solid #AAA;
+  margin-top: 20px; }
+
+.topic-dlentry {
+  margin-bottom: 5px; }
+
+.topic-dt {
+  font-weight: bold; }
+
+.topic-dd {
+  position: relative;
+  left: 20px;
+  width: calc(100% - 20px);
+  margin-bottom: 5px;
+  border-top: 1px solid #EEE; }
+
+/** Notes **/
+.topic-note {
+  padding: 10px 0 10px 25px; }
+  .topic-note .topic-note-decoration-text {
+    padding-right: 8px;
+    font-weight: bold; }
+
 /** Tasks **/
 .task-step {
   margin-bottom: .6em; }
