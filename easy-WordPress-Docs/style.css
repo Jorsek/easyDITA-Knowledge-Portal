@@ -1262,7 +1262,7 @@ h1.topic-title {
   padding: 10px 1px; }
 
 .topic-image img {
-  max-width: 600px; }
+  max-width: 100%; }
 
 /** Lists **/
 .topic-ul, .topic-ol {
@@ -1315,7 +1315,7 @@ h1.topic-title {
 
 @media only screen and (min-width: 600px) {
   .topic-image img {
-    max-width: 100%; } }
+    max-width: 600px; } }
 .faq-entries {
   padding: 5px 5px; }
 
