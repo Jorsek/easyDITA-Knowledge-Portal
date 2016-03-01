@@ -40,7 +40,7 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->remove_section('static_front_page');
 	
 	/** Skin Selection **/
-	$skins = get_all_skins();
+	$skins = easy_wordpress_docs_get_all_skins();
 	$wp_customize->add_section(
 		'skin_select',
 		array(

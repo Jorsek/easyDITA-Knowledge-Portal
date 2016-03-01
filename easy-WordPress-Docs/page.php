@@ -9,14 +9,15 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package _s
+ * @package easy_wordpress_docs
  */
 
-$page_type = get_post_meta(get_root_map_id(),'page_type',true);
+$root_map_id = easy_wordpress_docs_get_root_map_id()
+$page_type = get_post_meta($root_map_id,'page_type',true);
 
 // This if block is to skip over the user guide overview page.
 // It automatically redirects to the first child.
-if (!get_post_meta(get_root_map_id(),'page_type') || $page_type == 'content' || $page_type == 'tutorial') {
+if (!get_post_meta($root_map_id,'page_type') || $page_type == 'content' || $page_type == 'tutorial') {
 	if (wp_get_post_parent_id( get_the_ID() ) == 0) {
 		$pagekids = get_pages("child_of=".$post->ID."&sort_column=menu_order");
 		if ($pagekids) {
@@ -48,7 +49,7 @@ get_template_part("template-parts/breadcrumbs");
 					get_template_part( 'template-parts/content', 'faq');
 				} else if ($page_type == 'tutorial') {
 					get_template_part( 'template-parts/content', 'tutorial' );
-				} else if (!get_post_meta(get_root_map_id(),'page_type')) {
+				} else if (!get_post_meta(easy_wordpress_docs_get_root_map_id(),'page_type')) {
 					if (wp_get_post_parent_id( get_the_ID() ) == 0) {
 						get_template_part( 'template-parts/content', 'user-guide-home' );
 					} else {

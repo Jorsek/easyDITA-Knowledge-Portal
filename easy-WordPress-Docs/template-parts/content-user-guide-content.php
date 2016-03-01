@@ -11,15 +11,18 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
-	<?php $root_map_id = get_root_map_id(); ?>
+	<?php
+	$root_map_id = easy_wordpress_docs_get_root_map_id();
+	$the_hierarchy = easy_wordpress_docs_get_hierarchy();
+	$root_title = get_the_title($the_hierarchy[1]);
 	
 	<div class="header-title"><?php echo get_the_title($root_map_id); ?></div>
 	
 	<div class="main-entry-wrapper">
 		<?php get_template_part('template-parts/toc'); ?>
 		<div class="entry-content">
-			<div class="root-title"><?php echo get_the_title(get_hierarchy()[1]) ?></div>
-			<?php if (get_the_title(get_hierarchy()[1]) != get_the_title()) : ?>
+			<div class="root-title"><?php echo $root_title ?></div>
+			<?php if ($root_title != get_the_title()) : ?>
 			<div class="content-title"><?php echo get_the_title(); ?></div>
 			<?php endif ?>
 			<?php
@@ -41,11 +44,12 @@
 						<div class="child-page-entry">
 							<header class="entry-header">
 								<a class="title" href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
-								<!--<div class="category <?php echo get_post_meta(get_root_map_id(),'page_type',true) ?>"><?php echo get_the_title(get_root_map_id()) ?></div>-->
+								<!--<?php $root_map_id = easy_wordpress_docs_get_root_map_id(); ?>
+								<div class="category <?php echo get_post_meta($root_map_id,'page_type',true) ?>"><?php echo get_the_title($root_map_id) ?></div>-->
 							</header><!-- .entry-header -->
 						
 							<div class="entry-summary">
-								<?php get_the_shortdesc(); ?>
+								<?php easy_wordpress_docs_get_the_shortdesc(); ?>
 							</div><!-- .entry-summary -->
 							
 							<!--<div class="entry-url">

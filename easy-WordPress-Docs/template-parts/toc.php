@@ -57,7 +57,7 @@ function get_toc($post_id,$hierarchy,$is_tutorial,$ul_is_parent = true) {
 		  <li class="toc-item<?php echo $is_parent ? ' parent-item' : '' ?>">
 		  	<?php
 			$children = get_pages('child_of='.get_the_ID());
-			$subsections = get_subsections();
+			$subsections = easy_wordpress_docs_get_subsections();
 			echo "<div class='toc-head' onclick='openCloseSubtoc(this)'>";
 			if (count($children) != 0) {
 				if ($is_parent) {
@@ -112,8 +112,8 @@ function get_toc($post_id,$hierarchy,$is_tutorial,$ul_is_parent = true) {
 	<div class="title"><?php echo get_theme_mod( 'toc_title', 'TOC' ); ?></div>
 	
 	<?php
-	$page_type = get_post_meta(get_root_map_id(),'page_type',true);
-	$hierarchy = get_hierarchy();
+	$hierarchy = easy_wordpress_docs_get_hierarchy();
+	$page_type = get_post_meta($hierarchy[0],'page_type',true);
 	get_toc($hierarchy[0],$hierarchy,$page_type == 'tutorial');
 	/* Restore original Post Data */
 	wp_reset_postdata();

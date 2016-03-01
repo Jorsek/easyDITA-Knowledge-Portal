@@ -12,7 +12,8 @@
 <article id="post-<?php the_ID(); ?>" class="search-result">
 	<header class="entry-header">
 		<a class="title" href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
-		<div class="category <?php echo get_post_meta(get_root_map_id(),'page_type',true) ?>"><?php echo get_the_title(get_root_map_id()) ?></div>
+		<?php $root_map_id = easy_wordpress_docs_get_root_map_id(); ?>
+		<div class="category <?php echo get_post_meta($root_map_id,'page_type',true) ?>"><?php echo get_the_title($root_map_id) ?></div>
 	</header><!-- .entry-header -->
 
 	<div class="entry-summary">

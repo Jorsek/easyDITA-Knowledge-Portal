@@ -1,10 +1,9 @@
 <?php
 /**
  * The template for displaying 404 pages (not found).
- *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package _s
+ * @package easy_wordpress_docs
  */
 
 get_header();
@@ -20,10 +19,10 @@ get_header();
 				</header>--><!-- .page-header -->
 
 				<?php
-				if (function_exists('get_404_content_override')) {
-					get_404_content_override();
-				} else {
+				if (function_exists('get_404_content')) {
 					get_404_content();
+				} else {
+					easy_wordpress_docs_get_404_content();
 				}
 				?>
 
