@@ -12,7 +12,7 @@
  * @package easy_wordpress_docs
  */
 
-$root_map_id = easy_wordpress_docs_get_root_map_id()
+$root_map_id = easy_wordpress_docs_get_root_map_id();
 $page_type = get_post_meta($root_map_id,'page_type',true);
 
 // This if block is to skip over the user guide overview page.

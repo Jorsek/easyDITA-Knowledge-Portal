@@ -15,6 +15,7 @@
 	$root_map_id = easy_wordpress_docs_get_root_map_id();
 	$the_hierarchy = easy_wordpress_docs_get_hierarchy();
 	$root_title = get_the_title($the_hierarchy[1]);
+	?>
 	
 	<div class="header-title"><?php echo get_the_title($root_map_id); ?></div>
 	
