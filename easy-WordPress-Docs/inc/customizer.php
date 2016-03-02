@@ -474,7 +474,7 @@ function build_customize_css()
          <style type="text/css">
              .widget-container .widget-title,
              .child-page-entry .entry-header a,
-             #masthead .menu-header-container #menu-header li a:hover,
+             #masthead > div[class*="menu-"] ul.menu li a:hover,
              .site-footer .social i,
              .widget_popular_pages_widget .popular-link,
              .search-result .entry-header a,

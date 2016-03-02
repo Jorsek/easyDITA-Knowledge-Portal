@@ -190,9 +190,9 @@ function easy_wordpress_docs_get_the_shortdesc() {
 		$i = 1;
 		while($the_query->have_posts()) {
 			$the_query->the_post();
-			?>
-			<a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
-			<?php
+			
+			?><a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a><?php
+			
 			if ($i != $count) {
 				echo ", ";
 			}

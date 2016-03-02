@@ -17,7 +17,19 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-summary">
-		<?php the_excerpt(); ?>
+		<?php
+		$excerpt = get_the_excerpt();
+		if ($excerpt == "") {
+			echo easy_wordpress_docs_get_the_shortdesc();
+		} else {
+			$title = get_the_title();
+			if (substr($excerpt,0,strlen($title)) === $title) {
+				echo substr($excerpt,strlen($title));
+			} else {
+				echo $excerpt;
+			}
+		}
+		?>
 	</div><!-- .entry-summary -->
 	
 	<div class="entry-url">
