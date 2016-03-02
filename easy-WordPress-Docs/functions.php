@@ -134,86 +134,96 @@ function easy_wordpress_docs_change_style_version_num($styles) {
  * Hierarchy Functions
  ***/
 // Walk the hierarchy and return an array of IDs
-function easy_wordpress_docs_get_hierarchy() {
-	global $post;
-	$hierarchy = array();
-	if($post->ID) {
-		$hierarchy[] = $post->ID;
-		
-		$parent_id = $post->post_parent;
-
-		while ($parent_id) {
-			$hierarchy[] = $parent_id;
-			$page = get_page($parent_id);
-			$parent_id = $page->post_parent;
+if (!function_exists('easy_wordpress_docs_get_hierarchy')) {
+	function easy_wordpress_docs_get_hierarchy() {
+		global $post;
+		$hierarchy = array();
+		if($post->ID) {
+			$hierarchy[] = $post->ID;
+			
+			$parent_id = $post->post_parent;
+	
+			while ($parent_id) {
+				$hierarchy[] = $parent_id;
+				$page = get_page($parent_id);
+				$parent_id = $page->post_parent;
+			}
+			return array_reverse($hierarchy);
 		}
-		return array_reverse($hierarchy);
+		return array(0);
 	}
-	return array(0);
 }
-function easy_wordpress_docs_get_root_map_id() {
-	/** get the title for the root map this is a member of **/
-	$hierarchy = easy_wordpress_docs_get_hierarchy();
-    return $hierarchy[0];
+if (!function_exists('easy_wordpress_docs_get_root_map_id')) {
+	function easy_wordpress_docs_get_root_map_id() {
+		/** get the title for the root map this is a member of **/
+		$hierarchy = easy_wordpress_docs_get_hierarchy();
+	    return $hierarchy[0];
+	}
 }
 
 /***
  * Get all subsections (for Tutorials)
  ***/
-function easy_wordpress_docs_get_subsections() {
-	global $post;
-	$content = $post->post_content;
-	preg_match_all('#<h1[^>]*class="[^"]*topic-title [^"]*"[^>]*>((<h1.*?>.*?</h1>)|(.))*?</h1>#', $content, $matches);
-	return $matches[0];
+if (!function_exists('easy_wordpress_docs_get_subsections')) {
+	function easy_wordpress_docs_get_subsections() {
+		global $post;
+		$content = $post->post_content;
+		preg_match_all('#<h1[^>]*class="[^"]*topic-title [^"]*"[^>]*>((<h1.*?>.*?</h1>)|(.))*?</h1>#', $content, $matches);
+		return $matches[0];
+	}
 }
 
 
 /**
  * get the short description
  **/
-function easy_wordpress_docs_get_the_shortdesc() {
-	global $post;
-	if ($post->post_content != '') {
-		preg_match('#<div[^>]*class="[^"]*topic-shortdesc [^"]*"[^>]*>((<div.*?>.*?</div>)|(.))*?</div>#', $post->post_content, $matches);
-		$output = preg_replace('#<[^>]*>#','',$matches[0]);
-		echo $output;
-	} else {
-		$out_string = "";
-		$args = array(
-			"post_type" => "page",
-			"post_parent" => $post->ID,
-			"orderby" => "menu_order",
-			"order" => "ASC"
-		);
-		$the_query = new WP_Query( $args );
-		$count = $the_query->post_count;
-		$i = 1;
-		while($the_query->have_posts()) {
-			$the_query->the_post();
-			
-			?><a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a><?php
-			
-			if ($i != $count) {
-				echo ", ";
+if (!function_exists('easy_wordpress_docs_get_the_shortdesc')) {
+	function easy_wordpress_docs_get_the_shortdesc() {
+		global $post;
+		if ($post->post_content != '') {
+			preg_match('#<div[^>]*class="[^"]*topic-shortdesc [^"]*"[^>]*>((<div.*?>.*?</div>)|(.))*?</div>#', $post->post_content, $matches);
+			$output = preg_replace('#<[^>]*>#','',$matches[0]);
+			echo $output;
+		} else {
+			$out_string = "";
+			$args = array(
+				"post_type" => "page",
+				"post_parent" => $post->ID,
+				"orderby" => "menu_order",
+				"order" => "ASC"
+			);
+			$the_query = new WP_Query( $args );
+			$count = $the_query->post_count;
+			$i = 1;
+			while($the_query->have_posts()) {
+				$the_query->the_post();
+				
+				?><a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a><?php
+				
+				if ($i != $count) {
+					echo ", ";
+				}
+				$i++;
 			}
-			$i++;
+			wp_reset_query();
+			wp_reset_postdata();
 		}
-		wp_reset_query();
-		wp_reset_postdata();
 	}
 }
 
-function easy_wordpress_docs_get_404_content() {
-	?>
-	<div class="home-search">
-		<div class="header"><?php echo get_theme_mod( '404_header', 'Oops! That page can&rsquo;t be found.' ); ?></div>
-	    <div class="text"><?php echo get_theme_mod( '404_text', 'It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.'); ?></div>
-	    <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
-          <input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo get_theme_mod( 'search_placeholder', 'Have a question? Ask or enter a search term.' ); ?>" />
-  		  <button type="submit" class="submit" name="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
-          </form>
-	</div>
-	<?php
+if (!function_exists('easy_wordpress_docs_get_404_content')) {
+	function easy_wordpress_docs_get_404_content() {
+		?>
+		<div class="home-search">
+			<div class="header"><?php echo get_theme_mod( '404_header', 'Oops! That page can&rsquo;t be found.' ); ?></div>
+		    <div class="text"><?php echo get_theme_mod( '404_text', 'It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.'); ?></div>
+		    <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+	          <input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo get_theme_mod( 'search_placeholder', 'Have a question? Ask or enter a search term.' ); ?>" />
+	  		  <button type="submit" class="submit" name="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
+	          </form>
+		</div>
+		<?php
+	}
 }
 
 /**
@@ -237,24 +247,26 @@ add_action('wp_head','easy_wordpress_docs_insert_ga_info');
 /**
  * Get the list of available skins
 **/
-function easy_wordpress_docs_get_all_skins() {
-	$root_url = dirname(__FILE__)."/skins/";
-	$skins = array(
-		"default" => "Default"
-	);
-	if (!file_exists($root_url)) {
+if (!function_exists('easy_wordpress_docs_get_all_skins')) {
+	function easy_wordpress_docs_get_all_skins() {
+		$root_url = dirname(__FILE__)."/skins/";
+		$skins = array(
+			"default" => "Default"
+		);
+		if (!file_exists($root_url)) {
+			return $skins;
+		}
+		$skin_files = scandir($root_url);
+		foreach ($skin_files as $i => $file) {
+			$contents = file_get_contents($root_url.$file);
+			$title = preg_match("/\/\*\n\s*Skin Name:\s*(.*?)(\n|Author:)/",$contents,$matches);
+			$version = preg_match("/\/\*(\n|.)*?Version:\s*(.*?)(\n)/",$contents,$version_matches);
+			if ($title != "") {
+				$skins[$file."?ver=".$version_matches[2]] = $matches[1];
+			};
+		}
 		return $skins;
 	}
-	$skin_files = scandir($root_url);
-	foreach ($skin_files as $i => $file) {
-		$contents = file_get_contents($root_url.$file);
-		$title = preg_match("/\/\*\n\s*Skin Name:\s*(.*?)(\n|Author:)/",$contents,$matches);
-		$version = preg_match("/\/\*(\n|.)*?Version:\s*(.*?)(\n)/",$contents,$version_matches);
-		if ($title != "") {
-			$skins[$file."?ver=".$version_matches[2]] = $matches[1];
-		};
-	}
-	return $skins;
 }
 
 /**
