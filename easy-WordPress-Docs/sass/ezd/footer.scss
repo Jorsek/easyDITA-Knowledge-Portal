@@ -1,12 +1,17 @@
 .site-footer {
     background-color: black;
     color: grey;
-    padding: 20px 0;
+    padding: 40px 0;
     position: absolute;
-    left: 0;
-    bottom: 0;
     width: 100%;
-    height: 150px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .site-footer ul {
@@ -14,13 +19,13 @@
 }
 
 .site-footer .user-text {
-	float: left;
-	padding-left: 15vw;
+	font-size: 0.8em;
+	line-height: 1em;
 }
 
 .site-footer .social {
-	float: right;
-	padding-right: 15vw;
+	text-align: center;
+	padding-top: 20px;
 	
 	i {
 		font-size: 29px;
@@ -56,6 +61,10 @@
 }
 
 @media only screen and (min-width: 550px) {
+	.site-footer {
+		display: block;
+	}
+	
 	.site-footer .title {
 		padding-bottom: 4px;
 	}
@@ -72,11 +81,15 @@
 	.site-footer .user-text {
 		padding-left: 4vw;
 		display: inline-block;
+		float: left;
 	}
 	
 	.site-footer .social {
 		padding-right: 4vw;
+		text-align: left;
+		padding-top: 0;
 		display: inline-block;
+		float: right;
 	}
 	
 	.site-footer>.user-text>div {

@@ -79,7 +79,7 @@ footer.site-footer.home {
 	text-align: center;
 	background: transparent;
 	padding: 0;
-	margin-top: 100px;
+	/*margin-top: 100px;*/
 }
 
 footer.site-footer.home .social {
@@ -88,6 +88,7 @@ footer.site-footer.home .social {
 	padding: 30px 0;
 	background: url("BGPattern2.png");
 	font-size: 0;
+	text-align: center;
 }
 
 footer.site-footer.home .user-text {

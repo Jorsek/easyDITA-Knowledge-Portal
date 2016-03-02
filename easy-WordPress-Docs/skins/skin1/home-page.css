@@ -50,6 +50,7 @@
 
 #secondary {
 	padding: 50px 5vw 100px;
+	display: block;
 }
 
 .widget-container {
