@@ -1,0 +1,147 @@
+#comments {
+	margin: 0 5px 10px;
+	border-top: 2px solid grey;
+}
+
+#comments .comment-header {
+	display: flex;
+	align-items: center;
+}
+
+#comments figure.gravatar {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	margin: 10px;
+	padding: 0;
+}
+
+#comments .comment-meta {
+	line-height: 13px;
+	font-size: 0.75em;
+}
+
+#comments .comment > .child-comments {
+	margin-left: 45px;
+}
+
+#comments .comment-content {
+	padding-left: 40px;
+	
+	&:before {
+		content: "“";
+		font-size: 7em;
+		color: #ccc;
+		position: absolute;
+		z-index: 1;
+		margin-top: -38px;
+		margin-left: -11px;
+		opacity: 0.6;
+	}
+	
+	* {
+		position: relative;
+		z-index: 5;
+	}
+	
+	.comment-reply-area {
+		float: right;
+	}
+}
+
+#comments .comment-respond {
+	.comment-reply-title {
+		margin-bottom: 0;
+	}
+	
+	.comment-notes {
+		margin: 0 0 10px 0;
+	}
+	
+	.logged-in-as {
+		text-align: right;
+		
+		.user {
+			display: inline-block;
+			padding-right: 3px;
+		}
+		
+		.log-out {
+			display: inline-block;
+		}
+	}
+	
+	.comment-form-extra {
+		display: table-row;
+		
+		* {
+			display: table-cell;
+		}
+		
+		input {
+			margin: 0 0 3px 10px;
+		}
+	}
+	
+	.breaker {
+		clear: both;
+	}
+	
+	.form-submit {
+		clear: both;
+		margin-top: 0;
+		float: right;
+	}
+	
+	.comment-subscription-form {
+		clear: both;
+		margin: 0;
+	}
+}
+
+@media only screen and (min-width: 550px) {
+	#comments {
+		padding: 0 5vw;
+		
+		.comment-respond .comment-subscription-form {
+			clear: none;
+		}
+	}
+}
+
+@media only screen and (min-width: 783px) {
+	#comments {
+		padding: 0 10vw;
+		
+		.comment-respond {
+			.comment-form-extra {
+				display: block;
+				margin-bottom: 10px;
+				
+				* {
+					display: inline-block;
+				}
+			}
+			
+			.comment-form-author {
+				float: left;
+			}
+			
+			.comment-form-email {
+				float: right;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 860px) {
+	#comments {
+		margin: auto;
+		max-width: 850px;
+		padding: 0 100px;
+		
+		.comment-respond {
+			margin-bottom: 40px;
+		}
+	}
+}

@@ -1,0 +1,22 @@
+#main article.post {
+	margin: 0 5px 10px;
+}
+
+@media only screen and (min-width: 550px) {
+	#main article.post {
+		margin: 5px 5vw 10px;
+	}
+}
+
+@media only screen and (min-width: 783px) {
+	#main article.post {
+		margin: 5px 10vw 20px;
+	}
+}
+
+@media only screen and (min-width: 812px) {
+	#main article.post {
+		margin: auto;
+		max-width: 650px;
+	}
+}

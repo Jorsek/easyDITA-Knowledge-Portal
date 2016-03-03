@@ -1067,6 +1067,109 @@ object {
 
   .main-entry-wrapper .entry-content {
     width: 73%; } }
+#main article.post {
+  margin: 0 5px 10px; }
+
+@media only screen and (min-width: 550px) {
+  #main article.post {
+    margin: 5px 5vw 10px; } }
+@media only screen and (min-width: 783px) {
+  #main article.post {
+    margin: 5px 10vw 20px; } }
+@media only screen and (min-width: 812px) {
+  #main article.post {
+    margin: auto;
+    max-width: 650px; } }
+#comments {
+  margin: 0 5px 10px;
+  border-top: 2px solid grey; }
+
+#comments .comment-header {
+  display: flex;
+  align-items: center; }
+
+#comments figure.gravatar {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin: 10px;
+  padding: 0; }
+
+#comments .comment-meta {
+  line-height: 13px;
+  font-size: 0.75em; }
+
+#comments .comment > .child-comments {
+  margin-left: 45px; }
+
+#comments .comment-content {
+  padding-left: 40px; }
+  #comments .comment-content:before {
+    content: "“";
+    font-size: 7em;
+    color: #ccc;
+    position: absolute;
+    z-index: 1;
+    margin-top: -38px;
+    margin-left: -11px;
+    opacity: 0.6; }
+  #comments .comment-content * {
+    position: relative;
+    z-index: 5; }
+  #comments .comment-content .comment-reply-area {
+    float: right; }
+
+#comments .comment-respond .comment-reply-title {
+  margin-bottom: 0; }
+#comments .comment-respond .comment-notes {
+  margin: 0 0 10px 0; }
+#comments .comment-respond .logged-in-as {
+  text-align: right; }
+  #comments .comment-respond .logged-in-as .user {
+    display: inline-block;
+    padding-right: 3px; }
+  #comments .comment-respond .logged-in-as .log-out {
+    display: inline-block; }
+#comments .comment-respond .comment-form-extra {
+  display: table-row; }
+  #comments .comment-respond .comment-form-extra * {
+    display: table-cell; }
+  #comments .comment-respond .comment-form-extra input {
+    margin: 0 0 3px 10px; }
+#comments .comment-respond .breaker {
+  clear: both; }
+#comments .comment-respond .form-submit {
+  clear: both;
+  margin-top: 0;
+  float: right; }
+#comments .comment-respond .comment-subscription-form {
+  clear: both;
+  margin: 0; }
+
+@media only screen and (min-width: 550px) {
+  #comments {
+    padding: 0 5vw; }
+    #comments .comment-respond .comment-subscription-form {
+      clear: none; } }
+@media only screen and (min-width: 783px) {
+  #comments {
+    padding: 0 10vw; }
+    #comments .comment-respond .comment-form-extra {
+      display: block;
+      margin-bottom: 10px; }
+      #comments .comment-respond .comment-form-extra * {
+        display: inline-block; }
+    #comments .comment-respond .comment-form-author {
+      float: left; }
+    #comments .comment-respond .comment-form-email {
+      float: right; } }
+@media only screen and (min-width: 860px) {
+  #comments {
+    margin: auto;
+    max-width: 850px;
+    padding: 0 100px; }
+    #comments .comment-respond {
+      margin-bottom: 40px; } }
 .widget-area {
   background-color: #f5f5f5;
   overflow: auto;
