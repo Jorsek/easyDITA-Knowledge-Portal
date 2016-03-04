@@ -63,10 +63,10 @@ class Comment_Walker extends Walker {
 					<div class="comment-author"><?php comment_author(); ?></div>
 					<time class="comment-time" datetime="<?php comment_date('Y-m-d') ?>T<?php comment_time('H:iP') ?>" itemprop="datePublished"><?php comment_date('jS F Y') ?>, <a href="#comment-<?php comment_ID() ?>" itemprop="url"><?php comment_time() ?></a></time>
 					<div class="edit-link">
-						<?php edit_comment_link('Edit this comment','',''); ?>
+						<?php edit_comment_link(__('Edit this comment', 'easy_wordpress_docs'),'',''); ?>
 					</div>
 					<?php if ($comment->comment_approved == '0') :
-						echo 'Your comment is awaiting moderation.';
+						echo __('Your comment is awaiting moderation.', 'easy_wordpress_docs');
 					endif; ?>
 				</div>
 			</div>
@@ -98,7 +98,7 @@ class Comment_Walker extends Walker {
 		<h2 class="comments-title">
 			<?php
 				printf( // WPCS: XSS OK.
-					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', '_s' ) ),
+					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'easy_wordpress_docs' ) ),
 					number_format_i18n( get_comments_number() ),
 					'<span>' . get_the_title() . '</span>'
 				);
@@ -107,11 +107,11 @@ class Comment_Walker extends Walker {
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', '_s' ); ?></h2>
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'easy_wordpress_docs' ); ?></h2>
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', '_s' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', '_s' ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'easy_wordpress_docs' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'easy_wordpress_docs' ) ); ?></div>
 
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-above -->
@@ -127,11 +127,11 @@ class Comment_Walker extends Walker {
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', '_s' ); ?></h2>
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'easy_wordpress_docs' ); ?></h2>
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', '_s' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', '_s' ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'easy_wordpress_docs' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'easy_wordpress_docs' ) ); ?></div>
 
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-below -->
@@ -143,7 +143,7 @@ class Comment_Walker extends Walker {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', '_s' ); ?></p>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'easy_wordpress_docs' ); ?></p>
 	<?php endif; ?>
 
 	<?php
@@ -167,9 +167,9 @@ class Comment_Walker extends Walker {
 	comment_form(array(
 			'fields' => apply_filters('comment_form_default_fields', $fields),
 			'comment_field' => '<div class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="3" aria-required="true" placeholder="Comment . . ."></textarea></div>',
-			'logged_in_as' => '<div class="logged-in-as">' . sprintf( __( '<div class="user">Logged in as <a href="%1$s">%2$s</a>.</div><div class="log-out"><a href="%3$s" title="Log out of this account">Log out?</a></div>' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</div>',
-			'title_reply' => __('Leave a Comment'),
-			'title_reply_to' => __('Reply to %s')
+			'logged_in_as' => '<div class="logged-in-as"><div class="user">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>.' ), admin_url( 'profile.php' ), $user_identity) . '</div><div class="log-out">' . sprintf( __( '<a href="%3$s" title="Log out of this account">Log out?</a>' ), wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</div></div>',
+			'title_reply' => __('Leave a Comment', 'easy_wordpress_docs'),
+			'title_reply_to' => __('Reply to %s', 'easy_wordpress_docs')
 		));
 	?>
 

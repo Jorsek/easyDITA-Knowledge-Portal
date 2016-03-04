@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package easyDocs
+ * @package easy_wordpress_docs
  *
  */
 
@@ -109,7 +109,7 @@ function get_toc($post_id,$hierarchy,$is_tutorial,$ul_is_parent = true) {
 <div class="toc" id="side-toc">
 	
 	<?php /** TOC Title set via Customizer **/ ?>
-	<div class="title"><?php echo get_theme_mod( 'toc_title', 'TOC' ); ?></div>
+	<div class="title"><?php echo get_theme_mod( 'toc_title', <?php _e('TOC', 'easy_wordpress_docs'); ?> ); ?></div>
 	
 	<?php
 	$hierarchy = easy_wordpress_docs_get_hierarchy();

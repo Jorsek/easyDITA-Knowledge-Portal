@@ -13,7 +13,7 @@ get_template_part("template-parts/breadcrumbs");
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-		<div class="header-title"><?php _e( "Search Results" ); ?></div>
+		<div class="header-title"><?php _e( "Search Results" , 'easy_wordpress_docs'); ?></div>
 
 		<?php if ( have_posts() ) : ?>
 

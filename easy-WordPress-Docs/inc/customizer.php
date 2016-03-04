@@ -1,8 +1,8 @@
 <?php
 /**
- * _s Theme Customizer.
+ * easy_wordpress_docs Theme Customizer.
  *
- * @package _s
+ * @package easy_wordpress_docs
  */
 
 /**
@@ -11,7 +11,7 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 
-function _s_customize_register( $wp_customize ) {
+function easy_wordpress_docs_customize_register( $wp_customize ) {
 
 	class Example_Customize_Textarea_Control extends WP_Customize_Control {
 	    public $type = 'textarea';
@@ -44,8 +44,8 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'skin_select',
 		array(
-			'title' => 'Skin Selection',
-			'description' => 'Select a different skin to style your site. After changing the skin, please click the Save & Publish button then reload the page to make sure you get the correct options within the customizer.',
+			'title' => __('Skin Selection', 'easy_wordpress_docs'),
+			'description' => __('Select a different skin to style your site. After changing the skin, please click the Save & Publish button then reload the page to make sure you get the correct options within the customizer.', 'easy_wordpress_docs'),
 			'priority' => 0
 		)
 	);
@@ -58,11 +58,11 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'skin',
 		array(
-			'label'=>__( 'Available Skins' ),
-			'section'=>'skin_select',
-			'type'=>'radio',
-			'choices'=>$skins,
-			'priority'=>10
+			'label' => __('Available Skins', 'easy_wordpress_docs'),
+			'section' => 'skin_select',
+			'type' => 'radio',
+			'choices' => $skins,
+			'priority' => 10
 		)
 	);
 	
@@ -72,25 +72,25 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'home_page',
 		array(
-		  'title' => 'Home Page',
-		  'description' => 'Customize the home page. Note that not all settings may be available for all skins.',
+		  'title' => __('Home Page', 'easy_wordpress_docs'),
+		  'description' => __('Customize the home page. Note that not all settings may be available for all skins.', 'easy_wordpress_docs'),
 		  'priority' => 30,
 		)
 	);
 	$wp_customize->add_setting(
 		'browse_title',
 		array(
-			'default' => "Browse Help Content"
+			'default' => __("Browse Help Content", 'easy_wordpress_docs')
 		)
 	);
 	$wp_customize->add_control(
 		'browse_title',
 		array(
-			'label'=>__( 'Browse Content Title' ),
-			'description'=>__( 'Set the title for your content.' ),
-			'section'=>'home_page',
-			'type'=>'text',
-			'priority'=>10
+			'label' => __('Browse Content Title', 'easy_wordpress_docs'),
+			'description' => __('Set the title for your content.', 'easy_wordpress_docs'),
+			'section' => 'home_page',
+			'type' => 'text',
+			'priority' => 10
 		)
 	);
 	
@@ -98,8 +98,8 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'custom_colors',
 		array(
-		  'title' => 'Colors',
-		  'description' => 'Set the colors of the theme. Note that not all settings may be available for all skins.',
+		  'title' => __('Colors', 'easy_wordpress_docs'),
+		  'description' => __('Set the colors of the theme. Note that not all settings may be available for all skins.', 'easy_wordpress_docs'),
 		  'priority' => 25,
 		)
 	);
@@ -114,7 +114,7 @@ function _s_customize_register( $wp_customize ) {
 		$wp_customize, 
 		'main_color', 
 		array(
-			'label'      => __( 'Main Accent Color', 'easyDocs' ),
+			'label'      => __('Main Accent Color', 'easy_wordpress_docs'),
 			'section'    => 'custom_colors',
 			'settings'   => 'main_color',
 			'priority'=>10
@@ -131,10 +131,10 @@ function _s_customize_register( $wp_customize ) {
 		$wp_customize, 
 		'search_header_text_color', 
 		array(
-			'label'      => __( 'Search Header Text Color', 'easyDocs' ),
+			'label'      => __('Search Header Text Color', 'easy_wordpress_docs'),
 			'section'    => 'custom_colors',
 			'settings'   => 'search_header_text_color',
-			'priority'=>20
+			'priority'   => 20
 		) ) 
 	);
 	$wp_customize->add_setting(
@@ -148,10 +148,10 @@ function _s_customize_register( $wp_customize ) {
 		$wp_customize, 
 		'footer_background_color', 
 		array(
-			'label'      => __( 'Footer Background Color', 'easyDocs' ),
+			'label'      => __('Footer Background Color', 'easy_wordpress_docs'),
 			'section'    => 'custom_colors',
 			'settings'   => 'footer_background_color',
-			'priority'=>30
+			'priority'   => 30
 		) ) 
 	);
 	$wp_customize->add_setting(
@@ -165,10 +165,10 @@ function _s_customize_register( $wp_customize ) {
 		$wp_customize, 
 		'footer_text_color', 
 		array(
-			'label'      => __( 'Footer Text Color', 'easyDocs' ),
+			'label'      => __('Footer Text Color', 'easy_wordpress_docs'),
 			'section'    => 'custom_colors',
 			'settings'   => 'footer_text_color',
-			'priority'=>40
+			'priority'   => 40
 		) ) 
 	);
 	
@@ -176,22 +176,22 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'search_info',
 		array(
-		  'title' => 'Search Info',
-		  'description' => 'Customization for the Search Header and Text. Note that not all settings may be available for all skins.',
+		  'title' => __('Search Info', 'easy_wordpress_docs'),
+		  'description' => __('Customization for the Search Header and Text. Note that not all settings may be available for all skins.', 'easy_wordpress_docs'),
 		  'priority' => 40,
 		)
 	);
 	$wp_customize->add_setting(
 		'search_placeholder',
 		array(
-		  'default' => 'Have a question? Ask or enter a search term.',
+		  'default' => __('Have a question? Ask or enter a search term.', 'easy_wordpress_docs'),
 		)
 	);
 	$wp_customize->add_control(
 		'search_placeholder',
 		array(
-			'label'=>__( 'Search Placeholder' ),
-			'description'=>__( 'Set the placeholder for the search bar.' ),
+			'label'=>__('Search Placeholder', 'easy_wordpress_docs'),
+			'description'=>__('Set the placeholder for the search bar.', 'easy_wordpress_docs'),
 			'section'=>'search_info',
 			'type'=>'text',
 			'priority'=>10
@@ -200,14 +200,14 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'search_header',
 		array(
-		  'default' => 'How can we help?',
+		  'default' => __('How can we help?', 'easy_wordpress_docs'),
 		)
 	);
 	$wp_customize->add_control(
 		'search_header',
 		array(
-			'label'=>__( 'Search Header' ),
-			'description'=>__( 'Set the Title for the Search Header on the main page.' ),
+			'label'=>__('Search Header', 'easy_wordpress_docs'),
+			'description'=>__('Set the Title for the Search Header on the main page.', 'easy_wordpress_docs'),
 			'section'=>'search_info',
 			'type'=>'text',
 			'priority'=>20
@@ -221,8 +221,8 @@ function _s_customize_register( $wp_customize ) {
 	);
 	$wp_customize->add_control(
 		new Example_Customize_Textarea_Control( $wp_customize, 'search_header_text', array(
-		    'label'   => 'Search Header Text',
-		    'description' => 'Set the description text for the search header on the main page.',
+		    'label'   => __('Search Header Text', 'easy_wordpress_docs'),
+		    'description' => __('Set the description text for the search header on the main page.', 'easy_wordpress_docs'),
 		    'section' => 'search_info',
 		    'settings'   => 'search_header_text',
 			'priority'=>30
@@ -234,22 +234,22 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'toc_info',
 		array(
-		  'title' => 'TOC Info',
-		  'description' => 'Customization for the Table of Contents. Note that not all settings may be available for all skins.',
+		  'title' => __('TOC Info', 'easy_wordpress_docs'),
+		  'description' => __('Customization for the Table of Contents. Note that not all settings may be available for all skins.', 'easy_wordpress_docs'),
 		  'priority' => 50,
 		)
 	);
 	$wp_customize->add_setting(
 		'toc_title',
 		array(
-		  'default' => 'TOC',
+		  'default' => __('TOC', 'easy_wordpress_docs'),
 		)
 	);
 	$wp_customize->add_control(
 		'toc_title',
 		array(
-			'label'=>__( 'Title' ),
-			'description'=>__( 'Set the Title for the TOC' ),
+			'label'=>__('Title', 'easy_wordpress_docs'),
+			'description'=>__('Set the Title for the TOC', 'easy_wordpress_docs'),
 			'section'=>'toc_info',
 			'type'=>'text',
 			'priority'=>10
@@ -264,8 +264,8 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'child_pages_title',
 		array(
-			'label'=>__( 'Child Pages Title' ),
-			'description'=>__( 'Set the Title for the child pages listed within the content' ),
+			'label'=>__( 'Child Pages Title' , 'easy_wordpress_docs'),
+			'description'=>__( 'Set the Title for the child pages listed within the content' , 'easy_wordpress_docs'),
 			'section'=>'toc_info',
 			'type'=>'text'
 		)
@@ -276,20 +276,20 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'footer_info',
 		array(
-		  'title' => 'Footer Info',
-		  'description' => 'Set the content for your footer. Note that not all settings may be available for all skins.',
+		  'title' => __('Footer Info', 'easy_wordpress_docs'),
+		  'description' => __('Set the content for your footer. Note that not all settings may be available for all skins.', 'easy_wordpress_docs'),
 		  'priority' => 60,
 		)
 	);
 	$wp_customize->add_setting(
 		'footer_html',
 		array(
-		  'default' => 'Copyright 2016',
+		  'default' => __('Copyright 2016', 'easy_wordpress_docs'),
 		)
 	);
 	$wp_customize->add_control(
 		new Example_Customize_Textarea_Control( $wp_customize, 'textarea_setting', array(
-		    'label'   => 'Contact Info',
+		    'label'   => __('Contact Info', 'easy_wordpress_docs'),
 		    'section' => 'footer_info',
 		    'settings'   => 'footer_html',
 			'priority'=>10
@@ -306,8 +306,8 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'facebook_link',
 		array(
-			'label'=>__( 'Facebook' ),
-			'description'=>__( 'Set the URL to navigate to when the user clicks on the Facebook icon (if shown)' ),
+			'label'=>__('Facebook', 'easy_wordpress_docs'),
+			'description'=>__('Set the URL to navigate to when the user clicks on the Facebook icon (if shown)', 'easy_wordpress_docs'),
 			'section'=>'footer_info',
 			'type'=>'text',
 			'priority'=>20
@@ -319,7 +319,7 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'facebook_enabled',
 		array(
-			'label'=>__( 'Display link to Facebook?' ),
+			'label'=>__('Display link to Facebook?', 'easy_wordpress_docs'),
 			'section'=>'footer_info',
 			'type'=>'checkbox',
 			'priority'=>25
@@ -335,8 +335,8 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'twitter_link',
 		array(
-			'label'=>__( 'Twitter' ),
-			'description'=>__( 'Set the URL to navigate to when the user clicks on the Twitter icon (if shown)' ),
+			'label'=>__('Twitter', 'easy_wordpress_docs'),
+			'description'=>__('Set the URL to navigate to when the user clicks on the Twitter icon (if shown)', 'easy_wordpress_docs'),
 			'section'=>'footer_info',
 			'type'=>'text',
 			'priority'=>30
@@ -348,7 +348,7 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'twitter_enabled',
 		array(
-			'label'=>__( 'Display link to Twitter?' ),
+			'label'=>__('Display link to Twitter?', 'easy_wordpress_docs'),
 			'section'=>'footer_info',
 			'type'=>'checkbox',
 			'priority'=>35
@@ -364,8 +364,8 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'google_link',
 		array(
-			'label'=>__( 'Google+' ),
-			'description'=>__( 'Set the URL to navigate to when the user clicks on the Google+ icon (if shown)' ),
+			'label'=>__('Google+', 'easy_wordpress_docs'),
+			'description'=>__('Set the URL to navigate to when the user clicks on the Google+ icon (if shown)', 'easy_wordpress_docs'),
 			'section'=>'footer_info',
 			'type'=>'text',
 			'priority'=>40
@@ -377,7 +377,7 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'google_enabled',
 		array(
-			'label'=>__( 'Display link to Google+?' ),
+			'label'=>__('Display link to Google+?', 'easy_wordpress_docs'),
 			'section'=>'footer_info',
 			'type'=>'checkbox',
 			'priority'=>45
@@ -393,8 +393,8 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'linkedin_link',
 		array(
-			'label'=>__( 'LinkedIn' ),
-			'description'=>__( 'Set the URL to navigate to when the user clicks on the LinkedIn icon (if shown)' ),
+			'label'=>__('LinkedIn', 'easy_wordpress_docs'),
+			'description'=>__('Set the URL to navigate to when the user clicks on the LinkedIn icon (if shown)', 'easy_wordpress_docs'),
 			'section'=>'footer_info',
 			'type'=>'text',
 			'priority'=>50
@@ -406,7 +406,7 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'linkedin_enabled',
 		array(
-			'label'=>__( 'Display link to LinkedIn?' ),
+			'label'=>__('Display link to LinkedIn?', 'easy_wordpress_docs', 'easy_wordpress_docs'),
 			'section'=>'footer_info',
 			'type'=>'checkbox',
 			'priority'=>55
@@ -417,22 +417,22 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'404_page',
 		array(
-		  'title' => '404 Page Text',
-		  'description' => 'Customization for the text shown on the 404 error page not found page.',
+		  'title' => __('404 Page Text', 'easy_wordpress_docs'),
+		  'description' => __('Customization for the text shown on the 404 error page not found page.', 'easy_wordpress_docs'),
 		  'priority' => 70,
 		)
 	);
 	$wp_customize->add_setting(
 		'404_header',
 		array(
-		  'default' => "Oops! That page can't be found.",
+		  'default' => __("Oops! That page can't be found.", 'easy_wordpress_docs'),
 		)
 	);
 	$wp_customize->add_control(
 		'404_header',
 		array(
-			'label'=>__( 'Header Text' ),
-			'description'=>__( 'Set the text for the header of the 404 page.' ),
+			'label'=>__('Header Text', 'easy_wordpress_docs'),
+			'description'=>__('Set the text for the header of the 404 page.', 'easy_wordpress_docs'),
 			'section'=>'404_page',
 			'type'=>'text',
 			'priority'=>10
@@ -441,13 +441,13 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'404_text',
 		array(
-		  'default' => "It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.",
+		  'default' => __("It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.", 'easy_wordpress_docs'),
 		)
 	);
 	$wp_customize->add_control(
 		new Example_Customize_Textarea_Control( $wp_customize, '404_text', array(
-		    'label'   => __( 'Body Text' ),
-		    'description' => __( 'Set the text for the body of the 404 page.' ),
+		    'label'   => __('Body Text', 'easy_wordpress_docs'),
+		    'description' => __('Set the text for the body of the 404 page.', 'easy_wordpress_docs'),
 		    'section' => '404_page',
 		    'settings'   => '404_text',
 			'priority'=>20
@@ -455,15 +455,15 @@ function _s_customize_register( $wp_customize ) {
 		)
 	);
 }
-add_action( 'customize_register', '_s_customize_register' );
+add_action( 'customize_register', 'easy_wordpress_docs_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function _s_customize_preview_js() {
-	wp_enqueue_script( '_s_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+function easy_wordpress_docs_customize_preview_js() {
+	wp_enqueue_script( 'easy_wordpress_docs_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
 }
-add_action( 'customize_preview_init', '_s_customize_preview_js' );
+add_action( 'customize_preview_init', 'easy_wordpress_docs_customize_preview_js' );
 
 /**
  * Generates live CSS

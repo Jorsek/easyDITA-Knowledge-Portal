@@ -35,7 +35,7 @@ $args = array(
 $the_query = new WP_Query( $args );
 ?>
 
-<div class="header-title"><?php echo get_theme_mod( 'browse_title', 'Browse Help Content' ); ?></div>
+<div class="header-title"><?php echo get_theme_mod( 'browse_title', __('Browse Help Content','easy_wordpress_docs') ); ?></div>
 
 <div class="thumbnail-links">
   <?php // The Loop
@@ -66,7 +66,7 @@ $the_query = new WP_Query( $args );
   
   <?php
   } else { ?>
-	<div class="no-pages">No Pages Here...</div>
+	<div class="no-pages"><?php __('No Pages Here...','easy_wordpress_docs'); ?></div>
   
   <?php
   } ?>

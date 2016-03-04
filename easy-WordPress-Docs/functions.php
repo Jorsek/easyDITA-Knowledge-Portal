@@ -215,10 +215,10 @@ if (!function_exists('easy_wordpress_docs_get_404_content')) {
 	function easy_wordpress_docs_get_404_content() {
 		?>
 		<div class="home-search">
-			<div class="header"><?php echo get_theme_mod( '404_header', 'Oops! That page can&rsquo;t be found.' ); ?></div>
-		    <div class="text"><?php echo get_theme_mod( '404_text', 'It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.'); ?></div>
+			<div class="header"><?php echo get_theme_mod( '404_header', __('Oops! That page can&rsquo;t be found.', 'easy_wordpress_docs') ); ?></div>
+		    <div class="text"><?php echo get_theme_mod( '404_text', __('It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.', 'easy_wordpress_docs')); ?></div>
 		    <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
-	          <input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo get_theme_mod( 'search_placeholder', 'Have a question? Ask or enter a search term.' ); ?>" />
+	          <input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo get_theme_mod( 'search_placeholder', __('Have a question? Ask or enter a search term.', 'easy_wordpress_docs') ); ?>" />
 	  		  <button type="submit" class="submit" name="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
 	          </form>
 		</div>
@@ -295,11 +295,6 @@ require get_template_directory() . '/inc/custom-header.php';
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/inc/extras.php';
 
 /**
  * Customizer additions.

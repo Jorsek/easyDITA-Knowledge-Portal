@@ -1,0 +1,328 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: easy WordPress Docs\n"
+"POT-Creation-Date: 2016-03-04 11:04-0500\n"
+"PO-Revision-Date: 2016-03-04 11:05-0500\n"
+"Last-Translator: \n"
+"Language-Team: Jorsek LLC <support@easydita.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: comments.php:66
+msgid "Edit this comment"
+msgstr ""
+
+#: comments.php:69
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: comments.php:152
+msgid "Name"
+msgstr ""
+
+#: comments.php:158
+msgid "Email"
+msgstr ""
+
+#: comments.php:170
+#, php-format
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>."
+msgstr ""
+
+#: comments.php:170
+#, php-format
+msgid "<a href=\"%3$s\" title=\"Log out of this account\">Log out?</a>"
+msgstr ""
+
+#: comments.php:171
+msgid "Leave a Comment"
+msgstr ""
+
+#: comments.php:172
+#, php-format
+msgid "Reply to %s"
+msgstr ""
+
+#: functions.php:218
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: functions.php:219 inc/customizer.php:444
+msgid ""
+"It looks like nothing was found at this location. Maybe try a search or one "
+"of the popular pages below? Or you can always escape back to the home page "
+"by clicking the logo in the top left."
+msgstr ""
+
+#: functions.php:221 inc/customizer.php:187 template-parts/searchbar.php:9
+#: template-parts/searchbar.php:18
+msgid "Have a question? Ask or enter a search term."
+msgstr ""
+
+#: inc/customizer.php:47
+msgid "Skin Selection"
+msgstr ""
+
+#: inc/customizer.php:48
+msgid ""
+"Select a different skin to style your site. After changing the skin, please "
+"click the Save & Publish button then reload the page to make sure you get "
+"the correct options within the customizer."
+msgstr ""
+
+#: inc/customizer.php:61
+msgid "Available Skins"
+msgstr ""
+
+#: inc/customizer.php:75
+msgid "Home Page"
+msgstr ""
+
+#: inc/customizer.php:76
+msgid ""
+"Customize the home page. Note that not all settings may be available for all "
+"skins."
+msgstr ""
+
+#: inc/customizer.php:83 index.php:38
+msgid "Browse Help Content"
+msgstr ""
+
+#: inc/customizer.php:89
+msgid "Browse Content Title"
+msgstr ""
+
+#: inc/customizer.php:90
+msgid "Set the title for your content."
+msgstr ""
+
+#: inc/customizer.php:101
+msgid "Colors"
+msgstr ""
+
+#: inc/customizer.php:102
+msgid ""
+"Set the colors of the theme. Note that not all settings may be available for "
+"all skins."
+msgstr ""
+
+#: inc/customizer.php:117
+msgid "Main Accent Color"
+msgstr ""
+
+#: inc/customizer.php:134
+msgid "Search Header Text Color"
+msgstr ""
+
+#: inc/customizer.php:151
+msgid "Footer Background Color"
+msgstr ""
+
+#: inc/customizer.php:168
+msgid "Footer Text Color"
+msgstr ""
+
+#: inc/customizer.php:179
+msgid "Search Info"
+msgstr ""
+
+#: inc/customizer.php:180
+msgid ""
+"Customization for the Search Header and Text. Note that not all settings may "
+"be available for all skins."
+msgstr ""
+
+#: inc/customizer.php:193
+msgid "Search Placeholder"
+msgstr ""
+
+#: inc/customizer.php:194
+msgid "Set the placeholder for the search bar."
+msgstr ""
+
+#: inc/customizer.php:203 template-parts/searchbar.php:4
+msgid "How can we help?"
+msgstr ""
+
+#: inc/customizer.php:209
+msgid "Search Header"
+msgstr ""
+
+#: inc/customizer.php:210
+msgid "Set the Title for the Search Header on the main page."
+msgstr ""
+
+#: inc/customizer.php:224
+msgid "Search Header Text"
+msgstr ""
+
+#: inc/customizer.php:225
+msgid "Set the description text for the search header on the main page."
+msgstr ""
+
+#: inc/customizer.php:237
+msgid "TOC Info"
+msgstr ""
+
+#: inc/customizer.php:238
+msgid ""
+"Customization for the Table of Contents. Note that not all settings may be "
+"available for all skins."
+msgstr ""
+
+#: inc/customizer.php:245 template-parts/toc.php:112
+msgid "TOC"
+msgstr ""
+
+#: inc/customizer.php:251
+msgid "Title"
+msgstr ""
+
+#: inc/customizer.php:252
+msgid "Set the Title for the TOC"
+msgstr ""
+
+#: inc/customizer.php:279
+msgid "Footer Info"
+msgstr ""
+
+#: inc/customizer.php:280
+msgid ""
+"Set the content for your footer. Note that not all settings may be available "
+"for all skins."
+msgstr ""
+
+#: inc/customizer.php:287
+msgid "Copyright 2016"
+msgstr ""
+
+#: inc/customizer.php:292
+msgid "Contact Info"
+msgstr ""
+
+#: inc/customizer.php:309
+msgid "Facebook"
+msgstr ""
+
+#: inc/customizer.php:310
+msgid ""
+"Set the URL to navigate to when the user clicks on the Facebook icon (if "
+"shown)"
+msgstr ""
+
+#: inc/customizer.php:322
+msgid "Display link to Facebook?"
+msgstr ""
+
+#: inc/customizer.php:338
+msgid "Twitter"
+msgstr ""
+
+#: inc/customizer.php:339
+msgid ""
+"Set the URL to navigate to when the user clicks on the Twitter icon (if "
+"shown)"
+msgstr ""
+
+#: inc/customizer.php:351
+msgid "Display link to Twitter?"
+msgstr ""
+
+#: inc/customizer.php:367
+msgid "Google+"
+msgstr ""
+
+#: inc/customizer.php:368
+msgid ""
+"Set the URL to navigate to when the user clicks on the Google+ icon (if "
+"shown)"
+msgstr ""
+
+#: inc/customizer.php:380
+msgid "Display link to Google+?"
+msgstr ""
+
+#: inc/customizer.php:396
+msgid "LinkedIn"
+msgstr ""
+
+#: inc/customizer.php:397
+msgid ""
+"Set the URL to navigate to when the user clicks on the LinkedIn icon (if "
+"shown)"
+msgstr ""
+
+#: inc/customizer.php:409
+msgid "Display link to LinkedIn?"
+msgstr ""
+
+#: inc/customizer.php:420
+msgid "404 Page Text"
+msgstr ""
+
+#: inc/customizer.php:421
+msgid "Customization for the text shown on the 404 error page not found page."
+msgstr ""
+
+#: inc/customizer.php:428
+msgid "Oops! That page can't be found."
+msgstr ""
+
+#: inc/customizer.php:434
+msgid "Header Text"
+msgstr ""
+
+#: inc/customizer.php:435
+msgid "Set the text for the header of the 404 page."
+msgstr ""
+
+#: inc/customizer.php:449
+msgid "Body Text"
+msgstr ""
+
+#: inc/customizer.php:450
+msgid "Set the text for the body of the 404 page."
+msgstr ""
+
+#: index.php:69
+msgid "No Pages Here..."
+msgstr ""
+
+#: search.php:16 template-parts/breadcrumbs.php:37
+msgid "Search Results"
+msgstr ""
+
+#: skins/skin1/skin1.php:29
+msgid "Secondary Accent Color"
+msgstr ""
+
+#: skins/skin1/skin1.php:51
+msgid "Background Image"
+msgstr ""
+
+#: template-parts/breadcrumbs.php:24 template-parts/breadcrumbs.php:37
+msgid "Home"
+msgstr ""
+
+#: template-parts/content-none.php:20
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content.php:27
+#, php-format
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: template-parts/searchbar.php:10 template-parts/searchbar.php:21
+#: template-parts/searchbar.php:23
+msgid "Search"
+msgstr ""

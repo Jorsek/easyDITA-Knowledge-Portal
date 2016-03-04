@@ -21,7 +21,7 @@ function get_breadcrumb() {
 	}
 
 	/** Add home **/
-	$trail = '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home">Home</a> &gt; ' . $trail;
+	$trail = '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home">' . __('Home', 'easy_wordpress_docs') . '</a> &gt; ' . $trail;
 
 	$trail .= $page_title;
 	$trail .= '';
@@ -34,7 +34,7 @@ function get_breadcrumb() {
 
 <?php if (is_search()) : ?>
 
-	<div class="breadcrumbs"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Home</a> &gt; Search Results</div>
+	<div class="breadcrumbs"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php _e('Home', 'easy_wordpress_docs'); ?></a> &gt; <?php _e('Search Results', 'easy_wordpress_docs'); ?></div>
 
 <?php elseif (!is_front_page()) : ?>
 
