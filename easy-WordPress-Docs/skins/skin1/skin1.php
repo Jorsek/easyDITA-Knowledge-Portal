@@ -18,7 +18,8 @@ function skin1_customizer( $wp_customize) {
 	$wp_customize->add_setting(
 		'secondary_color',
 		array(
-			'default' => "#1A578E"
+			'default' => "#1A578E",
+			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
 	$wp_customize->add_control( 
@@ -43,7 +44,10 @@ function skin1_customizer( $wp_customize) {
 		)
 	);
 	$wp_customize->add_setting(
-		'bg_image'
+		'bg_image',
+		array(
+			'sanitize_callback' => 'sanitize_text_field'
+		)
 	);
 	$wp_customize->add_control( 
 		new WP_Customize_Upload_Control( $wp_customize, 'bg_image', 
