@@ -249,16 +249,20 @@ add_action('wp_head','easy_wordpress_docs_insert_ga_info');
 **/
 if (!function_exists('easy_wordpress_docs_get_all_skins')) {
 	function easy_wordpress_docs_get_all_skins() {
-		$root_url = dirname(__FILE__)."/skins/";
+		$root_url = get_template_directory_uri()."/skins/";
+		$root_folder = dirname(__FILE__)."/skins/";
 		$skins = array(
 			"default" => "Default"
 		);
-		if (!file_exists($root_url)) {
+		if (!file_exists($root_folder)) {
 			return $skins;
 		}
-		$skin_files = scandir($root_url);
+		$skin_files = scandir($root_folder);
 		foreach ($skin_files as $i => $file) {
-			$contents = file_get_contents($root_url.$file);
+			if (strlen($file) < 4 || substr($file,strlen($file)-4) != '.css') {
+				continue;
+			}
+			$contents = wp_remote_get($root_url.$file)['body'];
 			$title = preg_match("/\/\*\n\s*Skin Name:\s*(.*?)(\n|Author:)/",$contents,$matches);
 			$version = preg_match("/\/\*(\n|.)*?Version:\s*(.*?)(\n)/",$contents,$version_matches);
 			if ($title != "") {

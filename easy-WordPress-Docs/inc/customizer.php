@@ -52,7 +52,8 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'skin',
 		array(
-			'default' => "default"
+			'default' => "default",
+			'sanitize_callback' => 'sanitize_text_field'
 		)
 	);
 	$wp_customize->add_control(
@@ -80,7 +81,8 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'browse_title',
 		array(
-			'default' => __("Browse Help Content", 'easy_wordpress_docs')
+			'default' => __("Browse Help Content", 'easy_wordpress_docs'),
+			'sanitize_callback' => 'sanitize_text_field'
 		)
 	);
 	$wp_customize->add_control(
@@ -106,7 +108,8 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'main_color',
 		array(
-			'default' => "#20a332"
+			'default' => "#20a332",
+			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
 	$wp_customize->add_control( 
@@ -123,7 +126,8 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'search_header_text_color',
 		array(
-			'default' => "#ffffff"
+			'default' => "#ffffff",
+			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
 	$wp_customize->add_control( 
@@ -140,7 +144,8 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'footer_background_color',
 		array(
-			'default' => "#000000"
+			'default' => "#000000",
+			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
 	$wp_customize->add_control( 
@@ -157,7 +162,8 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'footer_text_color',
 		array(
-			'default' => "#808080"
+			'default' => "#808080",
+			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
 	$wp_customize->add_control( 
@@ -185,6 +191,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		'search_placeholder',
 		array(
 		  'default' => __('Have a question? Ask or enter a search term.', 'easy_wordpress_docs'),
+		  'sanitize_callback' => 'sanitize_text_field'
 		)
 	);
 	$wp_customize->add_control(
@@ -201,6 +208,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		'search_header',
 		array(
 		  'default' => __('How can we help?', 'easy_wordpress_docs'),
+		  'sanitize_callback' => 'sanitize_text_field'
 		)
 	);
 	$wp_customize->add_control(
@@ -217,6 +225,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		'search_header_text',
 		array(
 		  'default' => '',
+		  'sanitize_callback' => 'sanitize_text_field'
 		)
 	);
 	$wp_customize->add_control(
@@ -243,6 +252,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		'toc_title',
 		array(
 		  'default' => __('TOC', 'easy_wordpress_docs'),
+		  'sanitize_callback' => 'sanitize_text_field'
 		)
 	);
 	$wp_customize->add_control(
@@ -259,6 +269,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		'child_pages_title',
 		array(
 		  'default' => 'Child Pages',
+		  'sanitize_callback' => 'sanitize_text_field'
 		)
 	);
 	$wp_customize->add_control(
@@ -285,6 +296,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		'footer_html',
 		array(
 		  'default' => __('Copyright 2016', 'easy_wordpress_docs'),
+		  'sanitize_callback' => 'strip_tags'
 		)
 	);
 	$wp_customize->add_control(
@@ -301,6 +313,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		'facebook_link',
 		array(
 		  'default' => '#',
+		  'sanitize_callback' => 'esc_url'
 		)
 	);
 	$wp_customize->add_control(
@@ -314,7 +327,11 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_setting(
-		'facebook_enabled'
+		'facebook_enabled',
+		array(
+			'default' => 1,
+			'sanitize_callback' => 'easy_wordpress_docs_is_boolean'
+		)
 	);
 	$wp_customize->add_control(
 		'facebook_enabled',
@@ -330,6 +347,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		'twitter_link',
 		array(
 		  'default' => '#',
+		  'sanitize_callback' => 'esc_url'
 		)
 	);
 	$wp_customize->add_control(
@@ -359,6 +377,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		'google_link',
 		array(
 		  'default' => '#',
+		  'sanitize_callback' => 'esc_url'
 		)
 	);
 	$wp_customize->add_control(
@@ -388,6 +407,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		'linkedin_link',
 		array(
 		  'default' => '#',
+		  'sanitize_callback' => 'esc_url'
 		)
 	);
 	$wp_customize->add_control(
@@ -406,7 +426,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'linkedin_enabled',
 		array(
-			'label'=>__('Display link to LinkedIn?', 'easy_wordpress_docs', 'easy_wordpress_docs'),
+			'label'=>__('Display link to LinkedIn?', 'easy_wordpress_docs'),
 			'section'=>'footer_info',
 			'type'=>'checkbox',
 			'priority'=>55
@@ -426,6 +446,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		'404_header',
 		array(
 		  'default' => __("Oops! That page can't be found.", 'easy_wordpress_docs'),
+		  'sanitize_callback' => 'sanitize_text_field'
 		)
 	);
 	$wp_customize->add_control(
@@ -442,6 +463,7 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		'404_text',
 		array(
 		  'default' => __("It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.", 'easy_wordpress_docs'),
+		  'sanitize_callback' => 'sanitize_text_field'
 		)
 	);
 	$wp_customize->add_control(
@@ -450,12 +472,23 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		    'description' => __('Set the text for the body of the 404 page.', 'easy_wordpress_docs'),
 		    'section' => '404_page',
 		    'settings'   => '404_text',
-			'priority'=>20
+			'priority' => 20
 			)
 		)
 	);
 }
 add_action( 'customize_register', 'easy_wordpress_docs_customize_register' );
+
+/*
+ * Sanitization functions
+ */
+function easy_wordpress_docs_is_boolean($value) {
+	if ($value === 0) {
+		return 0;
+	} else {
+		return 1;
+	}
+}
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.

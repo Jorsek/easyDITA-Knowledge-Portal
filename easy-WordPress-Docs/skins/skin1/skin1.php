@@ -26,7 +26,7 @@ function skin1_customizer( $wp_customize) {
 		$wp_customize, 
 		'secondary_color', 
 		array(
-			'label'      => __( 'Secondary Accent Color' ),
+			'label'      => __( 'Secondary Accent Color' , 'easy_wordpress_docs'),
 			'section'    => 'custom_colors',
 			'settings'   => 'secondary_color',
 			'priority'   => 20
@@ -37,8 +37,8 @@ function skin1_customizer( $wp_customize) {
 	$wp_customize->add_section(
 		'header_bg',
 		array(
-		  'title' => 'Background Image',
-		  'description' => 'Set the background image or color for the search bar header and home page footer.',
+		  'title' => __('Background Image', 'easy_wordpress_docs'),
+		  'description' => __('Set the background image or color for the search bar header and home page footer.', 'easy_wordpress_docs'),
 		  'priority' => 59,
 		)
 	);
@@ -48,7 +48,7 @@ function skin1_customizer( $wp_customize) {
 	$wp_customize->add_control( 
 		new WP_Customize_Upload_Control( $wp_customize, 'bg_image', 
 			array(
-				'label'      => __( 'Background Image' ),
+				'label'      => __('Background Image', 'easy_wordpress_docs'),
 				'section'    => 'header_bg',
 				'settings'   => 'bg_image',
 			)
@@ -116,8 +116,8 @@ add_action( 'wp_head', 'add_custom_css');
 
 function get_404_content() {
 	?>
-	<h2 class="header"><?php echo get_theme_mod( '404_header', 'Oops! That page can&rsquo;t be found.' ); ?></h2>
-    <div class="text"><?php echo get_theme_mod( '404_text', 'It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.'); ?></div>
+	<h2 class="header"><?php echo get_theme_mod( '404_header', __('Oops! That page can&rsquo;t be found.', 'easy_wordpress_docs') ); ?></h2>
+    <div class="text"><?php echo get_theme_mod( '404_text', __('It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.', 'easy_wordpress_docs')); ?></div>
 	<?php
 }
 

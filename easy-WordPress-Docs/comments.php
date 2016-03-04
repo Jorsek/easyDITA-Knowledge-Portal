@@ -167,7 +167,7 @@ class Comment_Walker extends Walker {
 	comment_form(array(
 			'fields' => apply_filters('comment_form_default_fields', $fields),
 			'comment_field' => '<div class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="3" aria-required="true" placeholder="Comment . . ."></textarea></div>',
-			'logged_in_as' => '<div class="logged-in-as"><div class="user">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>.' ), admin_url( 'profile.php' ), $user_identity) . '</div><div class="log-out">' . sprintf( __( '<a href="%3$s" title="Log out of this account">Log out?</a>' ), wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</div></div>',
+			'logged_in_as' => '<div class="logged-in-as"><div class="user">' . sprintf( __('Logged in as <a href="%1$s">%2$s</a>.', 'easy_wordpress_docs'), admin_url( 'profile.php' ), $user_identity) . '</div><div class="log-out">' . sprintf( __('<a href="%3$s" title="Log out of this account">Log out?</a>', 'easy_wordpress_docs'), wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</div></div>',
 			'title_reply' => __('Leave a Comment', 'easy_wordpress_docs'),
 			'title_reply_to' => __('Reply to %s', 'easy_wordpress_docs')
 		));
