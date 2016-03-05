@@ -221,6 +221,7 @@ if (!function_exists('easydocs_get_404_content')) {
 	          <input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo get_theme_mod( 'search_placeholder', __('Have a question? Ask or enter a search term.', 'easydocs') ); ?>" />
 	  		  <button type="submit" class="submit" name="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
 	          </form>
+	          <style type="text/css">.small-search {display: none;}</style>
 		</div>
 		<?php
 	}

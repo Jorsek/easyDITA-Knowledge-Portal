@@ -13,7 +13,7 @@
 
 	<footer id="colophon" class="site-footer <?php if (is_front_page()) { echo "home"; } else { echo "small"; } ?>" role="contentinfo">
 		<div class="user-text">
-	  		<?php echo preg_replace("/^(.*?)<br\/>/",'<span class="title">$1</span><br/>',preg_replace("/\s*\n\s*/","<br/>",get_theme_mod( 'footer_html', 'Copyright 2015' ))) ?>
+	  		<?php echo preg_replace("/^(.*?)<br\/>/",'<span class="title">$1</span><br/>',preg_replace("/\s*\n\s*/","<br/>",get_theme_mod( 'footer_html', 'Copyright 2016' ))) ?>
   		</div>
   		<div class="social">
   			<div class="title">Social</div>

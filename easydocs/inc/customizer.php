@@ -296,7 +296,7 @@ function easydocs_customize_register( $wp_customize ) {
 		'footer_html',
 		array(
 		  'default' => __('Copyright 2016', 'easydocs'),
-		  'sanitize_callback' => 'strip_tags'
+		  'sanitize_callback' => 'wp_kses_data'
 		)
 	);
 	$wp_customize->add_control(
