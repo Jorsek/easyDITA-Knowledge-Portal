@@ -361,7 +361,12 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_setting(
-		'twitter_enabled'
+		'twitter_enabled',
+		array(
+			'default' => 1,
+			'sanitize_callback' => 'easy_wordpress_docs_is_boolean'
+		)
+		
 	);
 	$wp_customize->add_control(
 		'twitter_enabled',
@@ -391,7 +396,11 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_setting(
-		'google_enabled'
+		'google_enabled',
+		array(
+			'default' => 1,
+			'sanitize_callback' => 'easy_wordpress_docs_is_boolean'
+		)
 	);
 	$wp_customize->add_control(
 		'google_enabled',
@@ -421,7 +430,11 @@ function easy_wordpress_docs_customize_register( $wp_customize ) {
 		)
 	);
 	$wp_customize->add_setting(
-		'linkedin_enabled'
+		'linkedin_enabled',
+		array(
+			'default' => 1,
+			'sanitize_callback' => 'easy_wordpress_docs_is_boolean'
+		)
 	);
 	$wp_customize->add_control(
 		'linkedin_enabled',
