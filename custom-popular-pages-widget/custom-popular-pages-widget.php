@@ -168,12 +168,13 @@ class popular_pages_widget extends WP_Widget {
 	  )
 	);
 	$popularpost = new WP_Query( $query_args );
+	echo '<ul>';
 	while ( $popularpost->have_posts() ) { 
 	  $popularpost->the_post();
 	  
 	  if (check_parents_for_metadata($instance['meta_key'],$instance['meta_value'])) {
 		  ?>
-		  <a class="popular-link" href="<?php echo custom_get_the_link(); ?>"><?php the_title(); ?></a>
+		  <li><a class="popular-link" href="<?php echo custom_get_the_link(); ?>"><?php the_title(); ?></a></li>
 		  <?php
 		  $link_count += 1;
 		  if ($link_count >= $instance['number_to_show']) {
@@ -181,6 +182,7 @@ class popular_pages_widget extends WP_Widget {
 		  }
 	  }
 	}
+	echo '</ul>';
 	echo $args['after_widget'];
   }
 		  

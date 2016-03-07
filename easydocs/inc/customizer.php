@@ -518,7 +518,6 @@ function build_customize_css()
 {
     ?>
          <style type="text/css">
-             .widget-container .widget-title,
              .child-page-entry .entry-header a,
              #masthead > div[class*="menu-"] ul.menu li a:hover,
              .site-footer .social i,

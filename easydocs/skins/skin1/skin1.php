@@ -76,6 +76,7 @@ function add_custom_css()
              	background-color:<?php echo get_theme_mod('main_color', '#20a332'); ?> !important;
              }
              
+             .widget-container .widget-title,
              .entry-content .root-title {
              	color:<?php echo get_theme_mod('main_color', '#20a332'); ?> !important;
              }
