@@ -46,6 +46,7 @@ function get_toc($post_id,$hierarchy,$is_tutorial,$ul_is_parent = true) {
 	);
     $query_two = new WP_Query($args_two);
   	if ( $query_two->have_posts() ) {
+  	ob_start();
   	?>
   	<div style="overflow:hidden;" class="<?php echo $ul_is_parent ? 'open' : 'closed' ?>">
   	<ul class="toc-list">
@@ -101,6 +102,7 @@ function get_toc($post_id,$hierarchy,$is_tutorial,$ul_is_parent = true) {
 		}
 	?></ul>
 	</div><?php
+	return ob_get_clean();
 	}
 }
 
