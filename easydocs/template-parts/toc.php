@@ -114,9 +114,17 @@ function get_toc($post_id,$hierarchy,$is_tutorial,$ul_is_parent = true) {
 	<?php
 	$hierarchy = easydocs_get_hierarchy();
 	$page_type = get_post_meta($hierarchy[0],'page_type',true);
-	get_toc($hierarchy[0],$hierarchy,$page_type == 'tutorial');
-	/* Restore original Post Data */
-	wp_reset_postdata();
+	
+	// Check the cache
+	$key = $hierarchy[0] . md5(serialize($hierarchy)) . $page_type;
+	if (false === ($toc_html = get_transient($key))) {
+		// Not cached, so need to get it
+		$toc_html = get_toc($hierarchy[0],$hierarchy,$page_type == 'tutorial');
+		// Store for a day
+		set_transient($key,$toc_html,DAY_IN_SECONDS);
+		wp_reset_postdata();
+	}
+	echo $toc_html;
 	?>
 	
 	<script type="text/javascript">
