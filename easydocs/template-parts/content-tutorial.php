@@ -44,8 +44,10 @@
 				ids.push(subsections[i].id);
 			}
 			
-			jQuery(window).scroll(function(){ // scroll event  
+			handleScroll();
+			jQuery(window).scroll(handleScroll);
 			
+			function handleScroll() {
 				// Set the hash appropriately when scrolling
 				var cScrollTop = jQuery(window).scrollTop();
 				for (var i=0; i < locations.length; i++) {
@@ -55,10 +57,14 @@
 					} else if (cScrollTop < locations[i] && cScrollTop > locations[i-1]) {
 						history.replaceState({},'',location.pathname+"#"+ids[i-1]);
 						// highlight the current step in the TOC
-						jQuery('#side-toc li.parent-item:has(a[href ^= "#"])').each(function(index) {
+						jQuery('#side-toc li.parent-item:has(a[href *= "#"])').each(function(index) {
 							jQuery(this).removeClass('parent-item');
 						});
-						jQuery('#side-toc li:has(a[href = "'+location.hash+'"])').addClass('parent-item');
+						var currentSection = jQuery('#side-toc li:has(a[href = "'+location.toString()+'"])');
+						if (currentSection.length == 0) {
+							currentSection = jQuery('#side-toc li:has(a[href $= "'+location.hash+'"])');
+						}
+						currentSection.addClass('parent-item');
 						break;
 					}
 				}
@@ -78,8 +84,7 @@
 				} else {
 					jQuery('.main-entry-wrapper .entry-content').css({width: 'initial',display: 'table-cell',left: '0'});
 				}
-			
-			});
+			}
 
 		});
 	</script>

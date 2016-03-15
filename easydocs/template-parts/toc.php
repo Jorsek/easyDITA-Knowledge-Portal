@@ -8,9 +8,9 @@
  *
  */
 
-function show_subsections_in_toc($subsections,$ul_is_parent = true) {
+function show_subsections_in_toc($page_id, $subsections) {
 	?>
-	<div style="overflow:hidden;" class="<?php echo $ul_is_parent ? 'open' : 'closed' ?>">
+	<div style="overflow:hidden;" page-id="<?php echo $page_id; ?>" class="closed">
 	  	<ul class="toc-list">
 	  	<?php 
 			for ($i = 0; $i < count($subsections); $i++) {
@@ -18,7 +18,7 @@ function show_subsections_in_toc($subsections,$ul_is_parent = true) {
 				preg_match('#(?<= id=")[^"]*#',$subsections[$i],$id);
 				$href = $ul_is_parent ? '#'.$id[0] : get_the_permalink().'#'.$id[0];
 				?>
-				<li class="toc-item<?php echo $is_parent ? ' parent-item' : '' ?>">
+				<li class="toc-item">
 					<a href="<?php echo $href; ?>"><?php echo $text; ?></a>
 				</li>
 				<?php
@@ -29,7 +29,7 @@ function show_subsections_in_toc($subsections,$ul_is_parent = true) {
 	<?php
 }
 
-function get_toc($post_id,$hierarchy,$is_tutorial,$ul_is_parent = true) {
+function get_toc($post_id,$is_tutorial) {
 /** 
  * This loop will show all the root maps, then when it
  * detects the root map that we're currently in (via the 
@@ -48,48 +48,31 @@ function get_toc($post_id,$hierarchy,$is_tutorial,$ul_is_parent = true) {
   	if ( $query_two->have_posts() ) {
   	ob_start();
   	?>
-  	<div style="overflow:hidden;" class="<?php echo $ul_is_parent ? 'open' : 'closed' ?>">
+  	<div style="overflow:hidden;" page-id="<?php echo $post_id; ?>" class="closed">
   	<ul class="toc-list">
   		<?php
 		while ( $query_two->have_posts() ) {
 		  $query_two->the_post();
-		  $is_parent = array_search(get_the_ID(),$hierarchy,false);
 		  ?>
-		  <li class="toc-item<?php echo $is_parent ? ' parent-item' : '' ?>">
+		  <li page-id="<?php echo get_the_ID(); ?>" class="toc-item">
 		  	<?php
 			$children = get_pages('child_of='.get_the_ID());
 			$subsections = easydocs_get_subsections();
 			echo "<div class='toc-head' onclick='openCloseSubtoc(this)'>";
 			if (count($children) != 0) {
-				if ($is_parent) {
-					echo '<i class="plusminus-icon minus"> </i>';
-				} else {
-					echo '<i class="plusminus-icon plus"> </i>';
-				}
+				echo '<i class="plusminus-icon plus"> </i>';
 				?>
 				<a href="<?php echo the_permalink(); ?>" onclick="event.stopPropagation();"><?php echo get_the_title(); ?></a>
 				</div>
 				<?php
-				if ($is_parent) {
-					echo get_toc(get_the_ID(),$hierarchy,$is_tutorial,true);
-				} else {
-					echo get_toc(get_the_ID(),$hierarchy,$is_tutorial,false);
-				}
+				echo get_toc(get_the_ID(),$is_tutorial);
 			} else if ($is_tutorial && count($subsections) != 0) {
-				if ($is_parent) {
-					echo '<i class="plusminus-icon minus"> </i>';
-				} else {
-					echo '<i class="plusminus-icon plus"> </i>';
-				}
+				echo '<i class="plusminus-icon plus"> </i>';
 				?>
 				<a href="<?php echo the_permalink(); ?>" onclick="event.stopPropagation();"><?php echo get_the_title(); ?></a>
 				</div>
 				<?php
-				if ($is_parent) {
-					echo show_subsections_in_toc($subsections,true);
-				} else {
-					echo show_subsections_in_toc($subsections,false);
-				}
+				echo show_subsections_in_toc(get_the_ID(), $subsections);
 			} else {
 				?>
 				<a href="<?php echo the_permalink(); ?>"><?php echo get_the_title(); ?></a>
@@ -118,12 +101,12 @@ function get_toc($post_id,$hierarchy,$is_tutorial,$ul_is_parent = true) {
 	$page_type = get_post_meta($hierarchy[0],'page_type',true);
 	
 	// Check the cache
-	$key = $hierarchy[0] . md5(serialize($hierarchy)) . $page_type;
+	$key = $hierarchy[0] . $page_type;
 	if (false === ($toc_html = get_transient($key))) {
 		// Not cached, so need to get it
-		$toc_html = get_toc($hierarchy[0],$hierarchy,$page_type == 'tutorial');
-		// Store for a day
-		set_transient($key,$toc_html,DAY_IN_SECONDS);
+		$toc_html = get_toc($hierarchy[0],$page_type == 'tutorial');
+		// Store for 3 days
+		set_transient($key, $toc_html, 3 * DAY_IN_SECONDS);
 		wp_reset_postdata();
 	}
 	echo $toc_html;
@@ -131,11 +114,22 @@ function get_toc($post_id,$hierarchy,$is_tutorial,$ul_is_parent = true) {
 	
 	<script type="text/javascript">
 		
+		var hierarchy = [<?php echo implode(",",$hierarchy); ?>]
+		
 		jQuery(document).ready(function() {
-			jQuery(".closed ul").each(function(index) {
+			jQuery(jQuery("li > .closed ul").get().reverse()).each(function(index) {
 				this.style.marginTop = "-"+this.clientHeight+"px";
 				this.style.display = "none";
 			});
+			
+			for (var i=hierarchy.length-1; i>=0; i--) {
+				jQuery("li[page-id = '"+hierarchy[i]+"']").addClass("parent-item");
+				var theDiv = jQuery("div[page-id = '"+hierarchy[i]+"']");
+				if (theDiv[0] != null) {
+					var theHead = theDiv[0].previousElementSibling;
+					openCloseSubtoc(theHead);
+				}
+			}
 		});
 		
 		function openCloseSubtoc(tocHead) {
