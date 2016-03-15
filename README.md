@@ -1,8 +1,8 @@
-# easy WordPress Docs
+# easyDITA Knowledge Portal
 
 This documentation theme was developed by Jorsek LLC for use with WordPress sites that contain content published from [easyDITA](http://www.easydita.com). It is best used for displaying documentation that includes User Guides, Tutorials, and FAQs.
 
-Our example site is located at [documentation.easydita.com](http://documentation.easydita.com).
+Our example site is located at documentation.easydita.com.
 
 ### Installation
 
@@ -11,27 +11,25 @@ Our example site is located at [documentation.easydita.com](http://documentation
 3. On the left side navigation, hover over "Appearance" and click on "Themes"
 4. Click the "Add New" button at the top of the page
 5. Click the "Upload Theme" button at the top of the page
-6. Click the browse button and select the easy-WordPress-Docs.zip file that you downloaded in Step 1.
+6. Click the browse button and select the easydita-knowledge-portal.zip file that you downloaded in Step 1.
 7. Click "Install Now"
-8. Once the installation is complete, you can click "Activate" to make easy WordPress Docs your current theme.
+8. Once the installation is complete, you can click "Activate" to make easyDITA Knowledge Portal your current theme.
 
 ### Content Types
 
-The easy WordPress Docs theme supports several different content types and displays them differently. Each time you publish content from easyDITA or create new content in WordPress, you will need to specify a page type for the root page so that the theme knows how to render the child pages.
+The easyDITA Knowledge Portal theme supports several different content types and displays them differently. Each time you publish content from easyDITA or create new content in WordPress, you will need to specify a page type for the root page so that the theme knows how to render the child pages.
 
 1. Navigate to the admin page of your WordPress site
 2. On the left side navigation, hover over "Pages" and click on "All Pages"
 3. Any pages listed without any "&mdash;" preceding the title are root pages that will be displayed on the home page. These are the pages that you need to specify page types for.
 4. Click on one of the root pages and scroll down to the bottom of the Edit Page
-5. You should see a section labeled "Custom Fields." If you don't see it, click on the "Screen Options" tag at the top right of the page. Check the box next to "Custom Fields". You should now see a box appear underneath the page content box.
-6. Under "Add New Custom Field" if "page_type" isn't an option in the dropdown menu, click "Enter new" and set the name to "page_type"
+5. You should see a section labeled "Custom Fields." Under "Add New Custom Field" if "page_type" isn't an option in the dropdown menu, click "Enter new" and set the name to "page_type"
 6. The allowed values are
     * "content" for a user guide or generic documentation content
     * "faq" for frequently asked questions
         * These will all render on one page and expand and collapse on click
     * "tutorial" for tutorial content
         * This content will displayed similarly to "content" except that in the TOC on the left side, it will list all the sections of a single topic instead of all the topics under a given parent page. This is designed for long pages that contain many different parts of a guide that users can follow all the way through to learn about your product.
-7. Make sure to click the "Update" button on the right side after modifying the custom fields to save them.
 
 ### Setup
 
@@ -41,7 +39,6 @@ There are several different aspects of the theme that can be customized. To begi
 
 1. In the left-hand customization pane, click "Header Image"
 2. Click the "Add New Image" button to upload a file from your computer to be the header image
-3. It is recommended to be 500x70 pixels in size
 
 ##### Sidebar Widget
 
@@ -75,15 +72,12 @@ In our example site (documentation.easydita.com) we use the sidebar to display t
 
 1. To edit the footer content, open the "Customization" view again (as described in the top of the Setup section)
 1. In the left-hand customization pane, click "Footer Info"
-2. In this text box you can enter HTML to display in the black footer bar at the bottom of the page.
-    * Note that in the default value, there are two divs with classes "group1" and "group2"
-    * .group1 is rendered floating left, and .group2 is rendered on the right.
-    * Feel free to add any content you wish, and you may also add <style> elements to add CSS styling to the footer content.
-        * However, don't modify the colors of the footer box or the footer text because that is handled in the "Colors" section of the Customization options.
+2. In this text box you can enter several lines of text to be rendered in the footer block.
+3. Also be sure to select which social icon links you want visible in the footer. Here you can also set the URLs to which they link.
 
 ##### Colors
 
-Via the Customization screen, you can modify four different colors:
+Via the Customization screen, you can modify four different colors. Note that if you have changed your skin, you may see additional options.
 
 * Main Accent Color
 	* This is the color of the accents within the theme. It is used for the search bar (on the home page and on the subpages), the color of titles and active pages in the TOC.
