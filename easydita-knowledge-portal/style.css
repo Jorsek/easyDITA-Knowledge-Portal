@@ -1,10 +1,14 @@
 @charset "UTF-8";
 /*
-Theme Name: easydita_knowledge_portal
+Theme Name: easyDITA Knowledge Portal
 Theme URI: http://www.easydita.com/
 Author: Scott Lucchini
+Author URI: http://easydita.com/about/contact/
 Description: This theme has been designed by Jorsek LLC for use with content published from easyDITA. It is best used for displaying documentation content such as User Guides, Tutorials, and FAQs.
-Version: 1.9
+Version: 2.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: easydita_knowledge_portal
 Tags: custom-header, dark, light, one-column, two-columns, left-sidebar, fluid-layout, responsive-layout, custom-colors, custom-menu, featured-images, theme-options, translation-ready, threaded-comments
 
 */
@@ -1500,24 +1504,24 @@ h1.topic-title {
 #masthead {
   position: relative; }
 
-#masthead > div[class*="menu-"] {
+#masthead > div[class*="menu"] {
   text-align: right; }
-  #masthead > div[class*="menu-"] ul {
+  #masthead > div[class*="menu"] ul {
     list-style-type: none;
     margin: 0;
     padding: 0; }
-    #masthead > div[class*="menu-"] ul li {
+    #masthead > div[class*="menu"] ul li {
       display: inline-block;
       padding: 0 10px;
       position: relative;
       z-index: 10; }
-      #masthead > div[class*="menu-"] ul li a {
+      #masthead > div[class*="menu"] ul li a {
         color: black;
         text-decoration: none; }
-      #masthead > div[class*="menu-"] ul li a:hover {
+      #masthead > div[class*="menu"] ul li a:hover {
         color: #20a332; }
 
-.menu ul.sub-menu {
+.menu ul.sub-menu, .menu ul.children {
   display: none;
   position: absolute;
   background: white none repeat scroll 0% 0%;
@@ -1525,15 +1529,15 @@ h1.topic-title {
   left: 0;
   text-align: left;
   min-width: 200px; }
-  .menu ul.sub-menu li {
+  .menu ul.sub-menu li, .menu ul.children li {
     display: block;
     padding: 5px 10px; }
 
-.menu > li.menu-item-has-children:hover > ul.sub-menu {
+.menu > li.menu-item-has-children:hover > ul.sub-menu, .menu > li.page_item_has_children:hover > ul.children {
   display: block; }
 
 @media only screen and (min-width: 783px) {
-  #masthead > div[class*="menu-"] {
+  #masthead > div[class*="menu"] {
     right: 10vw;
     bottom: 10px;
     position: absolute;

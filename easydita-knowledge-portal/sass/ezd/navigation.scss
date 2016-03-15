@@ -2,7 +2,7 @@
 	position: relative;
 }
 
-#masthead > div[class*="menu-"] {
+#masthead > div[class*="menu"] {
 	text-align: right;
 	
 	ul {
@@ -28,7 +28,7 @@
 	}
 }
 
-.menu ul.sub-menu {
+.menu ul.sub-menu, .menu ul.children {
 	display:none;
 	position: absolute;
 	background: white none repeat scroll 0% 0%;
@@ -43,12 +43,12 @@
 	}
 }
 
-.menu > li.menu-item-has-children:hover > ul.sub-menu {
+.menu > li.menu-item-has-children:hover > ul.sub-menu, .menu > li.page_item_has_children:hover > ul.children {
 	display: block;
 }
 
 @media only screen and (min-width: 783px) {
-	#masthead > div[class*="menu-"] {
+	#masthead > div[class*="menu"] {
 		right: 10vw;
 		bottom: 10px;
 		position: absolute;
