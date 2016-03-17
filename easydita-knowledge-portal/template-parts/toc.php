@@ -127,7 +127,12 @@ function get_toc($post_id,$is_tutorial) {
 				var theDiv = jQuery("div[page-id = '"+hierarchy[i]+"']");
 				if (theDiv[0] != null) {
 					var theHead = theDiv[0].previousElementSibling;
-					openCloseSubtoc(theHead);
+					if (theHead.classList.contains("toc-head")) {
+						openCloseSubtoc(theHead);
+					} else {
+						theDiv[0].classList.toggle("closed");
+						theDiv[0].classList.toggle("open");
+					}
 				}
 			}
 		});
