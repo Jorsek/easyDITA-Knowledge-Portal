@@ -14,6 +14,12 @@
 	font-size: $large-header-font-size;
 }
 
+.version-picker {
+	top: 50px;
+	position: absolute;
+	right: 10vw;
+}
+
 @media only screen and (min-width: 550px) {
 	.header-title {
 		padding-top: 25px;

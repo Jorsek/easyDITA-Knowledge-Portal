@@ -24,10 +24,16 @@ get_header();
  * List all the root pages (maps)
  */
 
+if (isset($_GET['version'])) {
+	$versionId = $_GET['version'];
+} else {
+	$versionId = get_pages("parent=0&post_type=page&sort_column=menu_order")[0]->ID;
+}
+
 $args = array(
   "posts_per_page" => 4,
   "post_type" => "page",
-  "post_parent" => 0,
+  "post_parent" => $versionId,
   "orderby" => "menu_order",
   "order" => "ASC"
   );
