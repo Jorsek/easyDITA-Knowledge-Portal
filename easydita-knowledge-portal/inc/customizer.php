@@ -180,11 +180,28 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 	
 	/** Search Info Section **/
 	$wp_customize->add_section(
-		'search_info',
+		'header_info',
 		array(
-		  'title' => __('Search Info', 'easydita_knowledge_portal'),
-		  'description' => __('Customization for the Search Header and Text. Note that not all settings may be available for all skins.', 'easydita_knowledge_portal'),
+		  'title' => __('Header Info', 'easydita_knowledge_portal'),
+		  'description' => __('Customization for the Header and Search Text. Note that not all settings may be available for all skins.', 'easydita_knowledge_portal'),
 		  'priority' => 40,
+		)
+	);
+	$wp_customize->add_setting(
+		'version_label',
+		array(
+		  'default' => __('Version: ', 'easydita_knowledge_portal'),
+		  'sanitize_callback' => 'sanitize_text_field'
+		)
+	);
+	$wp_customize->add_control(
+		'version_label',
+		array(
+			'label'=>__('Version Label', 'easydita_knowledge_portal'),
+			'description'=>__('Set the label to be placed in front of the version picker in the top right hand corner.', 'easydita_knowledge_portal'),
+			'section'=>'header_info',
+			'type'=>'text',
+			'priority'=>5
 		)
 	);
 	$wp_customize->add_setting(
@@ -199,7 +216,7 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 		array(
 			'label'=>__('Search Placeholder', 'easydita_knowledge_portal'),
 			'description'=>__('Set the placeholder for the search bar.', 'easydita_knowledge_portal'),
-			'section'=>'search_info',
+			'section'=>'header_info',
 			'type'=>'text',
 			'priority'=>10
 		)
@@ -216,7 +233,7 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 		array(
 			'label'=>__('Search Header', 'easydita_knowledge_portal'),
 			'description'=>__('Set the Title for the Search Header on the main page.', 'easydita_knowledge_portal'),
-			'section'=>'search_info',
+			'section'=>'header_info',
 			'type'=>'text',
 			'priority'=>20
 		)
@@ -232,7 +249,7 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 		new Example_Customize_Textarea_Control( $wp_customize, 'search_header_text', array(
 		    'label'   => __('Search Header Text', 'easydita_knowledge_portal'),
 		    'description' => __('Set the description text for the search header on the main page.', 'easydita_knowledge_portal'),
-		    'section' => 'search_info',
+		    'section' => 'header_info',
 		    'settings'   => 'search_header_text',
 			'priority'=>30
 			)

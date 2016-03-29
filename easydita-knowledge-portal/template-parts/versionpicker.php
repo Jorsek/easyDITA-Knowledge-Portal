@@ -29,6 +29,7 @@ $the_query = new WP_Query( $args );
 ?>
 
 <div class="version-picker">
+	<span class="title"><?php echo get_theme_mod( 'version_label', __('Version: ','easydita_knowledge_portal')); ?></span>
 	<select>
 	<?php // The Loop
 	if ( $the_query->have_posts() ) {
