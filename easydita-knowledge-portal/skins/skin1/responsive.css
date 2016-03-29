@@ -17,8 +17,8 @@
 	}
 	
 	/* 404 */
-	.error-404 {
-		padding: 0 5vw;
+	.not-found {
+		margin: 0 5vw;
 	}
 }
 
@@ -64,8 +64,8 @@
 	}
 	
 	/* 404 */
-	.error-404 {
-		padding: 0 10vw;
+	.not-found {
+		margin: 0 10vw;
 	}
 	
 }

@@ -112,3 +112,13 @@
 	display: block;
 	text-transform: uppercase;
 }
+
+/**
+ * Version Picker
+ */
+.version-picker {
+	color: #FFF;
+	font-family: "Roboto Slab";
+	font-weight: 700;
+	font-size: 0.8em;
+}

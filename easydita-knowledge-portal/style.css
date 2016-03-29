@@ -844,6 +844,12 @@ object {
       color: #20a332;
       text-decoration: none !important; }
 
+.no-results.not-found {
+  margin: 0 5px 20px 5px; }
+
+.no-results.not-found .text {
+  padding-left: 15%; }
+
 /***
  * Navigation
  */
@@ -861,7 +867,7 @@ object {
   .small-search {
     padding: 5px 5vw; }
 
-  .search-result, .site-main .posts-navigation {
+  .search-result, .site-main .posts-navigation, .no-results.not-found {
     margin-left: 5vw;
     margin-right: 5vw; } }
 @media only screen and (min-width: 783px) {
@@ -885,7 +891,7 @@ object {
   .small-search {
     padding: 5px 10vw; }
 
-  .search-result, .site-main .posts-navigation {
+  .search-result, .site-main .posts-navigation, .no-results.not-found {
     margin-left: 10vw;
     margin-right: 10vw;
     /*		width: 60%;*/ } }

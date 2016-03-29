@@ -1,11 +1,11 @@
-.error-404 {
-	padding: 0 5px;
+.not-found {
+	margin: 0 5px;
 }
 
-.error-404 .header {
+.not-found .header {
 	
 }
 
-.error-404 .text {
+.not-found .text {
 	padding-left: 15%;
 }

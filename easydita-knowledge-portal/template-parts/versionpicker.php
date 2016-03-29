@@ -37,9 +37,6 @@ $the_query = new WP_Query( $args );
 		while ( $the_query->have_posts() ) {
 		  $the_query->the_post();
 		  
-		  var_dump(get_the_ID() == intval($versionId));
-		  //var_dump(intval($versionId));
-		  
 		  if (get_the_ID() == intval($versionId)) {
 			  ?>
 			  <option selected="selected" value="<?php echo get_the_ID(); ?>"><?php echo get_the_title(); ?></option>
