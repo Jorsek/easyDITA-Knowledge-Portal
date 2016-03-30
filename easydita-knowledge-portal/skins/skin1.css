@@ -2,12 +2,15 @@
 Skin Name: Geometric
 Author: Scott Lucchini
 Description: Updated styling
-Version: 1.1.3
+Version: 1.1.4
 Tags:
 */
 
-/* Header and Search */
+/* Header */
 @import url("skin1/header.css");
+
+/* Search bar and search results */
+@import url("skin1/search.css");
 
 /* Home page content buttons */
 @import url("skin1/home-page.css");
