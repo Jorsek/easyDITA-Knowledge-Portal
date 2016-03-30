@@ -6,7 +6,7 @@
  * @package easydita_knowledge_portal
  */
 
-if (count(get_pages("parent=0")) < 2) {
+if (count(get_pages("parent=0")) < 2 || !easydita_knowledge_portal_is_versioning_enabled()) {
 	return;
 }
 

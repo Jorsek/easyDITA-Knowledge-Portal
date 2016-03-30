@@ -68,7 +68,36 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 	);
 	
 	
+	/** Page Hierarchy Section **/
+	$wp_customize->add_section(
+		'page_hierarchy',
+		array(
+			'title' => __('Page Hierarchy', 'easydita_knowledge_portal'),
+			'description' => __('Here you can select whether you wish to support versions in the page hierarchy. When "No" is selected, all the root pages will appear on the homepage. When "Yes" is selected, the root pages will determine the version of the content and a dropdown selector will appear in the top right hand corner for version selection. The subpages for that version will appear on the homepage.', 'easydita_knowledge_portal'),
+			'priority' => 10
+		)
+	);
+	$wp_customize->add_setting(
+		'versioning_enabled',
+		array(
+			'default' => "no",
+			'sanitize_callback' => 'sanitize_text_field'
+		)
+	);
+	$wp_customize->add_control(
+		'versioning_enabled',
+		array(
+			'label' => __('Versioning Enabled', 'easydita_knowledge_portal'),
+			'section' => 'page_hierarchy',
+			'type' => 'radio',
+			'choices' => array(
+						"yes" => "Yes",
+						"no" => "No"),
+			'priority' => 10
+		)
+	);
 	
+		
 	/** Home Page Section **/
 	$wp_customize->add_section(
 		'home_page',

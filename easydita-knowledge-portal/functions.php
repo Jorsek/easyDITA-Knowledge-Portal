@@ -130,6 +130,14 @@ function easydita_knowledge_portal_change_style_version_num($styles) {
 }
 //add_action("wp_default_styles", "easydita_knowledge_portal_change_style_version_num");
 
+/**
+ * Is Versioning Enabled?
+ **/
+if (!function_exists('easydita_knowledge_portal_is_versioning_enabled')) {
+	function easydita_knowledge_portal_is_versioning_enabled() {
+		return get_theme_mod('versioning_enabled','no') == 'yes';
+	}
+}
 /***
  * Hierarchy Functions
  ***/
@@ -175,7 +183,11 @@ if (!function_exists('easydita_knowledge_portal_get_root_map_id')) {
 	function easydita_knowledge_portal_get_root_map_id() {
 		/** get the title for the root map this is a member of **/
 		$hierarchy = easydita_knowledge_portal_get_hierarchy();
-	    return $hierarchy[1];
+		if (easydita_knowledge_portal_is_versioning_enabled()) {
+	    	return $hierarchy[1];
+    	} else {
+    		return $hierarchy[0];
+    	}
 	}
 }
 
@@ -184,7 +196,9 @@ if (!function_exists('easydita_knowledge_portal_get_root_map_id')) {
  **/
 if (!function_exists('easydita_knowledge_portal_get_version_id')) {
 	function easydita_knowledge_portal_get_version_id() {
-		if (isset($_GET['version'])) {
+		if (!easydita_knowledge_portal_is_versioning_enabled()) {
+			return 0;
+		} else if (isset($_GET['version'])) {
 			$versionId = $_GET['version'];
 		} else if (is_front_page()) {
 			$versionId = get_pages("parent=0&post_type=page&sort_column=menu_order")[0]->ID;
@@ -197,9 +211,13 @@ if (!function_exists('easydita_knowledge_portal_get_version_id')) {
 }
 if (!function_exists('easydita_knowledge_portal_get_version_id_of')) {
 	function easydita_knowledge_portal_get_version_id_of($post) {
-		$hierarchy = easydita_knowledge_portal_get_hierarchy_of($post);
-		$versionId = $hierarchy[0];
-		return $versionId;
+		if (!easydita_knowledge_portal_is_versioning_enabled()) {
+			return 0;
+		} else {
+			$hierarchy = easydita_knowledge_portal_get_hierarchy_of($post);
+			$versionId = $hierarchy[0];
+			return $versionId;
+		}
 	}
 }
 
@@ -338,7 +356,9 @@ if (!function_exists('easydita_knowledge_portal_filter_search_versions')) {
 		return $filteredPosts;
 	}
 }
-add_filter('posts_results','easydita_knowledge_portal_filter_search_versions', 10, 2);
+if (easydita_knowledge_portal_is_versioning_enabled()) {
+	add_filter('posts_results','easydita_knowledge_portal_filter_search_versions', 10, 2);
+}
 
 /**
  * Add the skin to the header if necessary
