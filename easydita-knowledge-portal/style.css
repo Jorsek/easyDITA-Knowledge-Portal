@@ -698,19 +698,25 @@ object {
   font-size: 1.6em; }
 
 .version-picker {
-  top: 50px;
-  position: absolute;
-  right: 10vw; }
+  text-align: center; }
 
 @media only screen and (min-width: 550px) {
   .header-title {
-    padding-top: 25px; } }
+    padding-top: 25px; }
+
+  .version-picker {
+    bottom: 45px;
+    position: absolute;
+    right: 10px; } }
 @media only screen and (min-width: 783px) {
   #masthead {
     padding: 10px 10vw; }
 
   .header-title {
-    padding-top: 30px; } }
+    padding-top: 30px; }
+
+  .version-picker {
+    right: 10vw; } }
 /**
  * Home Search Bar
  */
