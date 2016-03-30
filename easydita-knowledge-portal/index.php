@@ -24,11 +24,7 @@ get_header();
  * List all the root pages (maps)
  */
 
-if (isset($_GET['version'])) {
-	$versionId = $_GET['version'];
-} else {
-	$versionId = get_pages("parent=0&post_type=page&sort_column=menu_order")[0]->ID;
-}
+$versionId = easydita_knowledge_portal_get_version_id();
 
 $args = array(
   "posts_per_page" => 4,

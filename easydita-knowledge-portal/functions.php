@@ -153,11 +153,53 @@ if (!function_exists('easydita_knowledge_portal_get_hierarchy')) {
 		return array(0);
 	}
 }
+if (!function_exists('easydita_knowledge_portal_get_hierarchy_of')) {
+	function easydita_knowledge_portal_get_hierarchy_of($post) {
+		$hierarchy = array();
+		if($post->ID) {
+			$hierarchy[] = $post->ID;
+			
+			$parent_id = $post->post_parent;
+	
+			while ($parent_id) {
+				$hierarchy[] = $parent_id;
+				$page = get_page($parent_id);
+				$parent_id = $page->post_parent;
+			}
+			return array_reverse($hierarchy);
+		}
+		return array(0);
+	}
+}
 if (!function_exists('easydita_knowledge_portal_get_root_map_id')) {
 	function easydita_knowledge_portal_get_root_map_id() {
 		/** get the title for the root map this is a member of **/
 		$hierarchy = easydita_knowledge_portal_get_hierarchy();
-	    return $hierarchy[0];
+	    return $hierarchy[1];
+	}
+}
+
+/**
+ * Get version id
+ **/
+if (!function_exists('easydita_knowledge_portal_get_version_id')) {
+	function easydita_knowledge_portal_get_version_id() {
+		if (isset($_GET['version'])) {
+			$versionId = $_GET['version'];
+		} else if (is_front_page()) {
+			$versionId = get_pages("parent=0&post_type=page&sort_column=menu_order")[0]->ID;
+		} else {
+			$hierarchy = easydita_knowledge_portal_get_hierarchy();
+			$versionId = $hierarchy[0];
+		}
+		return $versionId;
+	}
+}
+if (!function_exists('easydita_knowledge_portal_get_version_id_of')) {
+	function easydita_knowledge_portal_get_version_id_of($post) {
+		$hierarchy = easydita_knowledge_portal_get_hierarchy_of($post);
+		$versionId = $hierarchy[0];
+		return $versionId;
 	}
 }
 
@@ -273,6 +315,30 @@ if (!function_exists('easydita_knowledge_portal_get_all_skins')) {
 		return $skins;
 	}
 }
+
+/**
+ * Filter search to current version
+ **/
+if (!function_exists('easydita_knowledge_portal_filter_search_versions')) {
+	function easydita_knowledge_portal_filter_search_versions($posts, $query) {
+		if (is_admin() || !$query->is_search()) {
+			return $posts;
+		}
+		
+		$filteredPosts = array();
+		$currentVersionId = easydita_knowledge_portal_get_version_id();
+		
+		foreach ($posts as $post) {
+			$pageVersionId = easydita_knowledge_portal_get_version_id_of($post);
+			if ($pageVersionId == $currentVersionId) {
+				$filteredPosts[] = $post;
+			}
+		}
+		
+		return $filteredPosts;
+	}
+}
+add_filter('posts_results','easydita_knowledge_portal_filter_search_versions', 10, 2);
 
 /**
  * Add the skin to the header if necessary

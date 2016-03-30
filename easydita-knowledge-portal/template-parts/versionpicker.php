@@ -10,11 +10,7 @@ if (count(get_pages("parent=0")) == 1) {
 	return;
 }
 
-if (isset($_GET['version'])) {
-	$versionId = $_GET['version'];
-} else {
-	$versionId = get_pages("parent=0&post_type=page&sort_column=menu_order")[0]->ID;
-}
+$versionId = easydita_knowledge_portal_get_version_id();
 
 $args = array(
   "posts_per_page" => 4,
@@ -57,13 +53,19 @@ $the_query = new WP_Query( $args );
 
 jQuery(".version-picker option").click(function() {
 	
-	var url = location.href;
-	var newurl = url;
-	if (url.contains("?")) {
-		newurl = url.substring(0,url.indexOf("?"))
-	}
+	var url = location.href
 	
-	location.href = newurl+"?version="+this.value;
+	if (url.contains("?")) {
+		var queryString = url.substring(url.indexOf("?"))
+		if ((queryString.contains("&s=") || queryString.contains("?s=")) && queryString.contains("version=")) {
+			var afterVersion = queryString.substring(queryString.indexOf("version="));
+			var newQueryString = queryString.substring(0,queryString.indexOf("version=")+"version=".length) + this.value + afterVersion.substring(afterVersion.indexOf("&"))
+			
+			location.pathname = "/"+newQueryString;
+			return;
+		}
+	}
+	location.pathname = "/?version="+this.value;
 	
 });
 

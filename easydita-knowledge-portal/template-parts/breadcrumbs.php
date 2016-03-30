@@ -32,9 +32,11 @@ function get_breadcrumb() {
 
 ?>
 
-<?php if (is_search()) : ?>
-
-	<div class="breadcrumbs"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php _e('Home', 'easydita_knowledge_portal'); ?></a> &gt; <?php _e('Search Results', 'easydita_knowledge_portal'); ?></div>
+<?php if (is_search()) :
+	$versionId = easydita_knowledge_portal_get_version_id();
+	$versionTitle = get_the_title($versionId);
+	?>
+	<div class="breadcrumbs"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php _e('Home', 'easydita_knowledge_portal'); ?></a> &gt; <?php echo $versionTitle; ?> &gt; <?php _e('Search Results', 'easydita_knowledge_portal'); ?></div>
 
 <?php elseif (!is_front_page()) : ?>
 
