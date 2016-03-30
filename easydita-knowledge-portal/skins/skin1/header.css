@@ -5,6 +5,8 @@
 #masthead {
 	padding-top: 10px;
 	text-align: center;
+	position: absolute;
+	width: 100%;
 }
 
 .site-header {
@@ -14,7 +16,7 @@
 
 .home-search, .small-search {
 	top: 0px;
-	position: absolute;
+	position: relative;
 	width: 100%;
 	padding-top: 77px;
 }
