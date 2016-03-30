@@ -697,17 +697,22 @@ object {
 .page .header-title {
   font-size: 1.6em; }
 
-.version-picker {
+.version-picker:not(.has-header-image) {
+  float: right;
+  padding-right: 10px; }
+
+.version-picker.has-header-image {
   text-align: center; }
 
 @media only screen and (min-width: 550px) {
   .header-title {
     padding-top: 25px; }
 
-  .version-picker {
-    bottom: 45px;
+  .version-picker.has-header-image {
+    bottom: 35px;
     position: absolute;
-    right: 10px; } }
+    right: 10px;
+    padding: 0; } }
 @media only screen and (min-width: 783px) {
   #masthead {
     padding: 10px 10vw; }
@@ -715,7 +720,8 @@ object {
   .header-title {
     padding-top: 30px; }
 
-  .version-picker {
+  .version-picker.has-header-image {
+    bottom: 45px;
     right: 10vw; } }
 /**
  * Home Search Bar
@@ -1207,7 +1213,8 @@ object {
 
 .widget-container {
   margin: 13px 0;
-  vertical-align: top; }
+  vertical-align: top;
+  padding: 15px 0; }
 
 .widget {
   margin: 0;
@@ -1230,7 +1237,7 @@ object {
 
 @media only screen and (min-width: 550px) {
   .widget-area {
-    padding: 20px 5vw;
+    padding: 5px 5vw;
     flex-direction: row;
     align-items: stretch; }
 
@@ -1243,7 +1250,7 @@ object {
     left: 0; } }
 @media only screen and (min-width: 783px) {
   .widget-area {
-    padding: 30px 10vw; } }
+    padding: 15px 10vw; } }
 .site-footer {
   background-color: black;
   color: grey;
@@ -1521,22 +1528,25 @@ h1.topic-title {
 #masthead {
   position: relative; }
 
-#masthead > div[class*="menu"] {
+#masthead > div.menu-container {
+  text-align: left; }
+
+#masthead > div.menu-container.has-header-image {
   text-align: right; }
-  #masthead > div[class*="menu"] ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0; }
-    #masthead > div[class*="menu"] ul li {
-      display: inline-block;
-      padding: 0 10px;
-      position: relative;
-      z-index: 10; }
-      #masthead > div[class*="menu"] ul li a {
-        color: black;
-        text-decoration: none; }
-      #masthead > div[class*="menu"] ul li a:hover {
-        color: #20a332; }
+
+#masthead > div.menu-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  #masthead > div.menu-container ul li {
+    display: inline-block;
+    padding: 0 10px;
+    position: relative; }
+    #masthead > div.menu-container ul li a {
+      color: black;
+      text-decoration: none; }
+    #masthead > div.menu-container ul li a:hover {
+      color: #20a332; }
 
 .menu ul.sub-menu, .menu ul.children {
   display: none;
@@ -1545,7 +1555,8 @@ h1.topic-title {
   padding: 10px 0;
   left: 0;
   text-align: left;
-  min-width: 200px; }
+  min-width: 200px;
+  z-index: 15; }
   .menu ul.sub-menu li, .menu ul.children li {
     display: block;
     padding: 5px 10px; }
@@ -1554,11 +1565,10 @@ h1.topic-title {
   display: block; }
 
 @media only screen and (min-width: 783px) {
-  #masthead > div[class*="menu"] {
+  #masthead > div.menu-container.has-header-image {
     right: 10vw;
     bottom: 10px;
-    position: absolute;
-    text-align: left; } }
+    position: absolute; } }
 body {
   height: 100%; }
 

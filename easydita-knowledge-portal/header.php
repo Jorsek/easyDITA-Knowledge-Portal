@@ -36,7 +36,9 @@
 		<?php get_template_part("template-parts/versionpicker"); ?>
 		
 		<!-- call navigation template -->
-		<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+		<div class="menu-container <?php if (get_header_image()) { echo 'has-header-image'; } ?>">
+			<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+		</div>
 		
 	</header>
 	

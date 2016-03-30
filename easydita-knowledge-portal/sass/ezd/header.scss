@@ -14,7 +14,12 @@
 	font-size: $large-header-font-size;
 }
 
-.version-picker {
+.version-picker:not(.has-header-image) {
+	float: right;
+	padding-right: 10px;
+}
+
+.version-picker.has-header-image {
 	text-align: center;
 }
 
@@ -23,10 +28,11 @@
 		padding-top: 25px;
 	}
 	
-	.version-picker {
-		bottom: 45px;
+	.version-picker.has-header-image {
+		bottom: 35px;
 		position: absolute;
 		right: 10px;
+		padding: 0;
 	}
 }
 
@@ -39,7 +45,8 @@
 		padding-top: 30px;
 	}
 	
-	.version-picker {
+	.version-picker.has-header-image {
+		bottom: 45px;
 		right: 10vw;
 	}
 }

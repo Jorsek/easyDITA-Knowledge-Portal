@@ -16,6 +16,7 @@
 .widget-container {
     margin: 13px 0;
     vertical-align: top;
+    padding: 15px 0;
 }
 
 .widget {
@@ -46,7 +47,7 @@
 
 @media only screen and (min-width: 550px) {
 	.widget-area {
-		padding: 20px 5vw;
+		padding: 5px 5vw;
 		flex-direction: row;
 		align-items: stretch;
 	}
@@ -64,6 +65,6 @@
 
 @media only screen and (min-width: 783px) {
 	.widget-area {
-		padding: 30px 10vw;
+		padding: 15px 10vw;
 	}
 }

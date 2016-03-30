@@ -24,7 +24,7 @@ $the_query = new WP_Query( $args );
 
 ?>
 
-<div class="version-picker">
+<div class="version-picker <?php if (get_header_image()) { echo 'has-header-image'; } ?>">
 	<span class="title"><?php echo get_theme_mod( 'version_label', __('Version: ','easydita_knowledge_portal')); ?></span>
 	<select>
 	<?php // The Loop
