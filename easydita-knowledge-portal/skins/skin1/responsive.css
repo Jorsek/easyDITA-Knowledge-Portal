@@ -11,11 +11,6 @@
 		display: none;
 	}
 	
-	/* FAQ */
-	#primary.faq {
-		margin-top: 225px;
-	}
-	
 	/* 404 */
 	.not-found {
 		margin: 0 5vw;

@@ -112,6 +112,7 @@ function add_custom_css()
              		}
              	?>
              	background: url('<?php echo $url; ?>');
+             	background-size: cover;
              }
              
          </style>
