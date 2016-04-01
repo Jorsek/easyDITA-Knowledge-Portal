@@ -98,13 +98,14 @@ function get_toc($post_id,$is_tutorial) {
 	
 	<?php
 	$hierarchy = easydita_knowledge_portal_get_hierarchy();
-	$page_type = get_post_meta($hierarchy[0],'page_type',true);
+	$root_page = (easydita_knowledge_portal_is_versioning_enabled() ? $hierarchy[1] : $hierarchy[0]);
+	$page_type = get_post_meta($root_page,'page_type',true);
 	
 	// Check the cache
-	$key = $hierarchy[0] . $page_type;
+	$key = $root_page . $page_type;
 	if (false === ($toc_html = get_transient($key))) {
 		// Not cached, so need to get it
-		$toc_html = get_toc($hierarchy[0],$page_type == 'tutorial');
+		$toc_html = get_toc($root_page,$page_type == 'tutorial');
 		// Store for 3 days
 		set_transient($key, $toc_html, 3 * DAY_IN_SECONDS);
 		wp_reset_postdata();

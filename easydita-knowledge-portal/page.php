@@ -14,11 +14,12 @@
 
 $root_map_id = easydita_knowledge_portal_get_root_map_id();
 $page_type = get_post_meta($root_map_id,'page_type',true);
+$versionId = easydita_knowledge_portal_get_version_id();
 
 // This if block is to skip over the user guide overview page.
 // It automatically redirects to the first child.
 if (!get_post_meta($root_map_id,'page_type') || $page_type == 'content' || $page_type == 'tutorial') {
-	if (wp_get_post_parent_id( get_the_ID() ) == 0) {
+	if (wp_get_post_parent_id( get_the_ID() ) == $versionId) {
 		$pagekids = get_pages("child_of=".$post->ID."&sort_column=menu_order");
 		if ($pagekids) {
 			$firstchild = $pagekids[0];
