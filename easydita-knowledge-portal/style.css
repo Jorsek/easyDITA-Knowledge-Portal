@@ -1301,6 +1301,8 @@ object {
     content: ""; }
   .site-footer .social i.linkedin-icon:after {
     content: ""; }
+  .site-footer .social i.youtube-icon:after {
+    content: ""; }
 
 @media only screen and (min-width: 550px) {
   .site-footer {

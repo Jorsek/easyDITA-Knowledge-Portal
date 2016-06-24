@@ -33,6 +33,9 @@
 	  			<?php if (get_theme_mod('linkedin_enabled',1) == 1) : ?>
 	  				<a href="<?php echo get_theme_mod('linkedin_link','#') ?>" target="_blank"><i class="linkedin-icon"></i></a>
 	  			<?php endif ?>
+					<?php if (get_theme_mod('youtube_enabled',1) == 1) : ?>
+	  				<a href="<?php echo get_theme_mod('youtube_link','#') ?>" target="_blank"><i class="youtube-icon"></i></a>
+	  			<?php endif ?>
 	  		</div><!-- .social -->
   		<?php endif; ?>
 	</footer><!-- #colophon -->

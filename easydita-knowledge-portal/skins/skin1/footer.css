@@ -53,6 +53,14 @@ footer.site-footer .social i.linkedin-icon {
 	padding: 14px 0 0 4px;
 }
 
+footer.site-footer .social i.youtube-icon:after {
+	content: "\f167";
+}
+footer.site-footer .social i.youtube-icon {
+	font-size: 44px;
+	padding: 15px 0;
+}
+
 footer.site-footer .user-text .title {
 	font-weight: 700;
 	font-size: 1.2em;
@@ -110,5 +118,3 @@ footer.site-footer.small .social a {
 	-webkit-transform: scale(0.5);
 	margin-left: -25px;
 }
-
-
