@@ -26,7 +26,7 @@
 .site-footer .social {
 	text-align: center;
 	padding-top: 20px;
-	
+
 	i {
 		font-size: 29px;
 		padding: 0 2px;
@@ -45,7 +45,7 @@
 		text-rendering: auto;
 		-moz-osx-font-smoothing: grayscale;
 	}
-	
+
 	i.facebook-icon:after {
 		content: "\f082";
 	}
@@ -58,17 +58,20 @@
 	i.linkedin-icon:after {
 		content: "\f08c"
 	}
-}
+  i.youtube-icon:after {
+		content: "\f166"
+	}
+} 
 
 @media only screen and (min-width: 550px) {
 	.site-footer {
 		display: block;
 	}
-	
+
 	.site-footer .title {
 		padding-bottom: 4px;
 	}
-	
+
 	.site-footer ul {
 	    display: block;
 	    list-style-type: none;
@@ -77,13 +80,13 @@
 	    font-size: $small-font-size;
         line-height: 11px;
 	}
-	
+
 	.site-footer .user-text {
 		padding-left: 4vw;
 		display: inline-block;
 		float: left;
 	}
-	
+
 	.site-footer .social {
 		padding-right: 4vw;
 		text-align: left;
@@ -91,7 +94,7 @@
 		display: inline-block;
 		float: right;
 	}
-	
+
 	.site-footer>.user-text>div {
 	    display: inline-block;
 	    vertical-align: top;
@@ -103,7 +106,7 @@
 	.site-footer .user-text {
 		padding-left: 9vw;
 	}
-	
+
 	.site-footer .social {
 		padding-right: 9vw;
 	}

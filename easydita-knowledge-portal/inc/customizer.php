@@ -15,7 +15,7 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 
 	class Example_Customize_Textarea_Control extends WP_Customize_Control {
 	    public $type = 'textarea';
-	 
+
 	    public function render_content() {
 	        ?>
 	        <label>
@@ -33,12 +33,12 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'header_backgroundcolor' )->transport = 'postMessage';
 	*/
-	
+
 	// Remove defaults
 	$wp_customize->remove_section('colors');
 	$wp_customize->remove_section('background_image');
 	$wp_customize->remove_section('static_front_page');
-	
+
 	/** Skin Selection **/
 	$skins = easydita_knowledge_portal_get_all_skins();
 	$wp_customize->add_section(
@@ -66,8 +66,8 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 			'priority' => 10
 		)
 	);
-	
-	
+
+
 	/** Page Hierarchy Section **/
 	$wp_customize->add_section(
 		'page_hierarchy',
@@ -96,8 +96,8 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 			'priority' => 10
 		)
 	);
-	
-		
+
+
 	/** Home Page Section **/
 	$wp_customize->add_section(
 		'home_page',
@@ -124,7 +124,7 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 			'priority' => 10
 		)
 	);
-	
+
 	/** Main Color Section **/
 	$wp_customize->add_section(
 		'custom_colors',
@@ -141,16 +141,16 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
-	$wp_customize->add_control( 
-		new WP_Customize_Color_Control( 
-		$wp_customize, 
-		'main_color', 
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+		$wp_customize,
+		'main_color',
 		array(
 			'label'      => __('Main Accent Color', 'easydita_knowledge_portal'),
 			'section'    => 'custom_colors',
 			'settings'   => 'main_color',
 			'priority'=>10
-		) ) 
+		) )
 	);
 	$wp_customize->add_setting(
 		'search_header_text_color',
@@ -159,16 +159,16 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
-	$wp_customize->add_control( 
-		new WP_Customize_Color_Control( 
-		$wp_customize, 
-		'search_header_text_color', 
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+		$wp_customize,
+		'search_header_text_color',
 		array(
 			'label'      => __('Search Header Text Color', 'easydita_knowledge_portal'),
 			'section'    => 'custom_colors',
 			'settings'   => 'search_header_text_color',
 			'priority'   => 20
-		) ) 
+		) )
 	);
 	$wp_customize->add_setting(
 		'footer_background_color',
@@ -177,16 +177,16 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
-	$wp_customize->add_control( 
-		new WP_Customize_Color_Control( 
-		$wp_customize, 
-		'footer_background_color', 
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+		$wp_customize,
+		'footer_background_color',
 		array(
 			'label'      => __('Footer Background Color', 'easydita_knowledge_portal'),
 			'section'    => 'custom_colors',
 			'settings'   => 'footer_background_color',
 			'priority'   => 30
-		) ) 
+		) )
 	);
 	$wp_customize->add_setting(
 		'footer_text_color',
@@ -195,18 +195,18 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 			'sanitize_callback' => 'sanitize_hex_color'
 		)
 	);
-	$wp_customize->add_control( 
-		new WP_Customize_Color_Control( 
-		$wp_customize, 
-		'footer_text_color', 
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+		$wp_customize,
+		'footer_text_color',
 		array(
 			'label'      => __('Footer Text Color', 'easydita_knowledge_portal'),
 			'section'    => 'custom_colors',
 			'settings'   => 'footer_text_color',
 			'priority'   => 40
-		) ) 
+		) )
 	);
-	
+
 	/** Search Info Section **/
 	$wp_customize->add_section(
 		'header_info',
@@ -284,7 +284,7 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 			)
 		)
 	);
-	
+
 	/** TOC Title **/
 	$wp_customize->add_section(
 		'toc_info',
@@ -327,8 +327,8 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 			'type'=>'text'
 		)
 	);*/
-	
-	
+
+
 	/** Footer Content **/
 	$wp_customize->add_section(
 		'footer_info',
@@ -412,7 +412,7 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 			'default' => 1,
 			'sanitize_callback' => 'easydita_knowledge_portal_is_boolean'
 		)
-		
+
 	);
 	$wp_customize->add_control(
 		'twitter_enabled',
@@ -491,7 +491,42 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 			'priority'=>55
 		)
 	);
-	
+
+	// YouTube
+	$wp_customize->add_setting(
+		'youtube_link',
+		array(
+		  'default' => '#',
+		  'sanitize_callback' => 'esc_url'
+		)
+	);
+	$wp_customize->add_control(
+		'youtube_link',
+		array(
+			'label'=>__('YouTube', 'easydita_knowledge_portal'),
+			'description'=>__('Set the URL to navigate to when the user clicks on the YouTube icon (if shown)', 'easydita_knowledge_portal'),
+			'section'=>'footer_info',
+			'type'=>'text',
+			'priority'=>60
+		)
+	);
+	$wp_customize->add_setting(
+		'youtube_enabled',
+		array(
+			'default' => 1,
+			'sanitize_callback' => 'easydita_knowledge_portal_is_boolean'
+		)
+	);
+	$wp_customize->add_control(
+		'youtube_enabled',
+		array(
+			'label'=>__('Display link to YouTube?', 'easydita_knowledge_portal'),
+			'section'=>'footer_info',
+			'type'=>'checkbox',
+			'priority'=>65
+		)
+	);
+
 	/** 404 Page Info **/
 	$wp_customize->add_section(
 		'404_page',
@@ -579,25 +614,25 @@ function build_customize_css()
              .posts-navigation a:hover {
              	color:<?php echo get_theme_mod('main_color', '#20a332'); ?>;
              }
-             
+
              footer.site-footer .social a {
              	border-color:<?php echo get_theme_mod('main_color','#20a332'); ?>;
              }
-             
+
              .home-search,
              .small-search {
              	background-color:<?php echo get_theme_mod('main_color', '#20a332'); ?>;
              }
-             
+
              .home-search {
              	color:<?php echo get_theme_mod('search_header_text_color', '#ffffff'); ?>;
              }
-             
+
              .site-footer, .site-footer .user-text {
              	background-color:<?php echo get_theme_mod('footer_background_color', '#000000'); ?>;
              	color:<?php echo get_theme_mod('footer_text_color', '#808080'); ?>;
              }
-             
+
          </style>
     <?php
 }
