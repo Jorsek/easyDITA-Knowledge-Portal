@@ -13,7 +13,6 @@ if (count(get_pages("parent=0")) < 2 || !easydita_knowledge_portal_is_versioning
 $versionId = easydita_knowledge_portal_get_version_id();
 
 $args = array(
-  "posts_per_page" => 4,
   "post_type" => "page",
   "post_parent" => 0,
   "orderby" => "menu_order",
