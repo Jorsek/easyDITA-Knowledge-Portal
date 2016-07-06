@@ -128,7 +128,7 @@ add_action( 'wp_enqueue_scripts', 'easydita_knowledge_portal_scripts' );
 function easydita_knowledge_portal_change_style_version_num($styles) {
 	$styles -> default_version = "123";
 }
-add_action("wp_default_styles", "easydita_knowledge_portal_change_style_version_num");
+// add_action("wp_default_styles", "easydita_knowledge_portal_change_style_version_num");
 
 /**
  * Is Versioning Enabled?
