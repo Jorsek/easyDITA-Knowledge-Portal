@@ -18,7 +18,8 @@
 	?>
 	
 	<div class="header-title"><?php echo get_the_title($root_map_id); ?></div>
-	
+  <?php get_template_part('template-parts/scroll-top-button'); ?>
+  	
 	<div class="main-entry-wrapper">
 		<?php get_template_part('template-parts/toc'); ?>
 		<div class="entry-content">
@@ -84,9 +85,8 @@
 				} else {
 					jQuery('.main-entry-wrapper .entry-content').css({width: 'initial',display: 'table-cell',left: '0'});
 				}
-			}
-
+        
+			}      
 		});
 	</script>
 </article><!-- #post-## -->
-

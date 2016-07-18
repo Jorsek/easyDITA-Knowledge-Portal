@@ -361,6 +361,22 @@ input[type="submit"] {
     border-color: #aaa #bbb #bbb;
     box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15); }
 
+button#back-to-top {
+  position: fixed;
+  bottom: 210px;
+  right: -70px;
+  height: 56px;
+  border: none;
+  border-radius: 30px;
+  background-color: #c7c7c2;
+  box-shadow: none;
+  transition: all 0.3s;
+  overflow: hidden; }
+  button#back-to-top:hover {
+    background-color: #fcdf00; }
+  button#back-to-top.show-button {
+    transform: translateX(-120px); }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -1304,7 +1320,7 @@ object {
   .site-footer .social i.linkedin-icon:after {
     content: ""; }
   .site-footer .social i.youtube-icon:after {
-    content: ""; }
+    content: ""; }
 
 @media only screen and (min-width: 550px) {
   .site-footer {
