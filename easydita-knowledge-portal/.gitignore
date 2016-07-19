@@ -39,7 +39,8 @@ Thumbs.db
 .sass-cache*
 *.css.map
 
-# GULP #
+# NODE/GULP #
 ########
 gulpfile.js
 package.json
+/node_modules
