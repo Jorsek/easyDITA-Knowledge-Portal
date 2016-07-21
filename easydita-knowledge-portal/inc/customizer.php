@@ -125,6 +125,32 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 		)
 	);
 
+  /** Page Content **/
+  $wp_customize->add_section(
+    'page_content',
+    array(
+      'title' => __('Page Content', 'easydita_knowledge_portal'),
+      'description' => __('Customize layout of content on page.', 'easydita_knowledge_portal'),
+      'priority' => 40
+    )
+  );
+  $wp_customize->add_setting(
+    'move_short_desc',
+    array(
+      'default' => "default",
+      'sanitize_callback' => 'sanitize_text_field'
+    )
+  );
+  $wp_customize->add_control(
+    'move_short_desc',
+    array(
+      'label' => __('Move Short Description', 'easydita_knowledge_portal'),
+      'section' => 'page_content',
+      'type' => 'checkbox',
+      'priority' => 10
+    )
+  );
+
 	/** Main Color Section **/
 	$wp_customize->add_section(
 		'custom_colors',
