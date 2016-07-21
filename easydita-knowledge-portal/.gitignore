@@ -38,6 +38,7 @@ Thumbs.db
 ########
 .sass-cache*
 *.css.map
+style.css
 
 # NODE/GULP #
 ########
