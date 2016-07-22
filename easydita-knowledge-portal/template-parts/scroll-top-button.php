@@ -21,17 +21,20 @@
         $(window).scroll(function() {
           let st = $(window).scrollTop();
           
-          // Add click handler to 'Back to Top' button
-          $('#back-to-top').on( 'click', function() {
-            $(window).scrollTop(0);
-          });
-          
           // Show 'Back to Top' button after slight scroll
           st > 550
             ? $('#back-to-top').addClass('show-button')
             : $('#back-to-top').removeClass('show-button');
-            
         });
+        
+        // Add click handler to 'Back to Top' button
+        $('#back-to-top').on('click', function() {
+          console.log('ho');
+          $('body').animate({
+            scrollTop: 0
+          }, 500);
+        });
+        
       });
     }(jQuery));
     
