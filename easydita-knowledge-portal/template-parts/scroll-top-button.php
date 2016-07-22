@@ -26,7 +26,7 @@
             $(window).scrollTop(0);
           });
           
-          // Show 'Back to Top' button after slight scrollTop
+          // Show 'Back to Top' button after slight scroll
           st > 550
             ? $('#back-to-top').addClass('show-button')
             : $('#back-to-top').removeClass('show-button');
