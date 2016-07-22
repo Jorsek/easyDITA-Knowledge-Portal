@@ -31,7 +31,7 @@ get_template_part("template-parts/breadcrumbs");
 
 			<?php endwhile; ?>
 
-			<?php the_posts_navigation(); ?>
+			<?php the_posts_pagination(); ?>
 
 		<?php else : ?>
 

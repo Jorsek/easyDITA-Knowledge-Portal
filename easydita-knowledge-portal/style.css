@@ -865,21 +865,23 @@ object {
 /***
  * Navigation
  */
-.site-main .posts-navigation {
-  margin: 0 5px 20px 5px;
-  max-width: 780px; }
-
-.site-main .posts-navigation a {
-  color: black;
-  text-decoration: none; }
-  .site-main .posts-navigation a:hover {
+.site-main .pagination {
+  max-width: 780px;
+  margin-top: 45px;
+  font-size: 19px;
+  text-align: center;
+  word-spacing: 5px; }
+  .site-main .pagination a {
+    color: #1a578e;
     text-decoration: none; }
+    .site-main .pagination a:hover {
+      text-decoration: underline; }
 
 @media only screen and (min-width: 550px) {
   .small-search {
     padding: 5px 5vw; }
 
-  .search-result, .site-main .posts-navigation, .no-results.not-found {
+  .search-result, .site-main .pagination, .no-results.not-found {
     margin-left: 5vw;
     margin-right: 5vw; } }
 @media only screen and (min-width: 783px) {
@@ -903,7 +905,7 @@ object {
   .small-search {
     padding: 5px 10vw; }
 
-  .search-result, .site-main .posts-navigation, .no-results.not-found {
+  .search-result, .site-main .pagination, .no-results.not-found {
     margin-left: 10vw;
     margin-right: 10vw;
     /*		width: 60%;*/ } }
