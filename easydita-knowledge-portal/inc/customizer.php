@@ -144,7 +144,7 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
   $wp_customize->add_control(
     'move_short_desc',
     array(
-      'label' => __('Move Short Description', 'easydita_knowledge_portal'),
+      'label' => __('Always keep Short Description with Title', 'easydita_knowledge_portal'),
       'section' => 'page_content',
       'type' => 'checkbox',
       'priority' => 10
