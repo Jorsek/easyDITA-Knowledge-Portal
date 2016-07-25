@@ -137,8 +137,8 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
   $wp_customize->add_setting(
     'move_short_desc',
     array(
-      'default' => "default",
-      'sanitize_callback' => 'sanitize_text_field'
+      'default' => '',
+      'sanitize_callback' => 'easydita_knowledge_portal_is_boolean'
     )
   );
   $wp_customize->add_control(
