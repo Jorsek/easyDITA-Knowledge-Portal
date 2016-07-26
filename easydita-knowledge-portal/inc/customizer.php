@@ -160,7 +160,7 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
   $wp_customize->add_control(
     'topic_hierarchy_display',
     array(
-      'label' => __('Display Child Topic Content with Parent Topic', 'easydita_knowledge_portal'),
+      'label' => __('Display child topic content with parent topic', 'easydita_knowledge_portal'),
       'section' => 'page_content',
       'type' => 'checkbox',
       'priority' => 10
