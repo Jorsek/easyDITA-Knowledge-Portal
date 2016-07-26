@@ -150,6 +150,22 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
       'priority' => 10
     )
   );
+  $wp_customize->add_setting(
+    'topic_hierarchy_display',
+    array(
+      'default' => 1,
+      'sanitize_callback' => 'easydita_knowledge_portal_is_boolean'
+    )
+  );
+  $wp_customize->add_control(
+    'topic_hierarchy_display',
+    array(
+      'label' => __('Display Child Topic Content with Parent Topic', 'easydita_knowledge_portal'),
+      'section' => 'page_content',
+      'type' => 'checkbox',
+      'priority' => 10
+    )
+  );
 
 	/** Main Color Section **/
 	$wp_customize->add_section(
