@@ -14,6 +14,7 @@ get_template_part("template-parts/breadcrumbs");
 		<main id="main" class="site-main" role="main">
 
 		<div class="header-title"><?php _e( "Search Results" , 'easydita_knowledge_portal'); ?></div>
+    <?php get_template_part('template-parts/scroll-top-button'); ?>
 
 		<?php if ( have_posts() ) : ?>
 
