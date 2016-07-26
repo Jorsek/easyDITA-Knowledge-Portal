@@ -26,6 +26,24 @@
 			<div class="root-title"><?php echo $root_title ?></div>
 			<?php if ($root_title != get_the_title()) : ?>
 			<div class="content-title"><?php echo get_the_title(); ?></div>
+      
+      <?php if (get_theme_mod('move_short_desc',0) == 1) : ?>
+        <p id="moved-shortdesc">
+          <?php easydita_knowledge_portal_get_the_shortdesc(); ?>
+        </p>
+        <style>
+          .topic-shortdesc {
+            display: none;
+          }
+          
+          .entry-content #moved-shortdesc {
+            max-width: 800px;
+            margin: 15px 0 25px;
+            font-style: italic;
+          }
+        </style>
+      <?php endif ?>
+      
 			<?php endif ?>
 			<?php
 				$current_ID = $wp_query->post->ID;
