@@ -94,7 +94,7 @@
 				);
 				// The Query
 				$the_query = new WP_Query( $args );
-				if ($the_query->have_posts()) {
+				if ($the_query->have_posts() && get_theme_mod('topic_hierarchy_display',1) == 1) {
 					echo '<div class="concatenated-content">';
 					while($the_query->have_posts()) {
 						$the_query->the_post();
