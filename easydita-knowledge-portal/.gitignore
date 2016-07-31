@@ -39,8 +39,11 @@ Thumbs.db
 .sass-cache*
 *.css.map
 
-# NODE/GULP #
+# UN-MINIFIED CSS #
+###################
+/css
+
+# NODE #
 ########
-gulpfile.js
 package.json
 /node_modules
