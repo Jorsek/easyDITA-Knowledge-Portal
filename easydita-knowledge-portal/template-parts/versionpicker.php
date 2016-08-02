@@ -16,7 +16,8 @@ $args = array(
   "post_type" => "page",
   "post_parent" => 0,
   "orderby" => "menu_order",
-  "order" => "ASC"
+  "order" => "ASC",
+  "posts_per_page" => -1
   );
 // The Query
 $the_query = new WP_Query( $args );
@@ -31,10 +32,10 @@ $the_query = new WP_Query( $args );
 		
 		while ( $the_query->have_posts() ) {
 		  $the_query->the_post();
-		  
+            
 		  if (get_the_ID() == intval($versionId)) {
 			  ?>
-			  <option selected="selected" value="<?php echo get_the_ID(); ?>"><?php echo get_the_title(); ?></option>
+			  <option selected="true" value="<?php echo get_the_ID(); ?>"><?php echo get_the_title(); ?></option>
 			  <?php
 		  } else {
 			  ?>
@@ -50,23 +51,23 @@ $the_query = new WP_Query( $args );
 	</select>
 	<script type="text/javascript">
 
-jQuery(".version-picker option").click(function() {
-	
-	var url = location.href
-	
-	if (url.contains("?")) {
-		var queryString = url.substring(url.indexOf("?"))
-		if ((queryString.contains("&s=") || queryString.contains("?s=")) && queryString.contains("version=")) {
-			var afterVersion = queryString.substring(queryString.indexOf("version="));
-			var newQueryString = queryString.substring(0,queryString.indexOf("version=")+"version=".length) + this.value + afterVersion.substring(afterVersion.indexOf("&"))
-			
-			location.pathname = "/"+newQueryString;
-			return;
-		}
-	}
-	location.pathname = "/?version="+this.value;
-	
-});
+    jQuery(".version-picker select").on("change", function() {
+      
+    	var url = location.href;
+    	
+    	if (url.includes("?")) {
+    		var queryString = url.substring(url.indexOf("?"));
+    		if ((queryString.includes("&s=") || queryString.includes("?s=")) && queryString.includes("version=")) {
+    			var afterVersion = queryString.substring(queryString.indexOf("version=")),
+    			   newQueryString = queryString.substring(0,queryString.indexOf("version=")+"version=".length) + this.value + afterVersion.substring(afterVersion.indexOf("&"));
+    			
+    			location.pathname = "/"+newQueryString;
+    			return;
+    		}
+    	}
+      
+    	location.search = "?version="+this.value;
+    });
 
 	</script>
 </div>
