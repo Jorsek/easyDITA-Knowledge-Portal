@@ -50,7 +50,6 @@ $the_query = new WP_Query( $args );
 	?>
 	</select>
 	<script type="text/javascript">
-
     jQuery(".version-picker select").on("change", function() {
       
     	var url = location.href;
@@ -66,8 +65,7 @@ $the_query = new WP_Query( $args );
     		}
     	}
       
-    	location.search = "?version="+this.value;
+      window.location.replace(location.protocol + "//" + location.host + "/?version=" + this.value);
     });
-
 	</script>
 </div>
