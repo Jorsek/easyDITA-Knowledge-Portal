@@ -69,7 +69,6 @@ function add_custom_css()
              .faq.open .faq-head,
              .topic-topic th,
              .topic-topic td:before,
-             .task-step .topic-itemgroup .legend,
              .toc > .open > .toc-list > .toc-item.parent-item > .toc-head,
              #main .thumbnail-links > .subpage:hover,
              #searchform .submit:hover {
