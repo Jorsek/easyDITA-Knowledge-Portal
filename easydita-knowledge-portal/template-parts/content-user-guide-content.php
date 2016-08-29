@@ -17,15 +17,13 @@
 	$root_title = get_the_title($the_hierarchy[1]);
 	?>
 	
-	<div class="header-title"><?php echo get_the_title($root_map_id); ?></div>
   <?php get_template_part('template-parts/scroll-top-button'); ?>
 	
 	<div class="main-entry-wrapper">
 		<?php get_template_part('template-parts/toc'); ?>
 		<div class="entry-content">
-			<div class="root-title"><?php echo $root_title ?></div>
 			<?php if ($root_title != get_the_title()) : ?>
-			<div class="content-title"><?php echo get_the_title(); ?></div>
+			<h1 class="content-title"><?php echo get_the_title(); ?></h1>
       
       <?php if (get_theme_mod('move_short_desc',0) == 1) : ?>
         <p id="moved-shortdesc">
@@ -101,7 +99,7 @@
 						?>
 						<?php if (get_the_content() != "") : ?>
 						<div class="child-page-content">
-							<div class="content-title"><?php echo get_the_title(); ?></div>
+							<h2 class="content-title"><?php echo get_the_title(); ?></h2>
 							<?php the_content(); ?>
 						</div><!-- #post-## -->
 						<?php endif ?>
