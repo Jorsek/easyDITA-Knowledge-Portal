@@ -6,6 +6,7 @@
 .content-title {
 	color: $main-color;
   font-weight: normal;
+  margin-bottom: 5px;
 }
 
 .topic-topic {
@@ -117,12 +118,42 @@ h1.topic-title {
 
 /** Notes **/
 .topic-note {
-	padding: 10px 0 10px 25px;
-	
+  	
 	.topic-note-decoration-text {
 		padding-right: 8px;
 		font-weight: bold;
 	}
+}
+
+.note-icon {
+  display: none;
+  margin: 0 10px 0 0;
+  max-width: 41px;
+  line-height: normal;
+  font-style: normal;
+  font-weight: normal;
+  font-family: FontAwesome;
+  font-size: 50px;
+  font-stretch: normal;
+  font-feature-settings: normal;
+  font-kerning: auto;
+  font-variant: normal;
+  text-rendering: auto;
+  -moz-osx-font-smoothing: grayscale;
+  
+  &.note-default::after {
+    content: '\f044';
+  }
+  &.note-caution::after {
+    content: '\f06a';
+  }
+}
+
+/** Examples **/
+.topic-example::before {
+  content: 'Example:';
+  font-weight: bold;
+  padding: 0 8px 0 0;
 }
 
 /** Tasks **/
@@ -145,4 +176,9 @@ h1.topic-title {
 	.topic-image img {
 		max-width: 600px;
 	}
+}
+
+/** UI Controls **/
+.uid-uicontrol {
+  font-weight: bold;
 }
