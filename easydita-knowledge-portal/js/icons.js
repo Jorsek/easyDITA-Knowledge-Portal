@@ -6,18 +6,20 @@
 
 (function($){
   
-  let $note = $('.topic-note.note'),
-      $cautionNote = $('.topic-note.caution'),
-      $noteWrapper = $('.topic-p').has('.topic-note');
+  let $notes = $('.topic-note'),
+      $defaultNotes = $('.topic-note.note'),
+      $cautionNotes = $('.topic-note.caution');
       
-  if($note) {
-    $note.before('<i class="note-icon note-default"></i>');
+  if($notes) {
+    $notes.wrap('<div class="note-wrap"></div>');
+  }
+      
+  if($defaultNotes) {
+    $defaultNotes.before('<i class="note-icon note-default"></i>');
   }
   
-  if($cautionNote) {
-    $cautionNote.before('<i class="note-icon note-caution"></i>');
+  if($cautionNotes) {
+    $cautionNotes.before('<i class="note-icon note-caution"></i>');
   }
-  
-  $noteWrapper.css("display", "flex");
-  
+    
 })(jQuery);
