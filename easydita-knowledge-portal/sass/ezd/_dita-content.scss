@@ -87,6 +87,14 @@ h1.topic-title {
 	max-width: 100%;
 }
 
+/** Figs **/
+.topic-fig {
+  .topic-title {
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+}
+
 /** Lists **/
 .topic-ul, .topic-ol {
 	margin: 0;
@@ -117,6 +125,11 @@ h1.topic-title {
 }
 
 /** Notes **/
+.note-wrap {
+  display: flex;
+  margin: 18px 0;
+}
+
 .topic-note {
   	
 	.topic-note-decoration-text {

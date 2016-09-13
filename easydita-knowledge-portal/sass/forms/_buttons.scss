@@ -36,9 +36,10 @@ button#back-to-top {
   box-shadow: none;
   transition: all 0.2s;
   overflow: hidden;
+  z-index: 5;
   
   &:hover {
-    background-color: #fcdf00;
+    background-color: #dedede;
   }
   
   &:focus {
