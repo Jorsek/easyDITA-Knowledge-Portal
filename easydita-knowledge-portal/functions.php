@@ -110,6 +110,8 @@ add_action( 'widgets_init', 'easydita_knowledge_portal_widgets_init' );
  */
 function easydita_knowledge_portal_scripts() {
 	wp_enqueue_style( 'easydita-knowledge-portal-style', get_stylesheet_uri() );
+  
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/lib/font-awesome-4.5.0/css/font-awesome.min.css' );
 
 	wp_enqueue_script( 'easydita-knowledge-portal-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -286,24 +288,6 @@ if (!function_exists('easydita_knowledge_portal_get_404_content')) {
 		<?php
 	}
 }
-
-/**
- * Add Google Analytics stuff to wp_head
-**/
-function easydita_knowledge_portal_insert_ga_info() {
-	echo "<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-		  ga('create', 'UA-68186023-1', 'auto');
-		  ga('require', 'linkid');
-		  ga('send', 'pageview');
-		
-		</script>";
-}
-add_action('wp_head','easydita_knowledge_portal_insert_ga_info');
 
 /**
  * Get the list of available skins
