@@ -194,7 +194,7 @@ if (!function_exists('easydita_knowledge_portal_get_root_map_id')) {
 }
 
 /**
- * Get version id
+ * Get version id of easyDITA if versioning is enabled
  **/
 if (!function_exists('easydita_knowledge_portal_get_version_id')) {
 	function easydita_knowledge_portal_get_version_id() {
@@ -224,7 +224,7 @@ if (!function_exists('easydita_knowledge_portal_get_version_id_of')) {
 }
 
 /***
- * Get all subsections (for Tutorials)
+ * Takes content of a page and parses it to return divs with the "topic-title" class. This is used in DITA to denote a subsection of a page
  ***/
 if (!function_exists('easydita_knowledge_portal_get_subsections')) {
 	function easydita_knowledge_portal_get_subsections() {
@@ -237,7 +237,7 @@ if (!function_exists('easydita_knowledge_portal_get_subsections')) {
 
 
 /**
- * get the short description
+ * Takes content of a page and parses it to return just the text from a div with the "shortdesc" class. This is used in DITA as the summary of the page
  **/
 if (!function_exists('easydita_knowledge_portal_get_the_shortdesc')) {
 	function easydita_knowledge_portal_get_the_shortdesc() {
