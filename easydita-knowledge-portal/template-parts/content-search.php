@@ -11,9 +11,9 @@
 
 <article id="post-<?php the_ID(); ?>" class="search-result">
 	<header class="entry-header">
-		<a class="title" href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
+		<a class="title" href="<?php echo esc_url(get_permalink()); ?>"><?php echo esc_html(the_title()); ?></a>
 		<?php $root_map_id = easydita_knowledge_portal_get_root_map_id(); ?>
-		<div class="category <?php echo get_post_meta($root_map_id,'page_type',true) ?>"><?php echo get_the_title($root_map_id) ?></div>
+		<div class="category <?php echo get_post_meta($root_map_id,'page_type',true) ?>"><?php echo esc_html(get_the_title($root_map_id)); ?></div>
 	</header><!-- .entry-header -->
 
 	<div class="entry-summary">
@@ -33,7 +33,6 @@
 	</div><!-- .entry-summary -->
 	
 	<div class="entry-url">
-		<a href="<?php echo the_permalink(); ?>"><?php echo the_permalink(); ?></a>
+		<a href="<?php echo esc_url(the_permalink()); ?>"><?php echo esc_html(the_permalink()); ?></a>
 	</div><!-- .entry-url -->
 </article><!-- #post-## -->
-

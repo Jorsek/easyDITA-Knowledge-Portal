@@ -25,7 +25,7 @@ $the_query = new WP_Query( $args );
 ?>
 
 <div class="version-picker <?php if (get_header_image()) { echo 'has-header-image'; } ?>">
-	<span class="title"><?php echo get_theme_mod( 'version_label', __('Version: ','easydita_knowledge_portal')); ?></span>
+	<span class="title"><?php echo esc_html(get_theme_mod( 'version_label', __('Version: ','easydita_knowledge_portal'))); ?></span>
 	<select>
 	<?php // The Loop
 	if ( $the_query->have_posts() ) {
@@ -35,11 +35,11 @@ $the_query = new WP_Query( $args );
             
 		  if (get_the_ID() == intval($versionId)) {
 			  ?>
-			  <option selected="true" value="<?php echo get_the_ID(); ?>"><?php echo get_the_title(); ?></option>
+			  <option selected="true" value="<?php echo esc_attr(get_the_ID()); ?>"><?php echo esc_html(get_the_title()); ?></option>
 			  <?php
 		  } else {
 			  ?>
-			  <option value="<?php echo get_the_ID(); ?>"><?php echo get_the_title(); ?></option>
+			  <option value="<?php echo esc_attr(get_the_ID()); ?>"><?php echo esc_html(get_the_title()); ?></option>
 			  <?php
 		  }
 		}

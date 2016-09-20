@@ -110,6 +110,8 @@ add_action( 'widgets_init', 'easydita_knowledge_portal_widgets_init' );
  */
 function easydita_knowledge_portal_scripts() {
 	wp_enqueue_style( 'easydita-knowledge-portal-style', get_stylesheet_uri() );
+  
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/lib/font-awesome-4.5.0/css/font-awesome.min.css' );
 
 	wp_enqueue_script( 'easydita-knowledge-portal-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -192,7 +194,7 @@ if (!function_exists('easydita_knowledge_portal_get_root_map_id')) {
 }
 
 /**
- * Get version id
+ * Get version id of easyDITA if versioning is enabled
  **/
 if (!function_exists('easydita_knowledge_portal_get_version_id')) {
 	function easydita_knowledge_portal_get_version_id() {
@@ -222,7 +224,7 @@ if (!function_exists('easydita_knowledge_portal_get_version_id_of')) {
 }
 
 /***
- * Get all subsections (for Tutorials)
+ * Takes content of a page and parses it to return divs with the "topic-title" class. This is used in DITA to denote a subsection of a page
  ***/
 if (!function_exists('easydita_knowledge_portal_get_subsections')) {
 	function easydita_knowledge_portal_get_subsections() {
@@ -235,7 +237,7 @@ if (!function_exists('easydita_knowledge_portal_get_subsections')) {
 
 
 /**
- * get the short description
+ * Takes content of a page and parses it to return just the text from a div with the "shortdesc" class. This is used in DITA as the summary of the page
  **/
 if (!function_exists('easydita_knowledge_portal_get_the_shortdesc')) {
 	function easydita_knowledge_portal_get_the_shortdesc() {
@@ -258,7 +260,7 @@ if (!function_exists('easydita_knowledge_portal_get_the_shortdesc')) {
 			while($the_query->have_posts()) {
 				$the_query->the_post();
 				
-				?><a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a><?php
+				?><a href="<?php echo esc_url(get_permalink()); ?>"><?php echo esc_html(the_title()); ?></a><?php
 				
 				if ($i != $count) {
 					echo ", ";
@@ -275,10 +277,10 @@ if (!function_exists('easydita_knowledge_portal_get_404_content')) {
 	function easydita_knowledge_portal_get_404_content() {
 		?>
 		<div class="home-search">
-			<div class="header"><?php echo get_theme_mod( '404_header', __('Oops! That page can&rsquo;t be found.', 'easydita_knowledge_portal') ); ?></div>
-		    <div class="text"><?php echo get_theme_mod( '404_text', __('It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.', 'easydita_knowledge_portal')); ?></div>
+			<div class="header"><?php echo esc_html(get_theme_mod( '404_header', __('Oops! That page can&rsquo;t be found.', 'easydita_knowledge_portal') )); ?></div>
+		    <div class="text"><?php echo esc_html(get_theme_mod( '404_text', __('It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.', 'easydita_knowledge_portal'))); ?></div>
 		    <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
-	          <input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo get_theme_mod( 'search_placeholder', __('Have a question? Ask or enter a search term.', 'easydita_knowledge_portal') ); ?>" />
+	          <input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo esc_attr(get_theme_mod( 'search_placeholder', __('Have a question? Ask or enter a search term.', 'easydita_knowledge_portal') )); ?>" />
 	  		  <button type="submit" class="submit" name="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
 	          </form>
 	          <style type="text/css">.small-search {display: none;}</style>
@@ -286,24 +288,6 @@ if (!function_exists('easydita_knowledge_portal_get_404_content')) {
 		<?php
 	}
 }
-
-/**
- * Add Google Analytics stuff to wp_head
-**/
-function easydita_knowledge_portal_insert_ga_info() {
-	echo "<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-		  ga('create', 'UA-68186023-1', 'auto');
-		  ga('require', 'linkid');
-		  ga('send', 'pageview');
-		
-		</script>";
-}
-add_action('wp_head','easydita_knowledge_portal_insert_ga_info');
 
 /**
  * Get the list of available skins

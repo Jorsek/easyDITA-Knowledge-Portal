@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
-	<div class="header-title"><?php echo get_the_title(); ?></div>
+	<div class="header-title"><?php echo esc_html(get_the_title()); ?></div>
 	
 	<div class="entry-content">
 		<?php the_content(); ?>
@@ -66,7 +66,7 @@
 								while ($sub_query->have_posts()) {
 									$sub_query->the_post();
 									?>
-									<a href="<?php echo the_permalink(); ?>" class="child-page"><?php echo get_the_title(); ?></a>
+									<a href="<?php echo esc_url(the_permalink()); ?>" class="child-page"><?php echo esc_html(get_the_title()); ?></a>
 									<?php
 								}
 							}
@@ -82,4 +82,3 @@
 		</div><!-- .thumbnail-links -->
 	</div><!-- .entry-content -->
 </article><!-- #post-## -->
-

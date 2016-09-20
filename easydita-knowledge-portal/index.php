@@ -37,7 +37,7 @@ $args = array(
 $the_query = new WP_Query( $args );
 ?>
 
-<div class="header-title"><?php echo get_theme_mod( 'browse_title', __('Browse Help Content','easydita_knowledge_portal') ); ?></div>
+<div class="header-title"><?php echo esc_html(get_theme_mod( 'browse_title', __('Browse Help Content','easydita_knowledge_portal') )); ?></div>
 
 <div class="thumbnail-links">
   <?php // The Loop

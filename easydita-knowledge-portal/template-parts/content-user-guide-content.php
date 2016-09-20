@@ -17,15 +17,15 @@
 	$root_title = get_the_title($the_hierarchy[1]);
 	?>
 	
-	<div class="header-title"><?php echo get_the_title($root_map_id); ?></div>
+	<div class="header-title"><?php echo esc_html(get_the_title($root_map_id)); ?></div>
   <?php get_template_part('template-parts/scroll-top-button'); ?>
 	
 	<div class="main-entry-wrapper">
 		<?php get_template_part('template-parts/toc'); ?>
 		<div class="entry-content">
-			<div class="root-title"><?php echo $root_title ?></div>
+			<div class="root-title"><?php echo esc_html($root_title); ?></div>
 			<?php if ($root_title != get_the_title()) : ?>
-			<div class="content-title"><?php echo get_the_title(); ?></div>
+			<div class="content-title"><?php echo esc_html(get_the_title()); ?></div>
       
       <?php if (get_theme_mod('move_short_desc',0) == 1) : ?>
         <p id="moved-shortdesc">
@@ -63,7 +63,7 @@
 						?>
 						<div class="child-page-entry">
 							<header class="entry-header">
-								<a class="title" href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
+								<a class="title" href="<?php echo esc_url(get_permalink()); ?>"><?php echo esc_html(the_title()); ?></a>
 								<!--<?php $root_map_id = easydita_knowledge_portal_get_root_map_id(); ?>
 								<div class="category <?php echo get_post_meta($root_map_id,'page_type',true) ?>"><?php echo get_the_title($root_map_id) ?></div>-->
 							</header><!-- .entry-header -->
@@ -101,7 +101,7 @@
 						?>
 						<?php if (get_the_content() != "") : ?>
 						<div class="child-page-content">
-							<div class="content-title"><?php echo get_the_title(); ?></div>
+							<div class="content-title"><?php echo esc_html(get_the_title()); ?></div>
 							<?php the_content(); ?>
 						</div><!-- #post-## -->
 						<?php endif ?>
