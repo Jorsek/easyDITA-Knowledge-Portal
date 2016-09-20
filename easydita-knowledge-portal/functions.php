@@ -260,7 +260,7 @@ if (!function_exists('easydita_knowledge_portal_get_the_shortdesc')) {
 			while($the_query->have_posts()) {
 				$the_query->the_post();
 				
-				?><a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a><?php
+				?><a href="<?php echo esc_url(get_permalink()); ?>"><?php echo esc_html(the_title()); ?></a><?php
 				
 				if ($i != $count) {
 					echo ", ";
@@ -277,10 +277,10 @@ if (!function_exists('easydita_knowledge_portal_get_404_content')) {
 	function easydita_knowledge_portal_get_404_content() {
 		?>
 		<div class="home-search">
-			<div class="header"><?php echo get_theme_mod( '404_header', __('Oops! That page can&rsquo;t be found.', 'easydita_knowledge_portal') ); ?></div>
-		    <div class="text"><?php echo get_theme_mod( '404_text', __('It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.', 'easydita_knowledge_portal')); ?></div>
+			<div class="header"><?php echo esc_html(get_theme_mod( '404_header', __('Oops! That page can&rsquo;t be found.', 'easydita_knowledge_portal') )); ?></div>
+		    <div class="text"><?php echo esc_html(get_theme_mod( '404_text', __('It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.', 'easydita_knowledge_portal'))); ?></div>
 		    <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
-	          <input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo get_theme_mod( 'search_placeholder', __('Have a question? Ask or enter a search term.', 'easydita_knowledge_portal') ); ?>" />
+	          <input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo esc_attr(get_theme_mod( 'search_placeholder', __('Have a question? Ask or enter a search term.', 'easydita_knowledge_portal') )); ?>" />
 	  		  <button type="submit" class="submit" name="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
 	          </form>
 	          <style type="text/css">.small-search {display: none;}</style>

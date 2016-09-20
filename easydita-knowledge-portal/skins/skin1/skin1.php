@@ -122,8 +122,8 @@ add_action( 'wp_head', 'add_custom_css');
 
 function get_404_content() {
 	?>
-	<h2 class="header"><?php echo get_theme_mod( '404_header', __('Oops! That page can&rsquo;t be found.', 'easydita_knowledge_portal') ); ?></h2>
-    <div class="text"><?php echo get_theme_mod( '404_text', __('It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.', 'easydita_knowledge_portal')); ?></div>
+	<h2 class="header"><?php echo esc_html(get_theme_mod( '404_header', __('Oops! That page can&rsquo;t be found.', 'easydita_knowledge_portal') )); ?></h2>
+    <div class="text"><?php echo esc_html(get_theme_mod( '404_text', __('It looks like nothing was found at this location. Maybe try a search or one of the popular pages below? Or you can always escape back to the home page by clicking the logo in the top left.', 'easydita_knowledge_portal'))); ?></div>
 	<?php
 }
 

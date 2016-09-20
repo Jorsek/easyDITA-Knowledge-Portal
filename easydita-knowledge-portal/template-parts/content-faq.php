@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
-	<div class="header-title"><?php echo get_the_title(); ?></div>
+	<div class="header-title"><?php echo esc_html(get_the_title()); ?></div>
 	
 	<div class="faq-entries">
 		<?php
@@ -114,4 +114,3 @@
 		
 	</script>
 </article><!-- #post-## -->
-

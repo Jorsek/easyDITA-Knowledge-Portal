@@ -22,19 +22,19 @@
 	  		<div class="social">
 	  			<div class="title">Social</div>
 	  			<?php if (get_theme_mod('facebook_enabled',1) == 1) : ?>
-	  				<a href="<?php echo get_theme_mod('facebook_link','#') ?>" target="_blank"><i class="facebook-icon"></i></a>
+	  				<a href="<?php echo esc_url(get_theme_mod('facebook_link','#')) ?>" target="_blank"><i class="facebook-icon"></i></a>
 	  			<?php endif ?>
 	  			<?php if (get_theme_mod('twitter_enabled',1) == 1) : ?>
-	  				<a href="<?php echo get_theme_mod('twitter_link','#') ?>" target="_blank"><i class="twitter-icon"></i></a>
+	  				<a href="<?php echo esc_url(get_theme_mod('twitter_link','#')) ?>" target="_blank"><i class="twitter-icon"></i></a>
 	  			<?php endif ?>
 	  			<?php if (get_theme_mod('google_enabled',1) == 1) : ?>
-	  				<a href="<?php echo get_theme_mod('google_link','#') ?>" target="_blank"><i class="google-icon"></i></a>
+	  				<a href="<?php echo esc_url(get_theme_mod('google_link','#')) ?>" target="_blank"><i class="google-icon"></i></a>
 	  			<?php endif ?>
 	  			<?php if (get_theme_mod('linkedin_enabled',1) == 1) : ?>
-	  				<a href="<?php echo get_theme_mod('linkedin_link','#') ?>" target="_blank"><i class="linkedin-icon"></i></a>
+	  				<a href="<?php echo esc_url(get_theme_mod('linkedin_link','#')) ?>" target="_blank"><i class="linkedin-icon"></i></a>
 	  			<?php endif ?>
 					<?php if (get_theme_mod('youtube_enabled',1) == 1) : ?>
-	  				<a href="<?php echo get_theme_mod('youtube_link','#') ?>" target="_blank"><i class="youtube-icon"></i></a>
+	  				<a href="<?php echo esc_url(get_theme_mod('youtube_link','#')) ?>" target="_blank"><i class="youtube-icon"></i></a>
 	  			<?php endif ?>
 	  		</div><!-- .social -->
   		<?php endif; ?>
