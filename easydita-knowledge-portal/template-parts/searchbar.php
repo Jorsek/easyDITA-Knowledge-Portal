@@ -5,7 +5,7 @@
 	<div class="home-search">
 	  <div class="header"><?php echo esc_html(get_theme_mod( 'search_header', __('How can we help?', 'easydita_knowledge_portal') )); ?></div>
 	  <?php if (get_theme_mod( 'search_header_text', '' ) != '') : ?>
-	  	<div class="text"><?php echo esc_html(get_theme_mod( 'search_header_text', '' ))); ?></div>
+	  	<div class="text"><?php echo esc_html(get_theme_mod( 'search_header_text', '' )); ?></div>
   	  <?php else : endif ?>
 	  <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
         <input type="text" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo esc_attr(get_theme_mod( 'search_placeholder', __('Have a question? Ask or enter a search term.', 'easydita_knowledge_portal') )); ?>" />
