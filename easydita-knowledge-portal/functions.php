@@ -148,9 +148,9 @@ if (!function_exists('easydita_knowledge_portal_get_hierarchy')) {
 		$hierarchy = array();
 		if($post->ID) {
 			$hierarchy[] = $post->ID;
-			
+
 			$parent_id = $post->post_parent;
-	
+
 			while ($parent_id) {
 				$hierarchy[] = $parent_id;
 				$page = get_page($parent_id);
@@ -166,9 +166,9 @@ if (!function_exists('easydita_knowledge_portal_get_hierarchy_of')) {
 		$hierarchy = array();
 		if($post->ID) {
 			$hierarchy[] = $post->ID;
-			
+
 			$parent_id = $post->post_parent;
-	
+
 			while ($parent_id) {
 				$hierarchy[] = $parent_id;
 				$page = get_page($parent_id);
@@ -199,8 +199,16 @@ if (!function_exists('easydita_knowledge_portal_get_version_id')) {
 		if (!easydita_knowledge_portal_is_versioning_enabled()) {
 			return 0;
 		} else if (isset($_GET['version'])) {
-			$versionId = $_GET['version'];
-		} else if (is_front_page()) {
+			return $_GET['version'];
+		} else if (isset($_GET['release']) {
+			$release = $_GET['release'];
+			foreach ($hierarchy as $id) {
+				if (strpos($release, get_the_title($id)) !== false) {
+					return $id;
+				}
+			}
+		}
+		if (is_front_page()) {
 			$versionId = get_pages("parent=0&post_type=page&sort_column=menu_order")[0]->ID;
 		} else {
 			$hierarchy = easydita_knowledge_portal_get_hierarchy();
@@ -257,9 +265,9 @@ if (!function_exists('easydita_knowledge_portal_get_the_shortdesc')) {
 			$i = 1;
 			while($the_query->have_posts()) {
 				$the_query->the_post();
-				
+
 				?><a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a><?php
-				
+
 				if ($i != $count) {
 					echo ", ";
 				}
@@ -296,11 +304,11 @@ function easydita_knowledge_portal_insert_ga_info() {
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
+
 		  ga('create', 'UA-68186023-1', 'auto');
 		  ga('require', 'linkid');
 		  ga('send', 'pageview');
-		
+
 		</script>";
 }
 add_action('wp_head','easydita_knowledge_portal_insert_ga_info');
@@ -342,17 +350,17 @@ if (!function_exists('easydita_knowledge_portal_filter_search_versions')) {
 		if (is_admin() || !$query->is_search()) {
 			return $posts;
 		}
-		
+
 		$filteredPosts = array();
 		$currentVersionId = easydita_knowledge_portal_get_version_id();
-		
+
 		foreach ($posts as $post) {
 			$pageVersionId = easydita_knowledge_portal_get_version_id_of($post);
 			if ($pageVersionId == $currentVersionId) {
 				$filteredPosts[] = $post;
 			}
 		}
-		
+
 		return $filteredPosts;
 	}
 }
