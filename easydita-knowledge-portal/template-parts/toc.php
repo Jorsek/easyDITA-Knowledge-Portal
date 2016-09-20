@@ -62,20 +62,20 @@ function get_toc($post_id,$is_tutorial) {
 			if (count($children) != 0) {
 				echo '<i class="plusminus-icon plus"> </i>';
 				?>
-				<a href="<?php echo esc_url(the_permalink()); ?>" onclick="event.stopPropagation();"><?php echo esc_attr(get_the_title()); ?></a>
+				<a href="<?php echo esc_url(the_permalink()); ?>" onclick="event.stopPropagation();"><?php echo esc_html(get_the_title()); ?></a>
 				</div>
 				<?php
 				echo get_toc(get_the_ID(),$is_tutorial);
 			} else if ($is_tutorial && count($subsections) != 0) {
 				echo '<i class="plusminus-icon plus"> </i>';
 				?>
-				<a href="<?php echo esc_url(the_permalink()); ?>" onclick="event.stopPropagation();"><?php echo esc_attr(get_the_title()); ?></a>
+				<a href="<?php echo esc_url(the_permalink()); ?>" onclick="event.stopPropagation();"><?php echo esc_html(get_the_title()); ?></a>
 				</div>
 				<?php
 				echo show_subsections_in_toc(get_the_ID(), $subsections);
 			} else {
 				?>
-				<a href="<?php echo esc_url(the_permalink()); ?>"><?php echo esc_attr(get_the_title()); ?></a>
+				<a href="<?php echo esc_url(the_permalink()); ?>"><?php echo esc_html(get_the_title()); ?></a>
 				</div>
 				<?php
 			}
