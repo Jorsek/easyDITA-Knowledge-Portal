@@ -339,7 +339,7 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'toc_title',
 		array(
-		  'default' => __('TOC', 'easydita_knowledge_portal'),
+		  'default' => __('Table of Contents', 'easydita_knowledge_portal'),
 		  'sanitize_callback' => 'sanitize_text_field'
 		)
 	);
