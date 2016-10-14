@@ -94,7 +94,7 @@ function get_toc($post_id,$is_tutorial) {
 <div class="toc" id="side-toc">
 	
 	<?php /** TOC Title set via Customizer **/ ?>
-	<div class="title"><?php echo get_theme_mod( 'toc_title', _e('TOC', 'easydita_knowledge_portal') ); ?></div>
+	<div class="title"><?php echo get_theme_mod( 'toc_title', __('Table of Contents', 'easydita_knowledge_portal') ); ?></div>
 	
 	<?php
 	$hierarchy = easydita_knowledge_portal_get_hierarchy();

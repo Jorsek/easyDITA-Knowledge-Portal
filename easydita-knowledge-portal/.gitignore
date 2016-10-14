@@ -55,3 +55,7 @@ gulpfile.js
 # NOTES #
 #########
 notes.txt
+
+# BASH SCRIPT #
+###############
+zip-update.sh
