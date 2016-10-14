@@ -1,0 +1,16 @@
+
+ol.task-substeps {
+  counter-reset: list;
+   
+  > li.task-substep {
+    list-style: none;
+    position: relative;
+    
+    &:before {
+      counter-increment: list;
+      content: counter(list, lower-alpha) ") ";
+      position: absolute;
+      left: -1.4em;
+    }
+  }
+}
