@@ -112,6 +112,8 @@ function easydita_knowledge_portal_scripts() {
 	wp_enqueue_style( 'easydita-knowledge-portal-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'easydita-knowledge-portal-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+  
+	wp_enqueue_script( 'easydita-knowledge-portal-wt-customizations', get_template_directory_uri() . '/js/wt-customizations.js', array(), '20160847', true );
 
 	wp_enqueue_script( 'easydita-knowledge-portal-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -128,7 +130,7 @@ add_action( 'wp_enqueue_scripts', 'easydita_knowledge_portal_scripts' );
 function easydita_knowledge_portal_change_style_version_num($styles) {
 	$styles -> default_version = "123";
 }
-//add_action("wp_default_styles", "easydita_knowledge_portal_change_style_version_num");
+// add_action("wp_default_styles", "easydita_knowledge_portal_change_style_version_num");
 
 /**
  * Is Versioning Enabled?
