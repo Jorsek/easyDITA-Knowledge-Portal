@@ -19,7 +19,7 @@ function easydita_knowledge_portal_setup() {
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 */
-	load_theme_textdomain( 'easydita_knowledge_portal', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'easydita-knowledge-portal', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -155,7 +155,7 @@ if (!function_exists('easydita_knowledge_portal_get_hierarchy')) {
 	
 			while ($parent_id) {
 				$hierarchy[] = $parent_id;
-				$page = get_page($parent_id);
+				$page = get_post($parent_id);
 				$parent_id = $page->post_parent;
 			}
 			return array_reverse($hierarchy);
@@ -173,7 +173,7 @@ if (!function_exists('easydita_knowledge_portal_get_hierarchy_of')) {
 	
 			while ($parent_id) {
 				$hierarchy[] = $parent_id;
-				$page = get_page($parent_id);
+				$page = get_post($parent_id);
 				$parent_id = $page->post_parent;
 			}
 			return array_reverse($hierarchy);

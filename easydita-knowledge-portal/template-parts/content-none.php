@@ -10,7 +10,7 @@
 ?>
 
 <section class="no-results not-found">
-	<h2 class="header"><?php esc_html_e( 'Nothing Found', 'easydita_knowledge_portal' ); ?></h1>
+	<h2 class="header"><?php esc_html_e( 'Nothing Found', 'easydita_knowledge_portal' ); ?></h2>
 
 	<div class="text">
 		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) :

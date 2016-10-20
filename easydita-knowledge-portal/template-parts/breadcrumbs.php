@@ -11,7 +11,7 @@ function get_breadcrumb() {
 		$parent_id = $post->post_parent;
 
 		while ($parent_id) {
-			$page = get_page($parent_id);
+			$page = get_post($parent_id);
 			$breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a> &gt; ';
 			$parent_id = $page->post_parent;
 		}

@@ -37,8 +37,6 @@ get_template_part("template-parts/breadcrumbs");
 
 			<?php while ( have_posts() ) {
 				the_post();
-
-		  		if (function_exists(set_post_views)) { set_post_views(get_the_ID()); }
 				
 				if ($page_type == 'content') {
 					if (wp_get_post_parent_id( get_the_ID() ) == 0) {
