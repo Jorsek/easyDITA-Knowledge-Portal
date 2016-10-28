@@ -60,7 +60,7 @@ $the_query = new WP_Query( $args );
     			var afterVersion = queryString.substring(queryString.indexOf("version=")),
     			   newQueryString = queryString.substring(0,queryString.indexOf("version=")+"version=".length) + this.value + afterVersion.substring(afterVersion.indexOf("&"));
     			
-    			location.pathname = "/"+newQueryString;
+    			location.search = newQueryString;
     			return;
     		}
     	}
