@@ -15,7 +15,6 @@ $current_version_pages = easydita_knowledge_portal_get_ids_in_version($versionId
 
 // get the search parameter
 global $query_string;
-global $wp_query;
 
 $query_args = explode("&", $query_string);
 $search_query = array();
