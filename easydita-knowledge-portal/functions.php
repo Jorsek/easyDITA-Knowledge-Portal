@@ -220,6 +220,17 @@ if (!function_exists('easydita_knowledge_portal_get_version_id_of')) {
 		}
 	}
 }
+// Get the list of page IDs in a given version hierarchy (all children and descendants of a version)
+if (!function_exists('easydita_knowledge_portal_get_ids_in_version')) {
+	function easydita_knowledge_portal_get_ids_in_version($version) {
+		$pages_list = get_pages( array( 'child_of' => $version ) );
+		$ids_list = [];
+		foreach ($pages_list as $page) {
+			array_push($ids_list, $page->ID);
+		}
+		return $ids_list;
+	}
+}
 
 /***
  * Get all subsections (for Tutorials)
@@ -335,29 +346,44 @@ if (!function_exists('easydita_knowledge_portal_get_all_skins')) {
 }
 
 /**
- * Filter search to current version
+ * Custom pagination functions
+ * Copied from the default WP get_the_posts_pagination functions, however, added parameter 
+ * for the query instead of using the global $wp_query.
+ * This was needed for the search since we're using a custom query.
  **/
-if (!function_exists('easydita_knowledge_portal_filter_search_versions')) {
-	function easydita_knowledge_portal_filter_search_versions($posts, $query) {
-		if (is_admin() || !$query->is_search()) {
-			return $posts;
-		}
-		
-		$filteredPosts = array();
-		$currentVersionId = easydita_knowledge_portal_get_version_id();
-		
-		foreach ($posts as $post) {
-			$pageVersionId = easydita_knowledge_portal_get_version_id_of($post);
-			if ($pageVersionId == $currentVersionId) {
-				$filteredPosts[] = $post;
-			}
-		}
-		
-		return $filteredPosts;
+if (!function_exists('easydita_knowledge_portal_the_posts_pagination')) {
+	function easydita_knowledge_portal_the_posts_pagination( $the_query, $args = array() ) {
+	    echo easydita_knowledge_portal_get_the_posts_pagination( $the_query, $args );
 	}
 }
-if (easydita_knowledge_portal_is_versioning_enabled()) {
-	add_filter('posts_results','easydita_knowledge_portal_filter_search_versions', 10, 2);
+if (!function_exists('easydita_knowledge_portal_get_the_posts_pagination')) {
+	function easydita_knowledge_portal_get_the_posts_pagination( $the_query, $args = array() ) {
+	    $navigation = '';
+	 
+	    // Don't print empty markup if there's only one page.
+	    if ( $the_query->max_num_pages > 1 ) {
+	        $args = wp_parse_args( $args, array(
+	            'mid_size'           => 1,
+	            'prev_text'          => _x( 'Previous', 'previous post' ),
+	            'next_text'          => _x( 'Next', 'next post' ),
+	            'screen_reader_text' => __( 'Posts navigation' ),
+	        ) );
+	 
+	        // Make sure we get a string back. Plain is the next best thing.
+	        if ( isset( $args['type'] ) && 'array' == $args['type'] ) {
+	            $args['type'] = 'plain';
+	        }
+	 
+	        // Set up paginated links.
+	        $links = paginate_links( $args );
+	 
+	        if ( $links ) {
+	            $navigation = _navigation_markup( $links, 'pagination', $args['screen_reader_text'] );
+	        }
+	    }
+	 
+	    return $navigation;
+	}
 }
 
 /**

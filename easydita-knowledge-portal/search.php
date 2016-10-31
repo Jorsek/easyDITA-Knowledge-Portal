@@ -8,6 +8,35 @@
 
 get_header();
 get_template_part("template-parts/breadcrumbs");
+
+// get the current version
+$versionId = easydita_knowledge_portal_get_version_id();
+$current_version_pages = easydita_knowledge_portal_get_ids_in_version($versionId);
+
+// get the search parameter
+global $query_string;
+global $wp_query;
+
+$query_args = explode("&", $query_string);
+$search_query = array();
+
+if( strlen($query_string) > 0 ) {
+	foreach($query_args as $key => $string) {
+		$query_split = explode("=", $string);
+		$search_query[$query_split[0]] = urldecode($query_split[1]);
+	} // foreach
+} //if
+
+// Searching for an empty string is valid
+if ( !$search_query["s"] ) {
+	$search_query["s"] = "";
+}
+
+// Only include posts that are in the current version hierarchy
+$search_query["post__in"] = $current_version_pages;
+
+$search = new WP_Query($search_query);
+
 ?>
 
 	<section id="primary" class="content-area">
@@ -16,10 +45,10 @@ get_template_part("template-parts/breadcrumbs");
 		<div class="header-title"><?php _e( "Search Results" , 'easydita_knowledge_portal'); ?></div>
     <?php get_template_part('template-parts/scroll-top-button'); ?>
 
-		<?php if ( have_posts() ) : ?>
+		<?php if ( $search->have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( $search->have_posts() ) : $search->the_post(); ?>
 
 				<?php
 				/**
@@ -32,7 +61,7 @@ get_template_part("template-parts/breadcrumbs");
 
 			<?php endwhile; ?>
 
-			<?php the_posts_pagination(); ?>
+			<?php easydita_knowledge_portal_the_posts_pagination($search); ?>
 
 		<?php else : ?>
 
