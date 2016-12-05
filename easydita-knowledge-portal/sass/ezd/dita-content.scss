@@ -83,7 +83,7 @@ h1.topic-title {
 }
 
 .topic-image img {
-	max-width: 100%;
+	width: 100%;
 }
 
 /** Lists **/
@@ -143,6 +143,6 @@ h1.topic-title {
 
 @media only screen and (min-width: 600px) {
 	.topic-image img {
-		max-width: 600px;
+		max-width: 100%;
 	}
 }
