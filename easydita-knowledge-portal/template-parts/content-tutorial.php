@@ -17,7 +17,6 @@
 	$root_title = get_the_title($the_hierarchy[1]);
 	?>
 	
-	<div class="header-title"><?php echo get_the_title($root_map_id); ?></div>
   <?php get_template_part('template-parts/scroll-top-button'); ?>
   	
 	<div class="main-entry-wrapper">
