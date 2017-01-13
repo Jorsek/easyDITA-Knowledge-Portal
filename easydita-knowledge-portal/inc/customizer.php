@@ -1,8 +1,8 @@
 <?php
 /**
- * easydita_knowledge_portal Theme Customizer.
+ * easydita-knowledge-portal Theme Customizer.
  *
- * @package easydita_knowledge_portal
+ * @package easydita-knowledge-portal
  */
 
 /**
