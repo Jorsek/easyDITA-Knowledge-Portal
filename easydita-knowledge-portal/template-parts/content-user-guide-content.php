@@ -93,7 +93,7 @@
 				);
 				// The Query
 				$the_query = new WP_Query( $args );
-				if ($the_query->have_posts() && get_theme_mod('topic_hierarchy_display',1) == 1) {
+				if ($the_query->have_posts() && (get_theme_mod('topic_hierarchy_display',1) == 1 || easydita_knowledge_portal_get_collection_type() == 'sequence')) {
 					echo '<div class="concatenated-content">';
 					while($the_query->have_posts()) {
 						$the_query->the_post();

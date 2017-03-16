@@ -282,6 +282,20 @@ if (!function_exists('easydita_knowledge_portal_get_the_shortdesc')) {
 	}
 }
 
+
+if (!function_exists('easydita_knowledge_portal_get_collection_type')) {
+	function easydita_knowledge_portal_get_collection_type() {
+    global $post;
+    $content = $post->post_content;
+    $DOM = new DOMDocument();
+    $DOM->loadHTML($content);
+    $coll = $DOM->getElementById('collection');
+    $val = $coll->getAttribute('value');
+    return $val;
+  }
+}
+
+
 if (!function_exists('easydita_knowledge_portal_get_404_content')) {
 	function easydita_knowledge_portal_get_404_content() {
 		?>
