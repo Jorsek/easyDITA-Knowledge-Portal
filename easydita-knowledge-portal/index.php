@@ -27,7 +27,7 @@ get_header();
 $versionId = easydita_knowledge_portal_get_version_id();
 
 $args = array(
-  "posts_per_page" => 4,
+  "posts_per_page" => 5,
   "post_type" => "page",
   "post_parent" => $versionId,
   "orderby" => "menu_order",
