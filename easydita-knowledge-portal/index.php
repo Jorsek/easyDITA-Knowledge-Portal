@@ -12,6 +12,15 @@
  * @package easydita_knowledge_portal
  */
 
+// Check for query string to clear the toc cache for guides.
+// Guide id is also passed in via query string
+$reset_toc = get_query_var('reset_toc','no');
+$which_guide = get_query_var('guide_id','');
+if ($reset_toc == 'yes' && $which_guide != '') {
+	$key = "easydita_knowledge_portal_cached_toc_page_" . $which_guide;
+	delete_transient($key);
+}
+
 get_header();
 ?>
 
