@@ -102,7 +102,7 @@ function get_toc($post_id,$is_tutorial) {
 	$page_type = get_post_meta($root_page,'page_type',true);
 	
 	// Check the cache
-	$key = $root_page . $page_type;
+	$key = "easydita_knowledge_portal_cached_toc_page_" . $root_page;
 	if (false === ($toc_html = get_transient($key))) {
 		// Not cached, so need to get it
 		$toc_html = get_toc($root_page,$page_type == 'tutorial');

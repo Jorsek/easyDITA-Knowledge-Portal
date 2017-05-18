@@ -399,6 +399,16 @@ function easydita_knowledge_portal_add_skin_stylesheet() {
 add_action('wp_head','easydita_knowledge_portal_add_skin_stylesheet');
 
 /**
+ * Add the 'reset_toc' query variable so Wordpress won't mangle it.
+ **/
+function easydita_knowledge_portal_add_query_vars($vars){
+    $vars[] = "reset_toc";
+    $vars[] = "guide_id";
+    return $vars;
+}
+add_filter( 'query_vars', 'easydita_knowledge_portal_add_query_vars');
+
+/**
  * Add JQuery
  **/
 wp_enqueue_script("jquery");
