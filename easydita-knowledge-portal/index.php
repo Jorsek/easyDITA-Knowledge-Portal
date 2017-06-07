@@ -17,8 +17,22 @@
 $reset_toc = get_query_var('reset_toc','no');
 $which_guide = get_query_var('guide_id','');
 if ($reset_toc == 'yes' && $which_guide != '') {
-	$key = "easydita_knowledge_portal_cached_toc_page_" . $which_guide;
-	delete_transient($key);
+	if (get_page($which_guide)->post_parent == '0') {
+		$args = array(
+			'post_parent' => $which_guide,
+			'post_type'   => 'page', 
+			'numberposts' => -1,
+			'post_status' => 'any' 
+		);
+		$children = get_children($args);
+		foreach ($children as $child) {
+			$key = "easydita_knowledge_portal_cached_toc_page_" . $child->ID;
+			delete_transient($key);
+		}
+	} else {
+		$key = "easydita_knowledge_portal_cached_toc_page_" . $which_guide;
+		delete_transient($key);
+	}
 }
 
 get_header();
