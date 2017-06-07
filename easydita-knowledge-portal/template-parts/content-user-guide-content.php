@@ -22,10 +22,10 @@
 	<div class="main-entry-wrapper">
 		<?php get_template_part('template-parts/toc'); ?>
 		<div class="entry-content">
-			<div class="root-title"><?php echo $root_title ?></div>
 			<?php if ($root_title != get_the_title()) : ?>
-			<div class="content-title"><?php echo get_the_title(); ?></div>
+			<h1 class="content-title"><?php echo get_the_title(); ?></h1>
       
+      <!-- Option in customizer to move shortdesc -->
       <?php if (get_theme_mod('move_short_desc',0) == 1) : ?>
         <p id="moved-shortdesc">
           <?php easydita_knowledge_portal_get_the_shortdesc(); ?>
@@ -39,6 +39,18 @@
             max-width: 800px;
             margin: 15px 0 25px;
             font-style: italic;
+          }
+        </style>
+      <?php endif ?>
+      
+      <!-- Option in customizer to display note icons-->
+      <?php if (get_theme_mod('display_icons',0) == 1) : ?>
+        <style>
+          .note-icon {
+            display: initial;
+          }
+          .topic-note {
+            padding: 0 0 0 15px;
           }
         </style>
       <?php endif ?>
@@ -67,10 +79,12 @@
 								<div class="category <?php echo get_post_meta($root_map_id,'page_type',true) ?>"><?php echo get_the_title($root_map_id) ?></div>-->
 							</header><!-- .entry-header -->
 						
-							<div class="entry-summary">
-								<?php easydita_knowledge_portal_get_the_shortdesc(); ?>
-							</div><!-- .entry-summary -->
-							
+              <?php if (get_theme_mod('link_summary_shortdesc',0) == 1) : ?>
+  							<div class="entry-summary">
+  								<?php easydita_knowledge_portal_get_the_shortdesc(); ?>
+  							</div><!-- .entry-summary -->
+							<?php endif ?>
+              
 							<!--<div class="entry-url">
 								<a href="<?php echo the_permalink(); ?>"><?php echo the_permalink(); ?></a>
 							</div>--><!-- .entry-url -->
@@ -100,7 +114,7 @@
 						?>
 						<?php if (get_the_content() != "") : ?>
 						<div class="child-page-content">
-							<div class="content-title"><?php echo get_the_title(); ?></div>
+							<h2 class="content-title"><?php echo get_the_title(); ?></h2>
 							<?php the_content(); ?>
 						</div><!-- #post-## -->
 						<?php endif ?>

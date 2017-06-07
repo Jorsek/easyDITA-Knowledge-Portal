@@ -22,7 +22,6 @@
 	<div class="main-entry-wrapper">
 		<?php get_template_part('template-parts/toc'); ?>
 		<div class="entry-content">
-			<div class="root-title"><?php echo $root_title ?></div>
 			<?php if ($root_title != get_the_title()) : ?>
 			<div class="content-title"><?php echo get_the_title(); ?></div>
 			<?php endif ?>

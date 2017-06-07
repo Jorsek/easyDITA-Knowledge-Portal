@@ -166,6 +166,38 @@ function easydita_knowledge_portal_customize_register( $wp_customize ) {
       'priority' => 10
     )
   );
+  $wp_customize->add_setting(
+    'link_summary_shortdesc',
+    array(
+      'default' => 1,
+      'sanitize_callback' => 'easydita_knowledge_portal_is_boolean'
+    )
+  );
+  $wp_customize->add_control(
+    'link_summary_shortdesc',
+    array(
+      'label' => __('Display Short Descriptions in link summary', 'easydita_knowledge_portal'),
+      'section' => 'page_content',
+      'type' => 'checkbox',
+      'priority' => 10
+    )
+  );
+  $wp_customize->add_setting(
+    'display_icons',
+    array(
+      'default' => '',
+      'sanitize_callback' => 'easydita_knowledge_portal_is_boolean'
+    )
+  );
+  $wp_customize->add_control(
+    'display_icons',
+    array(
+      'label' => __('Display icons before Note elements', 'easydita_knowledge_portal'),
+      'section' => 'page_content',
+      'type' => 'checkbox',
+      'priority' => 10
+    )
+  );
 
 	/** Main Color Section **/
 	$wp_customize->add_section(

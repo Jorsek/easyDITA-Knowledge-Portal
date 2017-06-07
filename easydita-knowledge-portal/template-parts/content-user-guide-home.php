@@ -10,9 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	
-	<div class="header-title"><?php echo get_the_title(); ?></div>
-	
+		
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php
@@ -82,4 +80,3 @@
 		</div><!-- .thumbnail-links -->
 	</div><!-- .entry-content -->
 </article><!-- #post-## -->
-
