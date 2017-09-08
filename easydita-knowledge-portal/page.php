@@ -40,19 +40,17 @@ get_template_part("template-parts/breadcrumbs");
 
 		  		if (function_exists(set_post_views)) { set_post_views(get_the_ID()); }
 				
-				if ($page_type == 'content') {
-					if (wp_get_post_parent_id( get_the_ID() ) == 0) {
-						get_template_part( 'template-parts/content', 'user-guide-home' );
-					} else {
-						get_template_part( 'template-parts/content', 'user-guide-content' );
-					}
-				} else if ($page_type == 'faq') {
+				if ($page_type == 'faq') {
 					get_template_part( 'template-parts/content', 'faq');
 				} else if ($page_type == 'tutorial') {
 					get_template_part( 'template-parts/content', 'tutorial' );
-				} else if (!get_post_meta(easydita_knowledge_portal_get_root_map_id(),'page_type')) {
+				} else if ($page_type == 'content' || !get_post_meta(easydita_knowledge_portal_get_root_map_id(),'page_type')) {
 					if (wp_get_post_parent_id( get_the_ID() ) == 0) {
-						get_template_part( 'template-parts/content', 'user-guide-home' );
+						if (easydita_knowledge_portal_is_versioning_enabled()) {
+							header('Location: /?version='.get_the_ID());
+						} else {
+							get_template_part( 'template-parts/content', 'user-guide-home' );
+						}
 					} else {
 						get_template_part( 'template-parts/content', 'user-guide-content' );
 					}
