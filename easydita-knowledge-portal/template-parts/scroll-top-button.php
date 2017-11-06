@@ -29,7 +29,7 @@
         
         // Add click handler to 'Back to Top' button
         $('#back-to-top').on('click', function() {
-          $('body').animate({
+          $('html, body').animate({
             scrollTop: 0
           }, 500);
         });
